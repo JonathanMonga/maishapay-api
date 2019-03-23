@@ -478,7 +478,7 @@ class Transaction
                 $this->result();
                 break;
             case 'depot_epargne':
-                $this->depot_epargne($this->getTelephone(), $this->getMontant(), $this->getDevise(), $this->getLocalCurrency(), $this->getDateCloture());
+                $this->depot_epargne($this->getTelephone(), $this->getMontant(), $this->getDevise(), $this->getDateCloture());
                 $this->result();
                 break;
             case 'creation_compte_epargne_perso':
@@ -1412,24 +1412,28 @@ class Transaction
 
         if($saving['end_timestamp'] >= $current_timestamp) {
             if($devise ==  'local_currency') {
-                $updateSolde = R::load('solde', $solde->getID());
-                $updateSolde->$monnaie = $solde[$monnaie] - $montant; 
+                if ($solde[$monnaie] >= $montant) {
+                    $updateSolde = R::load('solde', $solde->getID());
+                    $updateSolde->$monnaie = $solde[$monnaie] - $montant; 
 
-                $updateSaving = R::load('saving_account', $saving->getID());
-                $updateSaving->local_amount_saving = $updateSaving['local_amount_saving'] + $montant; 
+                    $updateSaving = R::load('saving_account', $saving->getID());
+                    $updateSaving->local_amount_saving = $updateSaving['local_amount_saving'] + $montant; 
 
-                if (R::store($updateSolde) && R::store($updateSaving)) {
-                    $this->journalisation($telephone, $telephone, $montant, $monnaie);
-                    return $this->result = array(
-                        'resultat' => 1, 
-                        'type_deposit' => $devise,
-                        'local_amount' => $montant,
-                        'default_amount' => null,
-                        'local_currency' => $local_currency,
-                        'default_currency' => null,
-                        'message' => 'Votre compte a ete crediter avec success.');
+                    if (R::store($updateSolde) && R::store($updateSaving)) {
+                         $this->journalisation($telephone, $telephone, $montant, $monnaie);
+                         return $this->result = array(
+                            'resultat' => 1,
+                            'type_deposit' => $devise,
+                            'local_amount' => $montant,
+                            'default_amount' => null,
+                            'local_currency' => $local_currency,
+                            'default_currency' => null,
+                            'message' => 'Votre compte a ete crediter avec success.');
+                    } else {
+                       return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert.');
+                    }
                 } else {
-                    return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert.');
+                     return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert.');
                 }
             }
         }
