@@ -1404,13 +1404,15 @@ class Transaction
         return $this->result = array('resultat' => 0, 'message' => 'Echec d\'ouverture de compte.');
     }
 
-    public function depot_epargne($telephone, $montant, $devise, $current_timestamp) {
+    public function depot_epargne($telephone, $montant, $devise) {
         $solde = R::findOne('solde', 'telephone=?', [$telephone]);
         $saving = R::findOne('saving_account', 'telephone=?', [$telephone]);
 
         $monnaie = strtolower($saving[$devise]);
 
-        if($saving['end_timestamp'] >= $current_timestamp) {
+        $monnaie = $monnaie == 'cdf' ? 'fc' : 'usd';
+
+        if(true || $saving['end_timestamp'] >= time()) {
             if($devise ==  'local_currency') {
                 if ($solde[$monnaie] >= $montant) {
                     $updateSolde = R::load('solde', $solde->getID());
@@ -1426,18 +1428,42 @@ class Transaction
                             'type_deposit' => $devise,
                             'local_amount' => $montant,
                             'default_amount' => null,
-                            'local_currency' => $local_currency,
+                            'local_currency' => $monnaie,
                             'default_currency' => null,
                             'message' => 'Votre compte a ete crediter avec success.');
                     } else {
                        return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert.');
                     }
                 } else {
-                     return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert.');
+                     return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert montant insuffissant.');
+                }
+            } else {
+                if ($solde[$monnaie] >= $montant) {
+                    $updateSolde = R::load('solde', $solde->getID());
+                    $updateSolde->$monnaie = $solde[$monnaie] - $montant; 
+
+                    $updateSaving = R::load('saving_account', $saving->getID());
+                    $updateSaving->default_amount_saving = $updateSaving['default_amount_saving'] + $montant; 
+
+                    if (R::store($updateSolde) && R::store($updateSaving)) {
+                         $this->journalisation($telephone, $telephone, $montant, $monnaie);
+                         return $this->result = array(
+                            'resultat' => 1,
+                            'type_deposit' => $devise,
+                            'local_amount' => null,
+                            'default_amount' => $montant,
+                            'local_currency' => null,
+                            'default_currency' => $monnaie,
+                            'message' => 'Votre compte a ete crediter avec success.');
+                    } else {
+                       return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert.');
+                    }
+                } else {
+                     return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert montant insuffissant.');
                 }
             }
         } else {
-            return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert.');
+            return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert temps deje ecoule.');
         }
     }
 }
