@@ -1436,6 +1436,8 @@ class Transaction
                      return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert.');
                 }
             }
+        } else {
+            return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert.');
         }
     }
 }
