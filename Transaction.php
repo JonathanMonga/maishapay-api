@@ -477,6 +477,10 @@ class Transaction
                 $this->creation_compte_epargne($this->getTelephone(), $this->getDevise(), $this->getLocalCurrency(), $this->getDateCloture(), $this->getLocalAmount(), $this->getDefaultAmount(), $this->getCodeSecret());
                 $this->result();
                 break;
+            case 'depot_epargne':
+                $this->depot_epargne($this->getTelephone(), $this->getMontant(), $this->getDevise(), $this->getLocalCurrency(), $this->getDateCloture());
+                $this->result();
+                break;
             case 'creation_compte_epargne_perso':
                 $this->creation_compte_epargne_perso($this->getTelephone(), $this->getDevise(), $this->getDateCloture(), $this->getCodeSecret());
                 $this->result();
@@ -1400,10 +1404,11 @@ class Transaction
         return $this->result = array('resultat' => 0, 'message' => 'Echec d\'ouverture de compte.');
     }
 
-    public function depot_epargne($telephone, $montant, $devise, $local_currency, $current_timestamp) {
-        $monnaie = strtolower($local_currency);
+    public function depot_epargne($telephone, $montant, $devise, $current_timestamp) {
         $solde = R::findOne('solde', 'telephone=?', [$telephone]);
         $saving = R::findOne('saving_account', 'telephone=?', [$telephone]);
+
+        $monnaie = strtolower($saving[$devise]);
 
         if($saving['end_timestamp'] >= $current_timestamp) {
             if($devise ==  'local_currency') {
@@ -1421,8 +1426,10 @@ class Transaction
                         'local_amount' => $montant,
                         'default_amount' => null,
                         'local_currency' => $local_currency,
-                        'default_currency' => 'USD',
-                        'message' => 'Votre compte a ete cree avec success.');
+                        'default_currency' => null,
+                        'message' => 'Votre compte a ete crediter avec success.');
+                } else {
+                    return $this->result = array('resultat' => 0, 'message' => 'Echec de depot transfert.');
                 }
             }
         }
