@@ -46,6 +46,9 @@ class Transaction
     private $subject;
     private $body;
     private $type_epargne;
+    private $localCurrency;
+    private $localAmount;
+    private $defaultAmount;
 
     // payment process
     private $client_api_key;
@@ -228,6 +231,30 @@ class Transaction
     public function getCodePin()
     {
         return $this->code_pin = $this->Encapsulate('code_pin');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocalCurrency()
+    {
+        return $this->localCurrency = $this->Encapsulate('local_currency');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocalAmount()
+    {
+        return $this->localAmount = $this->Encapsulate('local_amount');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDefaultAmount()
+    {
+        return $this->defaultAmount = $this->Encapsulate('default_amount');
     }
 
     /**
@@ -446,7 +473,10 @@ class Transaction
                 $this->insccription($this->getTelephone(), $this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getAdresse(), $this->getVille(), $this->getCodePin());
                 $this->result();
                 break;
-
+            case 'creation_compte_epargne':
+                $this->creation_compte_epargne($this->getTelephone(), $this->getDevise(), $this->getLocalCurrency(), $this->getDateCloture(), $this->getLocalAmount(), $this->getDefaultAmount(), $this->getCodeSecret());
+                $this->result();
+                break;
             case 'creation_compte_epargne_perso':
                 $this->creation_compte_epargne_perso($this->getTelephone(), $this->getDevise(), $this->getDateCloture(), $this->getCodeSecret());
                 $this->result();
@@ -598,10 +628,9 @@ class Transaction
     {
         $epargne = R::findOne('epargne1', 'telephone=?', [$telephone]);
         $this->result = array('resultat' => 0);
-
         if ($epargne)
 
-            $this->result = array("resultat" => 1, "FC" => $epargne['fc'], "USD" => $epargne['usd']);
+            $this->result = array("resultat" => 1, "FC" => $epargne['fc'], "USD" => $epargne['usd'], "end_date" => $epargne['end_date']);
 
         return $this->result;
     }
@@ -735,7 +764,6 @@ class Transaction
 
     public function creation_compte_epargne_perso($telephone, $devise, $end_date, $code_secret)
     {
-
         if ($this->checkTelephone($telephone, 'epargne1'))
             //return $this->result = array('resultat' => 0, 'message' => 'Vous avez déjà un compte epargne personnel');
             return $this->result = 0;
@@ -1326,6 +1354,77 @@ class Transaction
         if (R::store($updateSoldeExpediteur)) {
             $this->journalisation($telephone, $telephone, $montant, $monnaie);
             return $this->result = array('resultat' => 1, 'message' => 'depot effectue avec success');
+        }
+    }
+
+    public function creation_compte_epargne($telephone, $devise, $local_currency, $end_date, $localAmount, $defaultAmount, $code_secret) {
+        if ($this->checkTelephone($telephone, 'saving_account'))
+            return $this->result = array('resultat' => 0, 'message' => 'Vous avez déjà un compte epargne.');
+
+        $saving_currency = 'both_currency';
+
+        $saving_account = R::dispense('saving_account');
+        $saving_account->telephone = $telephone;
+        $saving_account->secret_code = password_hash($code_secret, PASSWORD_DEFAULT);
+        $saving_account->start_timestamp = time();
+        $saving_account->end_timestamp = $end_date;
+
+        if($devise == 'both_currency') {
+            $saving_account->saving_currency = $saving_currency;
+            $saving_account->local_currency = $local_currency;
+            $saving_account->local_amount_saving = $localAmount;
+            $saving_account->default_amount_saving = $defaultAmount;
+        } else if($devise == 'local_currency') {
+            $saving_currency = 'local_currency';
+            $saving_account->saving_currency = $saving_currency;
+            $saving_account->local_currency = $local_currency;
+            $saving_account->local_amount_saving = $localAmount;
+        } else {
+            $saving_currency = 'default_currency';
+            $saving_account->saving_currency = $saving_currency;
+            $saving_account->default_amount_saving = $defaultAmount;
+        }
+
+        if (R::store($saving_account)) {
+            return $this->result = array(
+                'resultat' => 1, 
+                'saving_currency' => $saving_currency,
+                'end_date' => $end_date,
+                'local_amount' => $localAmount,
+                'default_amount' => $defaultAmount,
+                'local_currency' => $local_currency != '' ? $local_currency : null,
+                'default_currency' => 'USD',
+                'message' => 'Votre compte a ete cree avec success.');
+        } 
+
+        return $this->result = array('resultat' => 0, 'message' => 'Echec d\'ouverture de compte.');
+    }
+
+    public function depot_epargne($telephone, $montant, $devise, $local_currency, $current_timestamp) {
+        $monnaie = strtolower($local_currency);
+        $solde = R::findOne('solde', 'telephone=?', [$telephone]);
+        $saving = R::findOne('saving_account', 'telephone=?', [$telephone]);
+
+        if($saving['end_timestamp'] >= $current_timestamp) {
+            if($devise ==  'local_currency') {
+                $updateSolde = R::load('solde', $solde->getID());
+                $updateSolde->$monnaie = $solde[$monnaie] - $montant; 
+
+                $updateSaving = R::load('saving_account', $saving->getID());
+                $updateSaving->local_amount_saving = $updateSaving['local_amount_saving'] + $montant; 
+
+                if (R::store($updateSolde) && R::store($updateSaving)) {
+                    $this->journalisation($telephone, $telephone, $montant, $monnaie);
+                    return $this->result = array(
+                        'resultat' => 1, 
+                        'type_deposit' => $devise,
+                        'local_amount' => $montant,
+                        'default_amount' => null,
+                        'local_currency' => $local_currency,
+                        'default_currency' => 'USD',
+                        'message' => 'Votre compte a ete cree avec success.');
+                }
+            }
         }
     }
 }
