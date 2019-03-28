@@ -10,3 +10,7 @@
 [2019-03-28 13:20:18] slim-bookshelf-api.INFO: Processing home action [] {"uid":"a246d39"}
 [2019-03-28 13:21:58] slim-bookshelf-api.INFO: Processing home action [] {"uid":"cc8f924"}
 [2019-03-28 13:22:40] slim-bookshelf-api.INFO: Processing home action [] {"uid":"a7a7e5d"}
+[2019-03-28 13:39:36] slim-bookshelf-api.INFO: Processing '/' route [] {"uid":"2fc2f06"}
+[2019-03-28 13:39:56] slim-bookshelf-api.INFO: Processing '/' route [] {"uid":"68242dd"}
+[2019-03-28 13:43:52] slim-bookshelf-api.INFO: Listing all authors [] {"uid":"551f860"}
+[2019-03-28 13:44:47] slim-bookshelf-api.INFO: Listing all authors [] {"uid":"f97ff4c"}
