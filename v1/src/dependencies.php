@@ -30,10 +30,6 @@ $container['db'] = function ($c) {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-    if (strpos($db['dsn'], 'sqlite') === 0) {
-        $pdo->exec('PRAGMA foreign_keys = ON');
-    }
-
     return $pdo;
 };
 

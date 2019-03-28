@@ -1,0 +1,6 @@
+[2019-03-27 12:42:03] slim-bookshelf-api.INFO: Processing home action [] {"uid":"7ac99d3"}
+[2019-03-27 12:46:23] slim-bookshelf-api.INFO: Processing home action [] {"uid":"f8e938b"}
+[2019-03-27 12:49:13] slim-bookshelf-api.INFO: Processing '/' route [] {"uid":"d54888f"}
+[2019-03-27 12:49:19] slim-bookshelf-api.INFO: Processing '/' route [] {"uid":"6ae1c41"}
+[2019-03-27 12:49:23] slim-bookshelf-api.INFO: Processing '/' route [] {"uid":"caa68e5"}
+[2019-03-27 12:49:33] slim-bookshelf-api.INFO: Processing '/' route [] {"uid":"82317df"}

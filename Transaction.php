@@ -1410,9 +1410,9 @@ class Transaction
 
         $monnaie = strtolower($saving[$devise]);
 
-        $monnaie = $monnaie == 'cdf' ? 'fc' : 'usd';
+        $monnaie = $monnaie == ('cdf' || 'fc') ? 'fc' : 'usd';
 
-        if(true || $saving['end_timestamp'] >= time()) {
+        if($saving['end_timestamp'] >= time()) {
             if($devise ==  'local_currency') {
                 if ($solde[$monnaie] >= $montant) {
                     $updateSolde = R::load('solde', $solde->getID());
