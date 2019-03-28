@@ -10,7 +10,7 @@ return [
 
     // Database adapter
     'db' => [
-        'dsn' => 'mysql:host=localhost;dbname=api_db',
+        'dsn' => 'mysql:host=localhost;dbname=cp973977_maishapay-api',
         'user' => 'root',
         'pass' => '',
     ],

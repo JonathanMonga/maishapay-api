@@ -18,14 +18,6 @@ class OAuth2ServerProvider implements ServiceProviderInterface
             $pdo = $c->get('db');
             $storage = new PdoStorage($pdo);
 
-            $defaultScope = 'read';
-            $supportedScope = array([
-                'basic',
-                'phonenumber'
-            ]);
-
-            $scopeUtil = new A
-
             $server = new OAuth2\Server($storage, [
                 'enforce_redirect' => false,
                 'use_jwt_access_tokens' => true,
