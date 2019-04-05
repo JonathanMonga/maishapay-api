@@ -26,13 +26,17 @@ $app->group('', function () use ($app) {
     $app->put('/accounts/{customer_uuid}', Maishapay\Customer\Action\EditCustomerAction::class); //Update a customer
     $app->delete('/accounts/{customer_uuid}', Maishapay\Customer\Action\DeleteCustomerAction::class); //Delete a customer
 
-    // Developpers methods live mode
+    // Basic developpers methods
     $app->get('/dev/signin', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
     $app->get('/dev/signup', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
 
+    //Developper projects methods
+    $app->get('/projects', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
+
+    // Developpers live mode methods
     $app->get('/live/customers', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
 
-    // Developpers methods sandbox mode
+    // Developpers sandbox mode methods
     $app->get('/sandbox/customers', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
 
     $app->post('/authorise', Maishapay\Auth\Action\AuthoriseAction::class); //Authorize all clients
