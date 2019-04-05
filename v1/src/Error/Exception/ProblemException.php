@@ -1,5 +1,5 @@
 <?php
-namespace Error\Exception;
+namespace Maishapay\Error\Exception;
 
 use Crell\ApiProblem\ApiProblem;
 
