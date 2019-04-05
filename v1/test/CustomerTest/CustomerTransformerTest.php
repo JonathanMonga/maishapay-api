@@ -1,17 +1,17 @@
 <?php
-namespace BookshelfTest;
+namespace Maishapay\CustomerTest;
 
-use Bookshelf\Author;
-use Bookshelf\AuthorTransformer;
+use Maishapay\Customer\Customer;
+use Maishapay\Customer\CustomerTransformer;
 use Nocarrier\Hal;
 
-class AuthorTransformerTest extends \PHPUnit_Framework_TestCase
+class CustomerTransformerTest extends \PHPUnit_Framework_TestCase
 {
     public function testTransform()
     {
         $now = (new \DateTime())->format('Y-m-d H:i:s');
         $data = [
-            'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+            'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
             'name' => 'b',
             'biography' => 'c',
             'date_of_birth' => '1980-01-02',
@@ -19,10 +19,11 @@ class AuthorTransformerTest extends \PHPUnit_Framework_TestCase
             'updated' => $now,
 
         ];
-        $author = new Author($data);
 
-        $transformer = new AuthorTransformer();
-        $hal = $transformer->transform($author);
+        $customer = new Customer($data);
+
+        $transformer = new CustomerTransformer();
+        $hal = $transformer->transform($customer);
 
         self::assertInstanceOf(Hal::class, $hal);
         $halData = $hal->getData();
@@ -33,7 +34,7 @@ class AuthorTransformerTest extends \PHPUnit_Framework_TestCase
     {
         $now = (new \DateTime())->format('Y-m-d H:i:s');
         $data = [
-            'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+            'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
             'name' => 'b',
             'biography' => 'c',
             'date_of_birth' => '1980-01-02',
@@ -41,11 +42,11 @@ class AuthorTransformerTest extends \PHPUnit_Framework_TestCase
             'updated' => $now,
 
         ];
-        $author = new Author($data);
-        $authors = [$author];
+        $customer = new Customer($data);
+        $customers = [$customer];
 
-        $transformer = new AuthorTransformer();
-        $hal = $transformer->transformCollection($authors);
+        $transformer = new CustomerTransformer();
+        $hal = $transformer->transformCollection($customers);
 
         self::assertInstanceOf(Hal::class, $hal);
 
@@ -53,7 +54,7 @@ class AuthorTransformerTest extends \PHPUnit_Framework_TestCase
         self::assertSame(1, $halData['count']);
 
         $halResources = $hal->getResources();
-        self::assertArrayHasKey('author', $halResources);
-        self::assertInstanceOf(Hal::class, $halResources['author'][0]);
+        self::assertArrayHasKey('customer', $halResources);
+        self::assertInstanceOf(Hal::class, $halResources['customer'][0]);
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace App\Action;
+namespace Maishapay\App\Action;
 
 use Monolog\Logger;
 

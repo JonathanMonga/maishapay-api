@@ -1,5 +1,5 @@
 <?php
-namespace Auth\Action;
+namespace Maishapay\Auth\Action;
 
 use OAuth2;
 

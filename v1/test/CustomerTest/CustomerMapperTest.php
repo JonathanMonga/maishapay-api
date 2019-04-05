@@ -1,16 +1,16 @@
 <?php
-namespace BookshelfTest;
+namespace Maishapay\CustomerTest;
 
-use Bookshelf\Author;
-use Bookshelf\AuthorMapper;
+use Maishapay\Customer\Customer;
+use Maishapay\Customer\CustomerMapper;
 use Monolog\Logger;
 
-class AuthorMapperTest extends \PHPUnit_Framework_TestCase
+class CustomerMapperTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
         \AppTest\Bootstrap::seedDatabase('truncate-all.sql');
-        \AppTest\Bootstrap::seedDatabase('author.sql');
+        \AppTest\Bootstrap::seedDatabase('customer.sql');
     }
 
     private function getMockLogger()
@@ -30,11 +30,11 @@ class AuthorMapperTest extends \PHPUnit_Framework_TestCase
         $container = \AppTest\Bootstrap::getContainer();
         $db = $container->get('db');
 
-        $mapper = new AuthorMapper($logger, $db);
+        $mapper = new CustomerMapper($logger, $db);
         $data = $mapper->fetchAll();
 
-        $expected = new Author([
-            'author_id' => 'f075512f-9734-304c-b839-b86174143c07',
+        $expected = new Customer([
+            'customer_id' => 'f075512f-9734-304c-b839-b86174143c07',
             'name' => 'Ann McCaffrey',
             'biography' => "Anne Inez McCaffrey was an American-born Irish writer,"
                 . " best known for the Dragonriders of Pern fantasy series. Early in"
@@ -56,19 +56,19 @@ class AuthorMapperTest extends \PHPUnit_Framework_TestCase
         $container = \AppTest\Bootstrap::getContainer();
         $db = $container->get('db');
 
-        $mapper = new AuthorMapper($logger, $db);
-        $author = $mapper->loadById('77707f1b-400c-3fe0-b656-c0b14499a71d');
+        $mapper = new CustomerMapper($logger, $db);
+        $customer = $mapper->loadById('77707f1b-400c-3fe0-b656-c0b14499a71d');
 
-        $expected = new Author([
-            'author_id' => '77707f1b-400c-3fe0-b656-c0b14499a71d',
+        $expected = new Customer([
+            'customer_id' => '77707f1b-400c-3fe0-b656-c0b14499a71d',
             'name' => 'Suzanne Collins',
             'biography' => 'Suzanne Marie Collins is an American television writer and novelist,'
-                .' best known as the author of The Underland Chronicles and The Hunger Games trilogy.',
+                .' best known as the customer of The Underland Chronicles and The Hunger Games trilogy.',
             'date_of_birth' => '1962-08-10',
             'created' => '2017-01-28 22:00:00',
             'updated' => '2017-01-28 22:00:00',
         ]);
-        self::assertEquals($expected, $author);
+        self::assertEquals($expected, $customer);
     }
 
     public function testLoadByIdReturnsFalseOnFailure()
@@ -78,10 +78,10 @@ class AuthorMapperTest extends \PHPUnit_Framework_TestCase
         $container = \AppTest\Bootstrap::getContainer();
         $db = $container->get('db');
 
-        $mapper = new AuthorMapper($logger, $db);
-        $author = $mapper->loadById('not-here');
+        $mapper = new CustomerMapper($logger, $db);
+        $customer = $mapper->loadById('not-here');
 
-        self::assertEquals(false, $author);
+        self::assertEquals(false, $customer);
     }
 
     public function testInsert()
@@ -94,8 +94,8 @@ class AuthorMapperTest extends \PHPUnit_Framework_TestCase
         $container = \AppTest\Bootstrap::getContainer();
         $db = $container->get('db');
 
-        $author = new Author([
-            'author_id' => 'D28677E1-CFCA-4F8E-B9E0-6184F2DE736F',
+        $customer = new Customer([
+            'customer_id' => 'D28677E1-CFCA-4F8E-B9E0-6184F2DE736F',
             'name' => 'Foo',
             'biography' => null,
             'date_of_birth' => null,
@@ -103,10 +103,10 @@ class AuthorMapperTest extends \PHPUnit_Framework_TestCase
             'updated' => '2017-01-28 22:00:01',
         ]);
 
-        $mapper = new AuthorMapper($logger, $db);
-        $result = $mapper->insert($author);
+        $mapper = new CustomerMapper($logger, $db);
+        $result = $mapper->insert($customer);
 
-        self::assertInstanceOf(Author::class, $result);
+        self::assertInstanceOf(Customer::class, $result);
 
         // check that the updated property is more recent
         $newData = $result->getArrayCopy();
@@ -123,17 +123,17 @@ class AuthorMapperTest extends \PHPUnit_Framework_TestCase
         $container = \AppTest\Bootstrap::getContainer();
         $db = $container->get('db');
 
-        $mapper = new AuthorMapper($logger, $db);
-        $author = $mapper->loadById('77707f1b-400c-3fe0-b656-c0b14499a71d');
+        $mapper = new CustomerMapper($logger, $db);
+        $customer = $mapper->loadById('77707f1b-400c-3fe0-b656-c0b14499a71d');
 
-        $author->update(['name' => 'Someone Else']);
-        $result = $mapper->update($author);
+        $customer->update(['name' => 'Someone Else']);
+        $result = $mapper->update($customer);
 
-        self::assertInstanceOf(Author::class, $result);
+        self::assertInstanceOf(Customer::class, $result);
 
-        // Reload the author from the database and check that it is updated
-        $newAuthor = $mapper->loadById('77707f1b-400c-3fe0-b656-c0b14499a71d');
-        $newData = $newAuthor->getArrayCopy();
+        // Reload the customer from the database and check that it is updated
+        $newCustomer = $mapper->loadById('77707f1b-400c-3fe0-b656-c0b14499a71d');
+        $newData = $newCustomer->getArrayCopy();
         self::assertSame('Someone Else', $newData['name']);
         self::assertGreaterThanOrEqual(date('Y-m-d H:i:s'), $newData['updated']);
     }
@@ -148,18 +148,18 @@ class AuthorMapperTest extends \PHPUnit_Framework_TestCase
         $container = \AppTest\Bootstrap::getContainer();
         $db = $container->get('db');
 
-        $mapper = new AuthorMapper($logger, $db);
+        $mapper = new CustomerMapper($logger, $db);
 
         // ensure record exists
-        $author = $mapper->loadById('77707f1b-400c-3fe0-b656-c0b14499a71d');
+        $customer = $mapper->loadById('77707f1b-400c-3fe0-b656-c0b14499a71d');
 
         $result = $mapper->delete('77707f1b-400c-3fe0-b656-c0b14499a71d');
 
         self::assertTrue($result);
 
-        // Reload the author from the database and ensure it fails
-        $author = $mapper->loadById('77707f1b-400c-3fe0-b656-c0b14499a71d');
-        self::assertFalse($author);
+        // Reload the customer from the database and ensure it fails
+        $customer = $mapper->loadById('77707f1b-400c-3fe0-b656-c0b14499a71d');
+        self::assertFalse($customer);
     }
 
     public function testDeleteOfNoRecord()
@@ -172,7 +172,7 @@ class AuthorMapperTest extends \PHPUnit_Framework_TestCase
         $container = \AppTest\Bootstrap::getContainer();
         $db = $container->get('db');
 
-        $mapper = new AuthorMapper($logger, $db);
+        $mapper = new CustomerMapper($logger, $db);
         $result = $mapper->delete('unknown-uuid');
         self::assertFalse($result);
     }

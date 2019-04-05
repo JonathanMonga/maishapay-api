@@ -10,14 +10,14 @@ return [
 
     // Database adapter
     'db' => [
-        'dsn' => 'mysql:host=localhost;dbname=cp973977_maishapay-api',
-        'user' => 'root',
-        'pass' => '',
+        'dsn' => getenv('DB_DSN') ?: 'sqlite:' . __DIR__ . '/../db/bookshelf.db',
+        'user' => getenv('DB_USER') ?: null,
+        'pass' => getenv('DB_PASS') ?: null,
     ],
 
     // Monolog
     'logger' => [
-        'name' => 'slim-bookshelf-api',
+        'name' => 'maishapay-api',
         // uncomment 'path' setting to log to file rather than the error log
          'path' => __DIR__ . '/../var/app.log',
     ],

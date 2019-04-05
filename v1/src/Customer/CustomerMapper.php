@@ -1,5 +1,5 @@
 <?php
-namespace Bookshelf;
+namespace Maishapay\Customer;
 
 use Monolog\Logger;
 
@@ -21,12 +21,12 @@ class CustomerMapper
      */
     public function fetchAll()
     {
-        $sql = "SELECT * FROM customers ORDER BY customer_id ASC";
+        $sql = "SELECT * FROM customers ORDER BY customer_uuid ASC";
         $stmt = $this->db->query($sql);
 
         $results = [];
         while ($row = $stmt->fetch()) {
-            $results[] = new Author($row);
+            $results[] = new Customer($row);
         }
 
         return $results;
@@ -67,7 +67,7 @@ class CustomerMapper
         $stmt = $this->db->prepare($query);
         $result = $stmt->execute($data);
 
-        return new Author($data);
+        return new Customer($data);
     }
 
     /**
@@ -75,7 +75,7 @@ class CustomerMapper
      *
      * @return Author
      */
-    public function update(Author $author)
+    public function update(Customer $author)
     {
         $data = $author->getArrayCopy();
         $data['updated'] = date('Y-m-d H:i:s');
@@ -92,19 +92,19 @@ class CustomerMapper
         $stmt = $this->db->prepare($query);
         $result = $stmt->execute($data);
 
-        return new Author($data);
+        return new Customer($data);
     }
 
     /**
-     * Delete an author
+     * Delete an Customer
      *
-     * @param $id       Id of author to delete
+     * @param $uuid       Id of Customer to delete
      * @return boolean  True if there was an author to delete
      */
-    public function delete($id)
+    public function delete($uuid)
     {
-        $data['author_id'] = $id;
-        $query = "DELETE FROM author WHERE author_id = :author_id";
+        $data['customer_uuid'] = $uuid;
+        $query = "DELETE FROM customers WHERE customer_uuid = :customer_uuid";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute($data);

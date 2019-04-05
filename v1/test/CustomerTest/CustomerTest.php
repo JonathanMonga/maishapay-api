@@ -1,9 +1,9 @@
 <?php
-namespace BookshelfTest;
+namespace Maishapay\CustomerTest;
 
-use Bookshelf\Author;
+use Maishapay\Customer\Customer;
 
-class AuthorTest extends \PHPUnit_Framework_TestCase
+class CustomerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider constructorProvider
@@ -13,7 +13,9 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
         if (is_string($expectedData)) {
             $this->setExpectedException($expectedData);
         }
-        $entity = new Author($inputData);
+
+        $entity = new Customer($inputData);
+
         $newData = $entity->getArrayCopy();
 
         if (is_array($expectedData)) {
@@ -28,13 +30,13 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
         return [
             'all-elements' => [
                 [
-                    'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+                    'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
                     'name' => 'b',
                     'biography' => 'c',
                     'date_of_birth' => '1980-01-02',
                 ],
                 [
-                    'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+                    'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
                     'name' => 'b',
                     'biography' => 'c',
                     'date_of_birth' => '1980-01-02',
@@ -42,13 +44,13 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
             ],
             'allowed-nulls' => [
                 [
-                    'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+                    'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
                     'name' => 'b',
                     'biography' => null,
                     'date_of_birth' => null,
                 ],
                 [
-                    'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+                    'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
                     'name' => 'b',
                     'biography' => null,
                     'date_of_birth' => null,
@@ -56,13 +58,13 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
             ],
             'string-trim' => [
                 [
-                    'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+                    'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
                     'name' => ' b ',
                     'biography' => "\tc ",
                     'date_of_birth' => " 1980-01-02\n",
                 ],
                 [
-                    'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+                    'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
                     'name' => 'b',
                     'biography' => 'c',
                     'date_of_birth' => '1980-01-02',
@@ -70,7 +72,7 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
             ],
             'date-of-bith-past' => [
                 [
-                    'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+                    'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
                     'name' => 'b',
                     'biography' => 'c',
                     'date_of_birth' => date('Y-m-d', strtotime('+1 day')),
@@ -83,8 +85,8 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
     public function testDatesAreSet()
     {
         $now = (new \DateTime())->format('Y-m-d H:i:s');
-        $entity = new Author([
-            'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+        $entity = new Customer([
+            'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
             'name' => 'b',
             'created' => $now,
             'updated' => $now,
@@ -97,10 +99,11 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
 
     public function testDatesAreSetIfNull()
     {
-        $entity = new Author([
-            'author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+        $entity = new Customer([
+            'customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
             'name' => 'b',
         ]);
+
         $array = $entity->getArrayCopy();
 
         self::assertNotNull($array['created']);

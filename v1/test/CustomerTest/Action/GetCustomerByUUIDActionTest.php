@@ -1,9 +1,9 @@
 <?php
-namespace BookshelfTest\Action;
+namespace Maishapay\CustomerTest\Action;
 
-use Bookshelf\Action\GetAuthorAction;
-use Bookshelf\Author;
-use Bookshelf\AuthorMapper;
+use Maishapay\Customer\Action\GetCustomerByUUIDAction;
+use Maishapay\Customer\Customer;
+use Maishapay\Customer\CustomerMapper;
 use Error\Exception\ProblemException;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
@@ -11,7 +11,7 @@ use Slim\Http\Environment;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class GetAuthorActionTest extends \PHPUnit_Framework_TestCase
+class GetCustomerByUUIDActionTest extends \PHPUnit_Framework_TestCase
 {
     public function testReturnsJsonByDefault()
     {
@@ -23,22 +23,22 @@ class GetAuthorActionTest extends \PHPUnit_Framework_TestCase
         $renderer = new HalRenderer;
 
         $now = (new \DateTime())->format('Y-m-d H:i:s');
-        $mockData = new Author(['author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
+        $mockData = new Customer(['customer_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
                     'name' => 'b',
                     'description' => 'c',
                     'created' => $now,
                     'updated' => $now,]);
 
-        $authorMapper = $this->getMockBuilder(AuthorMapper::class)
+        $customerMapper = $this->getMockBuilder(CustomerMapper::class)
             ->setMethods(['loadById'])
             ->disableOriginalConstructor()
             ->getMock();
-        $authorMapper->expects($this->once())
+        $customerMapper->expects($this->once())
             ->method('loadById')
             ->with($this->equalTo('4BA473C8-DEBE-4441-9001-A21617BD4515'))
             ->willReturn($mockData);
 
-        $action = new GetAuthorAction($logger, $renderer, $authorMapper);
+        $action = new GetCustomerByUUIDAction($logger, $renderer, $customerMapper);
 
         $request = Request::createFromEnvironment(new Environment());
         $request = $request->withAttribute('id', '4BA473C8-DEBE-4441-9001-A21617BD4515');
@@ -61,16 +61,16 @@ class GetAuthorActionTest extends \PHPUnit_Framework_TestCase
 
         $renderer = new HalRenderer;
 
-        $authorMapper = $this->getMockBuilder(AuthorMapper::class)
+        $customerMapper = $this->getMockBuilder(CustomerMapper::class)
             ->setMethods(['loadById'])
             ->disableOriginalConstructor()
             ->getMock();
-        $authorMapper->expects($this->once())
+        $customerMapper->expects($this->once())
             ->method('loadById')
             ->with($this->equalTo('4BA473C8-DEBE-4441-9001-A21617BD4515'))
             ->willReturn(false);
 
-        $action = new GetAuthorAction($logger, $renderer, $authorMapper);
+        $action = new GetCustomerByUUIDAction($logger, $renderer, $customerMapper);
 
         $request = Request::createFromEnvironment(new Environment());
         $request = $request->withAttribute('id', '4BA473C8-DEBE-4441-9001-A21617BD4515');

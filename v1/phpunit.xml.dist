@@ -1,11 +1,10 @@
 <phpunit
     bootstrap="test/bootstrap.php"
-    colors="true"
->
+    colors="true">
     <testsuites>
         <testsuite name="Bookself API tests">
             <directory>./test/AppTest</directory>
-            <directory>./test/BookshelfTest</directory>
+            <directory>./test/CustomerTest</directory>
             <directory>./test/ErrorTest</directory>
         </testsuite>
     </testsuites>
@@ -13,7 +12,7 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">src/App</directory>
-            <directory suffix=".php">src/Bookshelf</directory>
+            <directory suffix=".php">src/Customer</directory>
             <directory suffix=".php">src/Error</directory>
         </whitelist>
     </filter>

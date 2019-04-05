@@ -1,5 +1,5 @@
 <?php
-namespace Auth;
+namespace Maishapay\Auth;
 
 use OAuth2;
 use Pimple\Container;

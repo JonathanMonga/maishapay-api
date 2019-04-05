@@ -1,5 +1,5 @@
 <?php
-namespace Bookshelf;
+namespace Maishapay\Customer;
 
 use Nocarrier\Hal;
 
@@ -8,14 +8,14 @@ use Nocarrier\Hal;
  */
 class CustomerTransformer
 {
-    public function transformCollection($authors)
+    public function transformCollection($customers)
     {
         $hal = new Hal('/customers');
 
         $count = 0;
-        foreach ($authors as $author) {
+        foreach ($customers as $customer) {
             $count++;
-            $hal->addResource('customer', $this->transform($author));
+            $hal->addResource('customer', $this->transform($customer));
         }
 
         $hal->setData(['count' => $count]);
@@ -23,9 +23,9 @@ class CustomerTransformer
         return $hal;
     }
 
-    public function transform($author)
+    public function transform($customer)
     {
-        $data = $author->getArrayCopy();
+        $data = $customer->getArrayCopy();
 
         $resource = new Hal('/customers/' . $data['customer_uuid'], $data);
         $resource->addLink('accounts', '/customers/' . $data['customer_uuid'] . '/accounts');

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Bookshelf API coding standard">
-    <description>Bookshelf API coding standard</description>
+<ruleset name="Maishapay API coding standard">
+    <description>Maishapay API coding standard</description>
 
     <!-- display progress -->
     <!--<arg value="p"/>-->

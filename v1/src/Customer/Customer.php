@@ -1,20 +1,25 @@
 <?php
-namespace Bookshelf;
+namespace Maishapay\Customer;
 
 use Error\ApiProblem;
 use Error\Exception\ProblemException;
 use Zend\InputFilter\Factory as InputFilterFactory;
+use Zend\Validator\Hostname;
 
 class Customer
 {
     protected $customer_id;
     protected $customer_uuid;
-    protected $country_code;
-    protected $number_phone; //Seulement 9 chiffre, sans 243 par exemple
-    protected $names;
-    protected $email;
-    protected $location;
-    protected $password;
+    protected $country_iso_code; //CD, US, ect... and user input
+    protected $country_code; //243, 250, ect... and user input
+    protected $number_phone; //Format 996980422 and user input
+    protected $names; //user input
+    protected $email; //user input
+    protected $customer_type; //user input
+    protected $number_of_account; //min 1 (current account), max 2 (current account | saving account)
+    protected $location; //user input
+    protected $password; //user input
+    protected $customer_status; //active or blocked
     protected $created;
     protected $updated;
 
@@ -24,20 +29,40 @@ class Customer
 
         $this->customer_id = $data['customer_id'] ?? null;
         $this->customer_uuid = $data['customer_uuid'] ?? null;
+        $this->country_iso_code = $data['country_iso_code'] ?? null;
         $this->country_code = $data['country_code'] ?? null;
         $this->number_phone = $data['number_phone'] ?? null;
         $this->names = $data['names'] ?? null;
         $this->email = $data['email'] ?? null;
         $this->password = $data['password'] ?? null;
+        $this->customer_type = $data['customer_type'] ?? null;
+        $this->number_of_account = $data['number_of_account'] ?? null;
+        $this->customer_status = $data['customer_status'] ?? null;
         $this->location = $data['location'] ?? null;
         $this->created = $data['created'] ?? null;
         $this->updated = $data['updated'] ?? null;
 
+        if(!$this->customer_uuid){
+            $this->customer_uuid = uniqid("customer_", true);
+        }
+
+        if(!$this->customer_status){
+            $this->customer_status = "blocked";
+        }
+
+        if(!$this->number_of_account) {
+            $this->number_of_account = 1;
+        }
+
+        if(!$this->customer_type){
+            $this->customer_type = "particular";
+        }
 
         $now = (new \DateTime())->format('Y-m-d H:i:s');
         if (!strtotime($this->created)) {
             $this->created = $now;
         }
+
         if (!strtotime($this->updated)) {
             $this->updated = $now;
         }
@@ -48,6 +73,10 @@ class Customer
         return [
             'customer_id' => $this->customer_id,
             'country_uuid' => $this->country_uuid,
+            'country_iso_code' => $this->country_iso_code,
+            'customer_type' => $this->customer_type,
+            'number_of_account' => $this->number_of_account,
+            'customer_status' => $this->customer_status,
             'country_code' => $this->country_code,
             'number_phone' => $this->number_phone,
             'names' => $this->names,
@@ -62,7 +91,7 @@ class Customer
     public function update($data)
     {
         $data = $this->validate($data, [
-            'country_uuid', 
+            'country_iso_code',
             'country_code', 
             'number_phone', 
             'names',
@@ -70,7 +99,6 @@ class Customer
             'password'
             ]);
 
-        $this->country_uuid = $data['country_uuid'] ?? $this->country_uuid;
         $this->country_code = $data['country_code'] ?? $this->country_code;
         $this->number_phone = $data['number_phone'] ?? $this->number_phone;
         $this->names = $data['names'] ?? $this->names;
@@ -82,6 +110,7 @@ class Customer
      * Validate data to be applied to this entity
      *
      * @param  array $data
+     * @param array $elements
      * @return array
      */
     public function validate($data, $elements = [])
@@ -112,14 +141,31 @@ class Customer
                     ['name' => 'Uuid'],
                 ],
             ],
+            'country_iso_code' => [
+                'required' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+                [
+                    'name' => 'string_length',
+                    'options' => [
+                        'max' => 2,
+                    ],
+                ],
+            ],
             'country_code' => [
                 'required' => true,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
-                'validators' => [
-                    ['name' => 'Uuid'],
+                [
+                    'name' => 'string_length',
+                    'options' => [
+                        'min' => 3,
+                        'max' => 5,
+                    ],
                 ],
             ],
             'number_phone' => [
@@ -128,8 +174,12 @@ class Customer
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
-                'validators' => [
-                    ['name' => 'Uuid'],
+                [
+                    'name' => 'string_length',
+                    'options' => [
+                        'min' => 9,
+                        'max' => 12,
+                    ],
                 ],
             ],
             'names' => [
@@ -149,7 +199,7 @@ class Customer
                     [
                         'name' => 'LessThan',
                         'options' => [
-                            'allow' => \Zend\Validator\Hostname::ALLOW_DNS,
+                            'allow' => Hostname::ALLOW_DNS,
                             'useMxCheck' => false,
                         ],
                     ],
