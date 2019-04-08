@@ -90,16 +90,21 @@ class Customer
     public function update($data)
     {
         $data = $this->validate($data, [
+            'country_uuid',
             'country_iso_code',
             'country_code', 
-            'number_phone', 
+            'number_phone',
+            'customer_type',
             'names',
             'email',
             'password'
             ]);
 
+        $this->country_uuid = $data['country_uuid'] ?? $this->country_uuid;
+        $this->country_iso_code = $data['country_iso_code'] ?? $this->country_iso_code;
         $this->country_code = $data['country_code'] ?? $this->country_code;
         $this->number_phone = $data['number_phone'] ?? $this->number_phone;
+        $this->customer_type = $data['customer_type'] ?? $this->customer_type;
         $this->names = $data['names'] ?? $this->names;
         $this->email = $data['email'] ?? $this->email;
         $this->password = $data['password'] ?? $this->password;
@@ -134,20 +139,62 @@ class Customer
     protected function createInputFilter($elements = [])
     {
         $specification = [
-            'author_id' => [
-                'required' => true,
+            'country_uuid' => [
+                'required' => false,
                 'validators' => [
                     ['name' => 'Uuid'],
                 ],
             ],
             'country_iso_code' => [
+                'required' => false,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+                'validators' => [
+                    ['name' => 'not_empty'],
+                    [
+                        'name' => 'string_length',
+                        'options' => [
+                            'min' => 2,
+                        ],
+                    ],
+                ],
+            ],
+            'country_code' => [
                 'required' => true,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
+                'validators' => [
+                    ['name' => 'not_empty'],
+                    [
+                        'name' => 'string_length',
+                        'options' => [
+                            'min' => 3,
+                        ],
+                    ],
+                ],
             ],
-            'biography' => [
+            'number_phone' => [
+                'required' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+                'validators' => [
+                    ['name' => 'not_empty'],
+                    [
+                        'name' => 'string_length',
+                        'options' => [
+                            'min' => 9,
+                            'max' => 13,
+                        ],
+                    ],
+                ],
+            ],
+            'customer_type' => [
                 'required' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
