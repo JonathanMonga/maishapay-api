@@ -1,10 +1,9 @@
 <?php
 namespace Maishapay\Customer;
 
-use Error\ApiProblem;
-use Error\Exception\ProblemException;
+use Maishapay\Error\ApiProblem;
+use Maishapay\Error\Exception\ProblemException;
 use Zend\InputFilter\Factory as InputFilterFactory;
-use Zend\Validator\Hostname;
 
 class Customer
 {
@@ -135,7 +134,7 @@ class Customer
     protected function createInputFilter($elements = [])
     {
         $specification = [
-            'customer_uuid' => [
+            'author_id' => [
                 'required' => true,
                 'validators' => [
                     ['name' => 'Uuid'],
@@ -147,73 +146,26 @@ class Customer
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
-                [
-                    'name' => 'string_length',
-                    'options' => [
-                        'max' => 2,
-                    ],
-                ],
             ],
-            'country_code' => [
-                'required' => true,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StripTags'],
-                ],
-                [
-                    'name' => 'string_length',
-                    'options' => [
-                        'min' => 3,
-                        'max' => 5,
-                    ],
-                ],
-            ],
-            'number_phone' => [
-                'required' => true,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StripTags'],
-                ],
-                [
-                    'name' => 'string_length',
-                    'options' => [
-                        'min' => 9,
-                        'max' => 12,
-                    ],
-                ],
-            ],
-            'names' => [
-                'required' => true,
+            'biography' => [
+                'required' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
             ],
-            'email' => [
-                'required' => true,
+            'date_of_birth' => [
+                'required' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                 ],
                 'validators' => [
-                    ['name' => 'EmailAdress'],
+                    ['name' => 'Date'],
                     [
                         'name' => 'LessThan',
                         'options' => [
-                            'allow' => Hostname::ALLOW_DNS,
-                            'useMxCheck' => false,
-                        ],
-                    ],
-                ],
-            ],
-            'password' => [
-                'required' => true,
-                'validators' => [
-                    ['name' => 'not_empty'],
-                    [
-                        'name' => 'string_length',
-                        'options' => [
-                            'min' => 4,
-                            'max' => 5,
+                            'max' => date('Y-m-d'),
+                            'inclusive' => true,
                         ],
                     ],
                 ],

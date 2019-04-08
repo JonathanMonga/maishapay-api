@@ -2,7 +2,7 @@
 // DIC configuration
 
 // Register AuthServer services
-$container->register(new Auth\OAuth2ServerProvider());
+$container->register(new Maishapay\Auth\OAuth2ServerProvider());
 
 // monolog
 $container['logger'] = function ($c) {
@@ -35,48 +35,48 @@ $container['db'] = function ($c) {
 
 // Error handlers
 $container['notFoundHandler'] = function () {
-    return new Error\Handler\NotFound();
+    return new Maishapay\Error\Handler\NotFound();
 };
 $container['notAllowedHandler'] = function () {
-    return new Error\Handler\NotAllowed();
+    return new Maishapay\Error\Handler\NotAllowed();
 };
 $container['errorHandler'] = function () {
-    return new Error\Handler\Error();
+    return new Maishapay\Error\Handler\Error();
 };
 $container['phpErrorHandler'] = function () {
-    return new Error\Handler\Error();
+    return new Maishapay\Error\Handler\Error();
 };
 
 // Mappers
-$container[Bookshelf\AuthorMapper::class] = function ($c) {
-    return new Bookshelf\AuthorMapper($c->get('logger'), $c->get('db'));
+$container[Maishapay\Customer\CustomerMapper::class] = function ($c) {
+    return new Maishapay\Customer\CustomerMapper($c->get('logger'), $c->get('db'));
 };
 
 // Actions
-$container[App\Action\HomeAction::class] = function ($c) {
+$container[Maishapay\App\Action\HomeAction::class] = function ($c) {
     $logger = $c->get('logger');
     $renderer = $c->get('renderer');
-    return new App\Action\HomeAction($logger, $renderer);
+    return new Maishapay\App\Action\HomeAction($logger, $renderer);
 };
 
-$container[App\Action\PingAction::class] = function ($c) {
+$container[Maishapay\App\Action\PingAction::class] = function ($c) {
     $logger = $c->get('logger');
-    return new App\Action\PingAction($logger);
+    return new Maishapay\App\Action\PingAction($logger);
 };
 
 $authorActionFactory = function ($actionClass) {
     return function ($c) use ($actionClass) {
         $logger = $c->get('logger');
         $renderer = $c->get('renderer');
-        $mapper = $c->get(Bookshelf\AuthorMapper::class);
+        $mapper = $c->get(Maishapay\Customer\CustomerMapper::class);
         return new $actionClass($logger, $renderer, $mapper);
     };
 };
 
 // @codingStandardsIgnoreStart
-$container[Bookshelf\Action\ListAuthorsAction::class] = $authorActionFactory(Bookshelf\Action\ListAuthorsAction::class);
-$container[Bookshelf\Action\GetAuthorAction::class] = $authorActionFactory(Bookshelf\Action\GetAuthorAction::class);
-$container[Bookshelf\Action\CreateAuthorAction::class] = $authorActionFactory(Bookshelf\Action\CreateAuthorAction::class);
-$container[Bookshelf\Action\EditAuthorAction::class] = $authorActionFactory(Bookshelf\Action\EditAuthorAction::class);
-$container[Bookshelf\Action\DeleteAuthorAction::class] = $authorActionFactory(Bookshelf\Action\DeleteAuthorAction::class);
+$container[Maishapay\Customer\Action\GetAllCustomersAction::class] = $authorActionFactory(Maishapay\Customer\Action\GetAllCustomersAction::class);
+$container[Maishapay\Customer\Action\GetCustomerByUUIDAction::class] = $authorActionFactory(Maishapay\Customer\Action\GetCustomerByUUIDAction::class);
+$container[Maishapay\Customer\Action\CreateCustomerAction::class] = $authorActionFactory(Maishapay\Customer\Action\CreateCustomerAction::class);
+$container[Maishapay\Customer\Action\EditCustomerAction::class] = $authorActionFactory(Maishapay\Customer\Action\EditCustomerAction::class);
+$container[Maishapay\Customer\Action\DeleteCustomerAction::class] = $authorActionFactory(Maishapay\Customer\Action\DeleteCustomerAction::class);
 // @codingStandardsIgnoreEnd

@@ -21,7 +21,7 @@ class HomeAction
         $this->logger->info("Processing home action");
 
         $hal = new Hal('/');
-        $hal->addLink('checklists', '/checklists');
+        $hal->addLink('maishapay', '/maishapay');
 
         return $this->renderer->render($request, $response, $hal);
     }
