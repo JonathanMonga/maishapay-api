@@ -21,7 +21,7 @@ class HomeAction
         $this->logger->info("Processing home action");
 
         $hal = new Hal('/');
-        $hal->addLink('maishapay', '/maishapay');
+        $hal->addLink('maishapay', '/v1/');
 
         return $this->renderer->render($request, $response, $hal);
     }

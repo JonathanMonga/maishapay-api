@@ -12,7 +12,7 @@ namespace PackageVersions;
  */
 final class Versions
 {
-    public const ROOT_PACKAGE_NAME = 'akrabat/slim-bookshelf-api';
+    public const ROOT_PACKAGE_NAME = 'maishapay/api';
     public const VERSIONS          = array (
   'akrabat/rka-content-type-renderer' => '0.7.3@5373f481a46ed831d8085f8825c48b035a7311f6',
   'bshaffer/oauth2-server-php' => 'v1.11.1@5a0c8000d4763b276919e2106f54eddda6bc50fa',
@@ -32,9 +32,9 @@ final class Versions
   'psr/http-message' => '1.0.1@f6561bf28d520154e4b0ec72be95418abe6d9363',
   'psr/log' => '1.1.0@6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd',
   'slim/slim' => '3.12.0@f4947cc900b6e51cbfda58b9f1247bca2f76f9f0',
-  'symfony/console' => 'v4.2.3@1f0ad51dfde4da8a6070f06adc58b4e37cbb37a4',
+  'symfony/console' => 'v4.2.5@24206aff3efe6962593297e57ef697ebb220e384',
   'symfony/contracts' => 'v1.0.2@1aa7ab2429c3d594dd70689604b5cf7421254cdf',
-  'symfony/polyfill-mbstring' => 'v1.10.0@c79c051f5b3a46be09205c73b80b346e4153e494',
+  'symfony/polyfill-mbstring' => 'v1.11.0@fe5e94c604826c35a32fa832f35bd036b6799609',
   'willdurand/negotiation' => 'v2.3.1@03436ededa67c6e83b9b12defac15384cb399dc9',
   'zendframework/zend-code' => '3.3.1@c21db169075c6ec4b342149f446e7b7b724f95eb',
   'zendframework/zend-eventmanager' => '3.2.1@a5e2583a211f73604691586b8406ff7296a946dd',
@@ -43,8 +43,8 @@ final class Versions
   'zendframework/zend-servicemanager' => '3.4.0@a1ed6140d0d3ee803fec96582593ed024950067b',
   'zendframework/zend-stdlib' => '3.2.1@66536006722aff9e62d1b331025089b7ec71c065',
   'zendframework/zend-validator' => '2.12.0@64c33668e5fa2d39c6289a878f927ea2b0850c30',
-  'doctrine/instantiator' => '1.1.0@185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda',
-  'myclabs/deep-copy' => '1.8.1@3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8',
+  'doctrine/instantiator' => '1.2.0@a2c590166b2133a4633738648b6b064edae0814a',
+  'myclabs/deep-copy' => '1.9.0@78af75148f9fdd34ea727c8b529a9b4a8f7b740c',
   'phpdocumentor/reflection-common' => '1.0.1@21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6',
   'phpdocumentor/reflection-docblock' => '4.3.0@94fd0001232e47129dd3504189fa1c7225010d08',
   'phpdocumentor/type-resolver' => '0.4.0@9c977708995954784726e25d0cd1dddf4e65b0f7',
@@ -67,10 +67,10 @@ final class Versions
   'sebastian/resource-operations' => '1.0.0@ce990bb21759f94aeafd30209e8cfcdfa8bc3f52',
   'sebastian/version' => '2.0.1@99732be0ddb3361e16ad77b68ba41efc8e979019',
   'squizlabs/php_codesniffer' => '2.9.2@2acf168de78487db620ab4bc524135a13cfe6745',
-  'symfony/polyfill-ctype' => 'v1.10.0@e3d826245268269cd66f8326bd8bc066687b4a19',
-  'symfony/yaml' => 'v4.2.3@d461670ee145092b7e2a56c1da7118f19cadadb0',
+  'symfony/polyfill-ctype' => 'v1.11.0@82ebae02209c21113908c229e9883c419720738a',
+  'symfony/yaml' => 'v4.2.5@6712daf03ee25b53abb14e7e8e0ede1a770efdb1',
   'webmozart/assert' => '1.4.0@83e253c8e0be5b0257b881e1827274667c5c17a9',
-  'akrabat/slim-bookshelf-api' => 'No version set (parsed as 1.0.0)@',
+  'maishapay/api' => 'dev-master@02fe69d0493e68227e47e36897f9dfc7db224c93',
 );
 
     private function __construct()

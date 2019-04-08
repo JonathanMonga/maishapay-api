@@ -2,7 +2,7 @@
     bootstrap="test/bootstrap.php"
     colors="true">
     <testsuites>
-        <testsuite name="Bookself API tests">
+        <testsuite name="Maishapay API tests">
             <directory>./test/AppTest</directory>
             <directory>./test/CustomerTest</directory>
             <directory>./test/ErrorTest</directory>
@@ -18,7 +18,7 @@
     </filter>
 
     <logging>
-        <!-- <log type="coverage-html" target="build/coverage" /> -->
-        <!-- <log type="coverage-text" target="php://stdout" /> -->
+        <log type="coverage-html" target="build/coverage" />
+        <log type="coverage-text" target="php://stdout" />
     </logging>
 </phpunit>

@@ -12,6 +12,8 @@ $app->group('', function () use ($app) {
 
     // All methods about customers
     $app->get('/customers', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
+
+    /*
     $app->get('/customers', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
     $app->post('/customers', Maishapay\Customer\Action\CreateCustomerAction::class); //Create new customer
     $app->get('/customers/{customer_uuid}', Maishapay\Customer\Action\GetCustomerByUUIDAction::class); //Get a customer by his uuid
@@ -38,6 +40,7 @@ $app->group('', function () use ($app) {
 
     // Developpers sandbox mode methods
     $app->get('/sandbox/customers', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
+    */
 
     $app->post('/authorise', Maishapay\Auth\Action\AuthoriseAction::class); //Authorize all clients
 })->add(Maishapay\Auth\GuardMiddleware::class);

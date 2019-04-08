@@ -3,6 +3,7 @@ namespace AppTest;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use Slim\Container;
 
 class Bootstrap
 {
@@ -23,7 +24,7 @@ class Bootstrap
             putenv('DB_DSN=sqlite::memory:');
             $settings = include __DIR__ . '/../src/settings.php';
 
-            $container = new \Slim\Container(['settings' => $settings]);
+            $container = new Container(['settings' => $settings]);
             include __dir__ . '/../src/dependencies.php';
 
             self::$container = $container;

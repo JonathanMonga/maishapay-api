@@ -14,3 +14,5 @@
 [2019-03-28 13:39:56] slim-bookshelf-api.INFO: Processing '/' route [] {"uid":"68242dd"}
 [2019-03-28 13:43:52] slim-bookshelf-api.INFO: Listing all authors [] {"uid":"551f860"}
 [2019-03-28 13:44:47] slim-bookshelf-api.INFO: Listing all authors [] {"uid":"f97ff4c"}
+[2019-04-08 17:22:31] maishapay-api.INFO: Processing '/' route [] {"uid":"a6b441c"}
+[2019-04-08 17:22:53] maishapay-api.INFO: Processing home action [] {"uid":"30264fb"}

@@ -77,7 +77,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase
                     'biography' => 'c',
                     'date_of_birth' => date('Y-m-d', strtotime('+1 day')),
                 ],
-                '\Error\Exception\ProblemException',
+                'Maishapay\Error\Exception\ProblemException',
             ],
         ];
     }

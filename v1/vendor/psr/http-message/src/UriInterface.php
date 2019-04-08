@@ -269,7 +269,7 @@ interface UriInterface
      * This method MUST retain the state of the current instance, and return
      * an instance that contains the specified query string.
      *
-     * Customer can provide both encoded and decoded query characters.
+     * Users can provide both encoded and decoded query characters.
      * Implementations ensure the correct encoding as outlined in getQuery().
      *
      * An empty query string value is equivalent to removing the query string.

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
+class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -59,6 +59,13 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Maishapay\\Error\\' => 16,
+            'Maishapay\\ErrorTest\\' => 20,
+            'Maishapay\\Customer\\' => 19,
+            'Maishapay\\CustomerTest\\' => 23,
+            'Maishapay\\Auth\\' => 15,
+            'Maishapay\\App\\' => 14,
+            'Maishapay\\AppTest\\' => 18,
         ),
         'I' => 
         array (
@@ -67,11 +74,6 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
         'F' => 
         array (
             'FastRoute\\' => 10,
-        ),
-        'E' => 
-        array (
-            'Error\\' => 6,
-            'ErrorTest\\' => 10,
         ),
         'D' => 
         array (
@@ -86,17 +88,6 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
         'C' => 
         array (
             'Crell\\ApiProblem\\' => 17,
-        ),
-        'B' => 
-        array (
-            'Bookshelf\\' => 10,
-            'BookshelfTest\\' => 14,
-        ),
-        'A' => 
-        array (
-            'Auth\\' => 5,
-            'App\\' => 4,
-            'AppTest\\' => 8,
         ),
     );
 
@@ -191,6 +182,34 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Maishapay\\Error\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Error',
+        ),
+        'Maishapay\\ErrorTest\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/test/unit/ErrorTest',
+        ),
+        'Maishapay\\Customer\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Customer',
+        ),
+        'Maishapay\\CustomerTest\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/test/unit/CustomerTest',
+        ),
+        'Maishapay\\Auth\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Auth',
+        ),
+        'Maishapay\\App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/App',
+        ),
+        'Maishapay\\AppTest\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/test/unit/AppTest',
+        ),
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
@@ -198,14 +217,6 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
-        ),
-        'Error\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Error',
-        ),
-        'ErrorTest\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/test/unit/ErrorTest',
         ),
         'Doctrine\\Migrations\\' => 
         array (
@@ -238,26 +249,6 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
         'Crell\\ApiProblem\\' => 
         array (
             0 => __DIR__ . '/..' . '/crell/api-problem/src',
-        ),
-        'Bookshelf\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Bookshelf',
-        ),
-        'BookshelfTest\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/test/unit/BookshelfTest',
-        ),
-        'Auth\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Auth',
-        ),
-        'App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/App',
-        ),
-        'AppTest\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/test/unit/AppTest',
         ),
     );
 
@@ -294,26 +285,12 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
     );
 
     public static $classMap = array (
-        'App\\Action\\HomeAction' => __DIR__ . '/../..' . '/src/App/Action/HomeAction.php',
-        'App\\Action\\PingAction' => __DIR__ . '/../..' . '/src/App/Action/PingAction.php',
-        'Auth\\Action\\AuthoriseAction' => __DIR__ . '/../..' . '/src/Auth/Action/AuthoriseAction.php',
-        'Auth\\Action\\TokenAction' => __DIR__ . '/../..' . '/src/Auth/Action/TokenAction.php',
-        'Auth\\GuardMiddleware' => __DIR__ . '/../..' . '/src/Auth/GuardMiddleware.php',
-        'Auth\\OAuth2ServerProvider' => __DIR__ . '/../..' . '/src/Auth/OAuth2ServerProvider.php',
-        'Auth\\PdoStorage' => __DIR__ . '/../..' . '/src/Auth/PdoStorage.php',
-        'Bookshelf\\Action\\CreateAuthorAction' => __DIR__ . '/../..' . '/src/Bookshelf/Action/CreateAuthorAction.php',
-        'Bookshelf\\Action\\DeleteAuthorAction' => __DIR__ . '/../..' . '/src/Bookshelf/Action/DeleteAuthorAction.php',
-        'Bookshelf\\Action\\EditAuthorAction' => __DIR__ . '/../..' . '/src/Bookshelf/Action/EditAuthorAction.php',
-        'Bookshelf\\Action\\GetAuthorAction' => __DIR__ . '/../..' . '/src/Bookshelf/Action/GetAuthorAction.php',
-        'Bookshelf\\Action\\ListAuthorsAction' => __DIR__ . '/../..' . '/src/Bookshelf/Action/ListAuthorsAction.php',
-        'Bookshelf\\Author' => __DIR__ . '/../..' . '/src/Bookshelf/Author.php',
-        'Bookshelf\\AuthorMapper' => __DIR__ . '/../..' . '/src/Bookshelf/AuthorMapper.php',
-        'Bookshelf\\AuthorTransformer' => __DIR__ . '/../..' . '/src/Bookshelf/AuthorTransformer.php',
         'Crell\\ApiProblem\\ApiProblem' => __DIR__ . '/..' . '/crell/api-problem/src/ApiProblem.php',
         'Crell\\ApiProblem\\JsonParseException' => __DIR__ . '/..' . '/crell/api-problem/src/JsonParseException.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',
+        'DeepCopy\\Filter\\ChainableFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Filter/ChainableFilter.php',
         'DeepCopy\\Filter\\Doctrine\\DoctrineCollectionFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Filter/Doctrine/DoctrineCollectionFilter.php',
         'DeepCopy\\Filter\\Doctrine\\DoctrineEmptyCollectionFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Filter/Doctrine/DoctrineEmptyCollectionFilter.php',
         'DeepCopy\\Filter\\Doctrine\\DoctrineProxyFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Filter/Doctrine/DoctrineProxyFilter.php',
@@ -330,7 +307,6 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
         'DeepCopy\\TypeFilter\\Date\\DateIntervalFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Date/DateIntervalFilter.php',
         'DeepCopy\\TypeFilter\\ReplaceFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/ReplaceFilter.php',
         'DeepCopy\\TypeFilter\\ShallowCopyFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/ShallowCopyFilter.php',
-        'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedList' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedList.php',
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
@@ -676,11 +652,6 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
         'Doctrine\\Instantiator\\Instantiator' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Instantiator.php',
         'Doctrine\\Instantiator\\InstantiatorInterface' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/InstantiatorInterface.php',
         'Doctrine\\Migrations\\AbstractMigration' => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/Migrations/AbstractMigration.php',
-        'Error\\ApiProblem' => __DIR__ . '/../..' . '/src/Error/ApiProblem.php',
-        'Error\\Exception\\ProblemException' => __DIR__ . '/../..' . '/src/Error/Exception/ProblemException.php',
-        'Error\\Handler\\Error' => __DIR__ . '/../..' . '/src/Error/Handler/Error.php',
-        'Error\\Handler\\NotAllowed' => __DIR__ . '/../..' . '/src/Error/Handler/NotAllowed.php',
-        'Error\\Handler\\NotFound' => __DIR__ . '/../..' . '/src/Error/Handler/NotFound.php',
         'FastRoute\\BadRouteException' => __DIR__ . '/..' . '/nikic/fast-route/src/BadRouteException.php',
         'FastRoute\\DataGenerator' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator.php',
         'FastRoute\\DataGenerator\\CharCountBased' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator/CharCountBased.php',
@@ -766,6 +737,23 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
         'Interop\\Container\\ContainerInterface' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
         'Interop\\Container\\Exception\\ContainerException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
         'Interop\\Container\\Exception\\NotFoundException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',
+        'Maishapay\\App\\Action\\HomeAction' => __DIR__ . '/../..' . '/src/App/Action/HomeAction.php',
+        'Maishapay\\App\\Action\\PingAction' => __DIR__ . '/../..' . '/src/App/Action/PingAction.php',
+        'Maishapay\\Auth\\Action\\AuthoriseAction' => __DIR__ . '/../..' . '/src/Auth/Action/AuthoriseAction.php',
+        'Maishapay\\Auth\\Action\\TokenAction' => __DIR__ . '/../..' . '/src/Auth/Action/TokenAction.php',
+        'Maishapay\\Auth\\GuardMiddleware' => __DIR__ . '/../..' . '/src/Auth/GuardMiddleware.php',
+        'Maishapay\\Auth\\OAuth2ServerProvider' => __DIR__ . '/../..' . '/src/Auth/OAuth2ServerProvider.php',
+        'Maishapay\\Auth\\PdoStorage' => __DIR__ . '/../..' . '/src/Auth/PdoStorage.php',
+        'Maishapay\\Customer\\Action\\CreateCustomerAction' => __DIR__ . '/../..' . '/src/Customer/Action/CreateCustomerAction.php',
+        'Maishapay\\Customer\\Action\\DeleteCustomerAction' => __DIR__ . '/../..' . '/src/Customer/Action/DeleteCustomerAction.php',
+        'Maishapay\\Customer\\Action\\EditCustomerAction' => __DIR__ . '/../..' . '/src/Customer/Action/EditCustomerAction.php',
+        'Maishapay\\Customer\\Action\\GetAllCustomersAction' => __DIR__ . '/../..' . '/src/Customer/Action/GetAllCustomersAction.php',
+        'Maishapay\\Customer\\Action\\GetCustomerByUUIDAction' => __DIR__ . '/../..' . '/src/Customer/Action/GetCustomerByUUIDAction.php',
+        'Maishapay\\Customer\\Customer' => __DIR__ . '/../..' . '/src/Customer/Customer.php',
+        'Maishapay\\Customer\\CustomerMapper' => __DIR__ . '/../..' . '/src/Customer/CustomerMapper.php',
+        'Maishapay\\Customer\\CustomerTransformer' => __DIR__ . '/../..' . '/src/Customer/CustomerTransformer.php',
+        'Maishapay\\Error\\ApiProblem' => __DIR__ . '/../..' . '/src/Error/ApiProblem.php',
+        'Maishapay\\Error\\Exception\\ProblemException' => __DIR__ . '/../..' . '/src/Error/Exception/ProblemException.php',
         'Monolog\\ErrorHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ErrorHandler.php',
         'Monolog\\Formatter\\ChromePHPFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',
         'Monolog\\Formatter\\ElasticaFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ElasticaFormatter.php',
@@ -2529,10 +2517,10 @@ class ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit1b3e8cb8c9f429cbbb759e1e8b3e2499::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b::$classMap;
 
         }, null, ClassLoader::class);
     }
