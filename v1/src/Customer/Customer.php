@@ -5,7 +5,6 @@ use Maishapay\Error\ApiProblem;
 use Maishapay\Error\Exception\ProblemException;
 use Maishapay\Util\Utils;
 use Zend\InputFilter\Factory as InputFilterFactory;
-use Ramsey\Uuid\Uuid;
 
 class Customer
 {
@@ -43,25 +42,20 @@ class Customer
         $this->created = $data['created'] ?? null;
         $this->updated = $data['updated'] ?? null;
 
-        if(!$this->customer_uuid){
-            print $this->customer_uuid."ppp";
-            $this->customer_uuid = Utils::uuid("customer");
-            print "\n".$this->customer_uuid;
-        }
+        $now = (new \DateTime())->format('Y-m-d H:i:s');
 
-        if(!$this->customer_status){
-            $this->customer_status = "blocked";
-        }
-
-        if(!$this->number_of_account) {
-            $this->number_of_account = 1;
-        }
-
-        if(!$this->customer_type){
+        if (!$this->customer_type) {
             $this->customer_type = "particular";
         }
 
-        $now = (new \DateTime())->format('Y-m-d H:i:s');
+        if (!$this->number_of_account) {
+            $this->number_of_account = 1;
+        }
+
+        if (!$this->customer_status) {
+            $this->customer_status = 'blocked';
+        }
+
         if (!strtotime($this->created)) {
             $this->created = $now;
         }
@@ -75,7 +69,7 @@ class Customer
     {
         return [
             'customer_id' => $this->customer_id,
-            'country_uuid' => $this->country_uuid,
+            'customer_uuid' => $this->customer_uuid,
             'country_iso_code' => $this->country_iso_code,
             'customer_type' => $this->customer_type,
             'number_of_account' => $this->number_of_account,
@@ -94,21 +88,19 @@ class Customer
     public function update($data)
     {
         $data = $this->validate($data, [
-            'country_uuid',
+            'customer_uuid',
             'country_iso_code',
             'country_code', 
             'number_phone',
-            'customer_type',
             'names',
             'email',
             'password'
             ]);
 
-        $this->country_uuid = $data['country_uuid'] ?? $this->country_uuid;
+        $this->customer_uuid = $data['customer_uuid'] ?? $this->customer_uuid;
         $this->country_iso_code = $data['country_iso_code'] ?? $this->country_iso_code;
         $this->country_code = $data['country_code'] ?? $this->country_code;
         $this->number_phone = $data['number_phone'] ?? $this->number_phone;
-        $this->customer_type = $data['customer_type'] ?? $this->customer_type;
         $this->names = $data['names'] ?? $this->names;
         $this->email = $data['email'] ?? $this->email;
         $this->password = $data['password'] ?? $this->password;
@@ -135,6 +127,7 @@ class Customer
             'about:blank',
             400
         );
+
         $problem['errors'] = $inputFilter->getMessages();
 
         throw new ProblemException($problem);
@@ -143,10 +136,41 @@ class Customer
     protected function createInputFilter($elements = [])
     {
         $specification = [
-            'country_uuid' => [
+            'customer_id' => [
+                'required' => false,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'location' => [
+                'required' => false,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'number_of_account' => [
+                'required' => false,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'customer_status' => [
+                'required' => false,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'customer_uuid' => [
                 'required' => false,
                 'allowEmpty' => false,
-                'error_message' => 'FORM_BAZ_FOO_ERROR_INVALID',
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
@@ -165,6 +189,7 @@ class Customer
                 'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
+                    ['name' => 'StringToLower'],
                     ['name' => 'StripTags'],
                 ],
                 'validators' => [

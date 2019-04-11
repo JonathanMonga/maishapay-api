@@ -23,7 +23,7 @@ class CustomerTransformer
         return $hal;
     }
 
-    public function transform($customer)
+    public function transform(Customer $customer)
     {
         $data = $customer->getArrayCopy();
 
