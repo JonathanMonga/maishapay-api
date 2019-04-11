@@ -1,7 +1,7 @@
 <?php
-namespace ErrorTest\Handler;
+namespace Maishapay\ErrorTest\Handler;
 
-use Error\Handler\NotAllowed;
+use Maishapay\Error\Handler\NotAllowed;
 use Slim\Http\Environment;
 use Slim\Http\Request;
 use Slim\Http\Response;

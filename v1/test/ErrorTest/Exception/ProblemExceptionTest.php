@@ -1,7 +1,7 @@
 <?php
-namespace ErrorTest\Exception;
+namespace Maishapay\ErrorTest\Exception;
 
-use Error\Exception\ProblemException;
+use Maishapay\Error\Exception\ProblemException;
 use Crell\ApiProblem\ApiProblem;
 
 class ProblemExceptionTest extends \PHPUnit_Framework_TestCase

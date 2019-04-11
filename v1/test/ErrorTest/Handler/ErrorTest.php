@@ -1,9 +1,9 @@
 <?php
-namespace ErrorTest\Handler;
+namespace Maishapay\ErrorTest\Handler;
 
-use Error\Handler\Error;
-use Error\Exception\ProblemException;
-use Error\ApiProblem;
+use Maishapay\Error\Handler\Error;
+use Maishapay\Error\Exception\ProblemException;
+use Maishapay\Error\ApiProblem;
 use Slim\Http\Environment;
 use Slim\Http\Request;
 use Slim\Http\Response;

@@ -1,7 +1,7 @@
 <?php
-namespace ErrorTest\Handler;
+namespace Maishapay\ErrorTest\Handler;
 
-use Error\Handler\NotFound;
+use Maishapay\Error\Handler\NotFound;
 use Slim\Http\Environment;
 use Slim\Http\Request;
 use Slim\Http\Response;

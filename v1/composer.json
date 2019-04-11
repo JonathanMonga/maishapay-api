@@ -12,7 +12,8 @@
         "crell/api-problem": "^2.0",
         "zendframework/zend-inputfilter": "^2.7.2",
         "zendframework/zend-servicemanager": "^3.2",
-        "bshaffer/oauth2-server-php": "^1.9"
+        "bshaffer/oauth2-server-php": "^1.9",
+        "ramsey/uuid": "^3.8"
     },
     "config": {
         "optimize-autoloader": true
@@ -26,6 +27,7 @@
             "Maishapay\\App\\": "src/App/",
             "Maishapay\\Auth\\": "src/Auth/",
             "Maishapay\\Customer\\": "src/Customer/",
+            "Maishapay\\Util\\": "src/Util/",
             "Maishapay\\Error\\": "src/Error/"
         }
     },

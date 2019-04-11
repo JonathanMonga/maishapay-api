@@ -1,7 +1,7 @@
 <?php
-namespace ErrorTest;
+namespace Maishapay\ErrorTest;
 
-use Error\ApiProblem;
+use Maishapay\Error\ApiProblem;
 
 class ApiProblemTest extends \PHPUnit_Framework_TestCase
 {

@@ -27,13 +27,16 @@ final class Versions
   'nocarrier/hal' => '0.9.12@08ffddf52733633403e0f4ca6e949b0c7cc186f8',
   'ocramius/package-versions' => '1.4.0@a4d4b60d0e60da2487bd21a2c6ac089f85570dbb',
   'ocramius/proxy-manager' => '2.2.2@14b137b06b0f911944132df9d51e445a35920ab1',
+  'paragonie/random_compat' => 'v9.99.99@84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95',
   'pimple/pimple' => 'v3.2.3@9e403941ef9d65d20cba7d54e29fe906db42cf32',
   'psr/container' => '1.0.0@b7ce3b176482dbbc1245ebf52b181af44c2cf55f',
   'psr/http-message' => '1.0.1@f6561bf28d520154e4b0ec72be95418abe6d9363',
   'psr/log' => '1.1.0@6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd',
+  'ramsey/uuid' => '3.8.0@d09ea80159c1929d75b3f9c60504d613aeb4a1e3',
   'slim/slim' => '3.12.0@f4947cc900b6e51cbfda58b9f1247bca2f76f9f0',
   'symfony/console' => 'v4.2.5@24206aff3efe6962593297e57ef697ebb220e384',
   'symfony/contracts' => 'v1.0.2@1aa7ab2429c3d594dd70689604b5cf7421254cdf',
+  'symfony/polyfill-ctype' => 'v1.11.0@82ebae02209c21113908c229e9883c419720738a',
   'symfony/polyfill-mbstring' => 'v1.11.0@fe5e94c604826c35a32fa832f35bd036b6799609',
   'willdurand/negotiation' => 'v2.3.1@03436ededa67c6e83b9b12defac15384cb399dc9',
   'zendframework/zend-code' => '3.3.1@c21db169075c6ec4b342149f446e7b7b724f95eb',
@@ -67,10 +70,9 @@ final class Versions
   'sebastian/resource-operations' => '1.0.0@ce990bb21759f94aeafd30209e8cfcdfa8bc3f52',
   'sebastian/version' => '2.0.1@99732be0ddb3361e16ad77b68ba41efc8e979019',
   'squizlabs/php_codesniffer' => '2.9.2@2acf168de78487db620ab4bc524135a13cfe6745',
-  'symfony/polyfill-ctype' => 'v1.11.0@82ebae02209c21113908c229e9883c419720738a',
   'symfony/yaml' => 'v4.2.5@6712daf03ee25b53abb14e7e8e0ede1a770efdb1',
   'webmozart/assert' => '1.4.0@83e253c8e0be5b0257b881e1827274667c5c17a9',
-  'maishapay/api' => 'dev-master@02fe69d0493e68227e47e36897f9dfc7db224c93',
+  'maishapay/api' => 'dev-master@d1fe84602d9218f053819dcf861447183d28c8a0',
 );
 
     private function __construct()

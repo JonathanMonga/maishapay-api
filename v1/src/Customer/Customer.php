@@ -3,7 +3,9 @@ namespace Maishapay\Customer;
 
 use Maishapay\Error\ApiProblem;
 use Maishapay\Error\Exception\ProblemException;
+use Maishapay\Util\Utils;
 use Zend\InputFilter\Factory as InputFilterFactory;
+use Ramsey\Uuid\Uuid;
 
 class Customer
 {
@@ -42,7 +44,9 @@ class Customer
         $this->updated = $data['updated'] ?? null;
 
         if(!$this->customer_uuid){
-            $this->customer_uuid = uniqid("customer_", true);
+            print $this->customer_uuid."ppp";
+            $this->customer_uuid = Utils::uuid("customer");
+            print "\n".$this->customer_uuid;
         }
 
         if(!$this->customer_status){
@@ -141,20 +145,31 @@ class Customer
         $specification = [
             'country_uuid' => [
                 'required' => false,
-                'validators' => [
-                    ['name' => 'Uuid'],
-                ],
-            ],
-            'country_iso_code' => [
-                'required' => false,
+                'allowEmpty' => false,
+                'error_message' => 'FORM_BAZ_FOO_ERROR_INVALID',
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
                 'validators' => [
-                    ['name' => 'not_empty'],
                     [
-                        'name' => 'string_length',
+                        'name' => 'StringLength',
+                        'options' => [
+                            'min' => 45,
+                        ],
+                    ],
+                ],
+            ],
+            'country_iso_code' => [
+                'required' => false,
+                'allowEmpty' => false,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+                'validators' => [
+                    [
+                        'name' => 'StringLength',
                         'options' => [
                             'min' => 2,
                         ],
@@ -163,14 +178,14 @@ class Customer
             ],
             'country_code' => [
                 'required' => true,
+                'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
                 'validators' => [
-                    ['name' => 'not_empty'],
                     [
-                        'name' => 'string_length',
+                        'name' => 'StringLength',
                         'options' => [
                             'min' => 3,
                         ],
@@ -179,40 +194,60 @@ class Customer
             ],
             'number_phone' => [
                 'required' => true,
+                'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
                 'validators' => [
-                    ['name' => 'not_empty'],
                     [
-                        'name' => 'string_length',
+                        'name' => 'StringLength',
                         'options' => [
                             'min' => 9,
-                            'max' => 13,
                         ],
                     ],
                 ],
             ],
             'customer_type' => [
                 'required' => false,
+                'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
             ],
-            'date_of_birth' => [
+            'names' => [
                 'required' => false,
+                'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'email' => [
+                'required' => true,
+                'allowEmpty' => false,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StringToLower'],
+                    ['name' => 'StripTags'],
                 ],
                 'validators' => [
-                    ['name' => 'Date'],
+                    ['name' => 'EmailAddress'],
+                ],
+            ],
+            'password' => [
+                'required' => true,
+                'allowEmpty' => false,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+                'validators' => [
                     [
-                        'name' => 'LessThan',
+                        'name' => 'StringLength',
                         'options' => [
-                            'max' => date('Y-m-d'),
-                            'inclusive' => true,
+                            'min' => 4,
                         ],
                     ],
                 ],
