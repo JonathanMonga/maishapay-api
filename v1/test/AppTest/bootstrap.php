@@ -1,5 +1,5 @@
 <?php
-namespace AppTest;
+namespace Maishapay\AppTest;
 
 require __DIR__ . '/../vendor/autoload.php';
 

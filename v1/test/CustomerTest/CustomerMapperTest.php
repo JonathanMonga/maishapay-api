@@ -1,6 +1,7 @@
 <?php
 namespace Maishapay\CustomerTest;
 
+use Maishapay\AppTest\Bootstrap;
 use Maishapay\Customer\Customer;
 use Maishapay\Customer\CustomerMapper;
 use Monolog\Logger;
@@ -29,14 +30,23 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $container = \AppTest\Bootstrap::getContainer();
+        $container = Bootstrap::getContainer();
+
         $db = $container->get('db');
 
         $customer = new Customer([
-            'customer_id' => 'D28677E1-CFCA-4F8E-B9E0-6184F2DE736F',
-            'name' => 'Foo',
-            'biography' => null,
-            'date_of_birth' => null,
+            'customer_id' => 220,
+            'customer_uuid' => 'customer-814469d5-919f-4b67-9360-5b777b040c73',
+            'country_iso_code' => 'cd',
+            'number_of_account' => 1,
+            'location' => "Mpolo Lubumbashi",
+            'phone_area_code' => '243',
+            'number_phone' => '996980422',
+            'customer_type' => 'particular',
+            'customer_status' => 'active_status',
+            'names' => 'Jonathan Monga',
+            'email' => 'jmonga98@gmail.com',
+            'password' => '12345',
             'created' => '2017-01-28 22:00:01',
             'updated' => '2017-01-28 22:00:01',
         ]);
