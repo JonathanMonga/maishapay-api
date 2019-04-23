@@ -10,9 +10,9 @@ return [
 
     // Database adapter
     'db' => [
-        'dsn' => 'mysql:host=localhost;dbname=cp973977_maishapay-api',
-        'user' => 'root',
-        'pass' => null,
+        'dsn' => getenv('DB_DSN') ?: 'mysql:host=localhost;dbname=cp973977_maishapay-api',
+        'user' => getenv('DB_USER') ?: 'root',
+        'pass' => getenv('DB_PASS') ?: null,
     ],
 
     // Monolog

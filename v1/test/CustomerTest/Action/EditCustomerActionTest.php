@@ -1,17 +1,18 @@
 <?php
 namespace BookshelfTest\Action;
 
-use Bookshelf\Action\EditAuthorAction;
-use Bookshelf\Author;
-use Bookshelf\AuthorMapper;
-use Error\Exception\ProblemException;
+use Maishapay\Customer\Action\EditCustomerAction;
+use Maishapay\Customer\Customer;
+use Maishapay\Customer\CustomerMapper;
+use Maishapay\Error\Exception\ProblemException;
+use Maishapay\Util\Utils;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 use Slim\Http\Environment;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class EditAuthorActionTest extends \PHPUnit_Framework_TestCase
+class EditCustomerActionTest extends \PHPUnit_Framework_TestCase
 {
     public function testAuthorIsUpdated()
     {
@@ -22,31 +23,46 @@ class EditAuthorActionTest extends \PHPUnit_Framework_TestCase
 
         $renderer = new HalRenderer;
 
-        $authorId = '2CB0681F-CCBE-417E-ADAD-19E9215EC58C';
-        $mockData = [
-            'author_id' => $authorId,
-            'name' => 'b',
-            'description' => 'c'
-        ];
-        $mockAuthor = new Author($mockData);
+        $uuid = Utils::uuid("customer");
 
-        $authorMapper = $this->getMockBuilder(AuthorMapper::class)
+        $customer_uuid = $uuid;
+
+        $mockData = [
+            'customer_id' => 220,
+            'customer_uuid' => $customer_uuid,
+            'country_iso_code' => 'cd',
+            'number_of_account' => 1,
+            'location' => "Mpolo Lubumbashi",
+            'phone_area_code' => '243',
+            'number_phone' => '996980422',
+            'customer_type' => 'particular',
+            'customer_status' => 'active_status',
+            'names' => 'Jonathan Monga',
+            'email' => 'jmonga98@gmail.com',
+            'password' => '12345'
+        ];
+
+        $mockAuthor = new Customer($mockData);
+
+        $authorMapper = $this->getMockBuilder(CustomerMapper::class)
             ->setMethods(['loadById', 'update'])
             ->disableOriginalConstructor()
             ->getMock();
+
         $authorMapper->expects($this->once())
             ->method('loadById')
-            ->with($this->equalTo($authorId))
+            ->with($this->equalTo($customer_uuid))
             ->willReturn($mockAuthor);
+
         $authorMapper->expects($this->once())
             ->method('update')
             ->with($this->equalTo($mockAuthor))
             ->willReturn($mockAuthor);
 
-        $action = new EditAuthorAction($logger, $renderer, $authorMapper);
+        $action = new EditCustomerAction($logger, $renderer, $authorMapper);
 
         $request = Request::createFromEnvironment(new Environment());
-        $request = $request->withAttribute('id', $authorId);
+        $request = $request->withAttribute('customer_uuid', $customer_uuid);
         $request = $request->withParsedBody($mockData);
 
         $response = $action($request, new Response());
@@ -55,7 +71,7 @@ class EditAuthorActionTest extends \PHPUnit_Framework_TestCase
 
         $body = json_decode((string)$response->getBody(), true);
         $this->assertArrayHasKey('_links', $body);
-        $this->assertSame('b', $body['name']);
+        $this->assertSame('Jonathan Monga', $body['names']);
     }
 
     public function testThrowsExceptionOnNotFound()
@@ -67,7 +83,7 @@ class EditAuthorActionTest extends \PHPUnit_Framework_TestCase
 
         $renderer = new HalRenderer;
 
-        $authorMapper = $this->getMockBuilder(AuthorMapper::class)
+        $authorMapper = $this->getMockBuilder(CustomerMapper::class)
             ->setMethods(['loadById'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -76,10 +92,10 @@ class EditAuthorActionTest extends \PHPUnit_Framework_TestCase
             ->with($this->equalTo('unknown-uuid'))
             ->willReturn(false);
 
-        $action = new EditAuthorAction($logger, $renderer, $authorMapper);
+        $action = new EditCustomerAction($logger, $renderer, $authorMapper);
 
         $request = Request::createFromEnvironment(new Environment());
-        $request = $request->withAttribute('id', 'unknown-uuid');
+        $request = $request->withAttribute('customer_uuid', 'unknown-uuid');
 
         $this->expectException(ProblemException::class);
         $response = $action($request, new Response());

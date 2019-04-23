@@ -1,17 +1,19 @@
 <?php
-namespace BookshelfTest\Action;
+namespace Maishapay\CustomerTest\Action;
 
-use Bookshelf\Action\DeleteAuthorAction;
-use Bookshelf\Author;
-use Bookshelf\AuthorMapper;
-use Error\Exception\ProblemException;
+
+use Maishapay\Customer\Action\DeleteCustomerAction;
+use Maishapay\Customer\Customer;
+use Maishapay\Customer\CustomerMapper;
+use Maishapay\Error\Exception\ProblemException;
+use Maishapay\Util\Utils;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 use Slim\Http\Environment;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class DeleteAuthorActionTest extends \PHPUnit_Framework_TestCase
+class DeleteCustomerActionTest extends \PHPUnit_Framework_TestCase
 {
     public function testAuthorIsDeleted()
     {
@@ -22,28 +24,42 @@ class DeleteAuthorActionTest extends \PHPUnit_Framework_TestCase
 
         $renderer = new HalRenderer;
 
-        $authorId = 'a';
+        $uuid = Utils::uuid("customer");
 
-        $authorMapper = $this->getMockBuilder(AuthorMapper::class)
+        $customer_uuid = $uuid;
+
+        $authorMapper = $this->getMockBuilder(CustomerMapper::class)
             ->setMethods(['loadById', 'delete'])
             ->disableOriginalConstructor()
             ->getMock();
+
         $authorMapper->expects($this->once())
             ->method('loadById')
-            ->with($this->equalTo($authorId))
-            ->willReturn(new Author([
-                'author_id' => 'DF63E044-35D6-4E01-919D-65F8F56A7E76',
-                'name' => 'Some Name',
+            ->with($this->equalTo($customer_uuid))
+            ->willReturn(new Customer([
+                'customer_id' => 220,
+                'customer_uuid' => $uuid,
+                'country_iso_code' => 'cd',
+                'number_of_account' => 1,
+                'location' => "Mpolo Lubumbashi",
+                'phone_area_code' => '243',
+                'number_phone' => '996980422',
+                'customer_type' => 'particular',
+                'customer_status' => 'active_status',
+                'names' => 'Jonathan Monga',
+                'email' => 'jmonga98@gmail.com',
+                'password' => '12345'
                 ]));
+
         $authorMapper->expects($this->once())
             ->method('delete')
-            ->with($this->equalTo($authorId))
+            ->with($this->equalTo($customer_uuid))
             ->willReturn(1);
 
-        $action = new DeleteAuthorAction($logger, $renderer, $authorMapper);
+        $action = new DeleteCustomerAction($logger, $renderer, $authorMapper);
 
         $request = Request::createFromEnvironment(new Environment());
-        $request = $request->withAttribute('id', $authorId);
+        $request = $request->withAttribute('customer_uuid', $customer_uuid);
 
         $response = $action($request, new Response());
 
@@ -59,7 +75,7 @@ class DeleteAuthorActionTest extends \PHPUnit_Framework_TestCase
 
         $renderer = new HalRenderer;
 
-        $authorMapper = $this->getMockBuilder(AuthorMapper::class)
+        $authorMapper = $this->getMockBuilder(CustomerMapper::class)
             ->setMethods(['loadById'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -68,10 +84,10 @@ class DeleteAuthorActionTest extends \PHPUnit_Framework_TestCase
             ->with($this->equalTo('unknown-uuid'))
             ->willReturn(false);
 
-        $action = new DeleteAuthorAction($logger, $renderer, $authorMapper);
+        $action = new DeleteCustomerAction($logger, $renderer, $authorMapper);
 
         $request = Request::createFromEnvironment(new Environment());
-        $request = $request->withAttribute('id', 'unknown-uuid');
+        $request = $request->withAttribute('customer_uuid', 'unknown-uuid');
 
         $this->expectException(ProblemException::class);
         $response = $action($request, new Response());
