@@ -33,7 +33,7 @@ class CustomerMapper
     }
 
     /**
-     * Load a single Customer
+     * Load a single Customers
      *
      * @param $customer_uuid
      * @return false|Customer
@@ -53,7 +53,7 @@ class CustomerMapper
     }
 
     /**
-     * Create an Customer
+     * Create an Customers
      *
      * @param Customer $customer
      * @return Customer
@@ -130,11 +130,11 @@ class CustomerMapper
     }
 
     /**
-     * Delete an Customer
+     * Delete an Customers
      *
      * @param $customer_uuid
-     * @return bool True if there was an Customer to delete
-     * @internal param Id $uuid of Customer to delete
+     * @return bool True if there was an Customers to delete
+     * @internal param Id $uuid of Customers to delete
      */
     public function delete($customer_uuid)
     {

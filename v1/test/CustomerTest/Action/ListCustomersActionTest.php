@@ -52,7 +52,7 @@ class ListCustomersActionTest extends \PHPUnit_Framework_TestCase
         $action = new GetAllCustomersAction($logger, $renderer, $AuthorMapper);
 
         $environment = new Environment([
-            'REQUEST_URI' => '/Customer'
+            'REQUEST_URI' => '/Customers'
         ]);
 
         $response = $action(

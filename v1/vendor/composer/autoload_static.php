@@ -68,6 +68,7 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
             'Maishapay\\Auth\\' => 15,
             'Maishapay\\App\\' => 14,
             'Maishapay\\AppTest\\' => 18,
+            'Maishapay\\' => 10,
         ),
         'I' => 
         array (
@@ -219,6 +220,10 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Maishapay\\AppTest\\' => 
         array (
             0 => __DIR__ . '/../..' . '/test/unit/AppTest',
+        ),
+        'Maishapay\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/test/unit',
         ),
         'Interop\\Container\\' => 
         array (

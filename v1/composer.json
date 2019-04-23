@@ -42,6 +42,7 @@
 
     "autoload-dev": {
         "psr-4": {
+            "Maishapay\\": "test/unit/",
             "Maishapay\\AppTest\\": "test/unit/AppTest/",
             "Maishapay\\CustomerTest\\": "test/unit/CustomerTest/",
             "Maishapay\\ErrorTest\\": "test/unit/ErrorTest/"

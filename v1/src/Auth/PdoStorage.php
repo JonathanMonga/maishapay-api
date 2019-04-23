@@ -5,6 +5,7 @@ use OAuth2\Storage\Pdo;
 
 class PdoStorage extends Pdo
 {
+
     protected function checkPassword($user, $password)
     {
         return password_verify($password, $user['password']);

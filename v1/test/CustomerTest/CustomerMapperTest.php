@@ -1,9 +1,7 @@
 <?php
 namespace Maishapay\CustomerTest;
 
-use Maishapay\AppTest\{
-    Bootstrap
-};
+use Maishapay\Bootstrap;
 use Maishapay\Customer\{
     Customer,
     CustomerMapper
@@ -12,10 +10,11 @@ use Monolog\Logger;
 
 class CustomerMapperTest extends \PHPUnit_Framework_TestCase
 {
+    private static $container;
 
     public function setUp()
     {
-
+        self::$container = Bootstrap::getContainer();
     }
 
     private function getMockLogger()
@@ -35,9 +34,7 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $container = Bootstrap::getContainer();
-
-        $db = $container->get('db');
+        $db = self::$container->get('db');
 
         $customer = new Customer([
             'customer_id' => 220,

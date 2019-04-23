@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f356ab19-9931-4ea1-b163-8f739f8c12b6" name="Default" comment="initial commit">
+    <list default="true" id="f356ab19-9931-4ea1-b163-8f739f8c12b6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exchange/currency.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exchange/sample.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Customers/Action/DeleteCustomerAction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Customers/Action/GetAllCustomersAction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Customers/Action/GetCustomerByUUIDAction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Customers/Customer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Customers/CustomerMapper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Customers/CustomerTransformer.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Customer/Action/CreateCustomerAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/CreateCustomerAction.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Customer/Action/DeleteCustomerAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/DeleteCustomerAction.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Customer/Action/EditCustomerAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/EditCustomerAction.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Customer/Action/GetAllCustomersAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/GetAllCustomersAction.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Customer/Action/GetCustomerByUUIDAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/GetCustomerByUUIDAction.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Customer/Customer.php" afterPath="$PROJECT_DIR$/src/Clients/Client.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Customer/CustomerMapper.php" afterPath="$PROJECT_DIR$/src/Clients/ClientMapper.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Customer/CustomerTransformer.php" afterPath="$PROJECT_DIR$/src/Clients/ClientTransformer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Auth/PdoStorage.php" afterPath="$PROJECT_DIR$/src/Auth/PdoStorage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.php" afterPath="$PROJECT_DIR$/src/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CustomerTest/Action/ListCustomersActionTest.php" afterPath="$PROJECT_DIR$/test/CustomerTest/Action/ListCustomersActionTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CustomerTest/CustomerMapperTest.php" afterPath="$PROJECT_DIR$/test/CustomerTest/CustomerMapperTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/bootstrap.php" afterPath="$PROJECT_DIR$/test/bootstrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
     </list>
+    <list id="b987492a-d799-4baa-926c-5d08597b6404" name="Failed commit: Default" comment="initial commit" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,34 +66,90 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CustomerMapperTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/CustomerTest/CustomerMapperTest.php">
+      <file leaf-file-name="OAuth2ServerProvider.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+            <state relative-caret-position="303">
+              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PdoStorage.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Auth/PdoStorage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
               <folding>
-                <element signature="e#41#73#0#PHP" expanded="true" />
+                <marker date="1556026572239" expanded="true" signature="348:405" ph="SELECT * fro... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/bootstrap.php">
+      <file leaf-file-name="Pdo.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vendor/bshaffer/oauth2-server-php/src/OAuth2/Storage/Pdo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="1" lean-forward="false" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+            <state relative-caret-position="279">
+              <caret line="122" column="5" lean-forward="true" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
+              <folding>
+                <marker date="1554728941080" expanded="true" signature="2985:3030" ph="SELECT * fro... " />
+                <marker date="1554728941080" expanded="true" signature="3438:3483" ph="SELECT * fro... " />
+                <marker date="1554728941080" expanded="true" signature="3890:3935" ph="SELECT * fro... " />
+                <marker date="1554728941080" expanded="true" signature="4880:5047" ph="INSERT INTO " />
+                <marker date="1554728941080" expanded="true" signature="5913:5964" ph="SELECT * fro... " />
+                <marker date="1554728941080" expanded="true" signature="7023:7151" ph="INSERT INTO " />
+                <marker date="1554728941080" expanded="true" signature="7477:7526" ph="DELETE FROM " />
+                <marker date="1554728941080" expanded="true" signature="7878:7927" ph="SELECT * fro... " />
+                <marker date="1554728941080" expanded="true" signature="9275:9430" ph="INSERT INTO " />
+                <marker date="1554728941080" expanded="true" signature="10481:10657" ph="INSERT INTO " />
+                <marker date="1554728941080" expanded="true" signature="10993:11040" ph="DELETE FROM " />
+                <marker date="1554728941080" expanded="true" signature="13345:13398" ph="SELECT * FRO... " />
+                <marker date="1554728941080" expanded="true" signature="14138:14268" ph="INSERT INTO " />
+                <marker date="1554728941080" expanded="true" signature="14596:14647" ph="DELETE FROM " />
+                <marker date="1554728941080" expanded="true" signature="15453:15494" ph="SELECT * fro... " />
+                <marker date="1554728941080" expanded="true" signature="16604:16715" ph="INSERT INTO " />
+                <marker date="1554728941080" expanded="true" signature="17117:17173" ph="SELECT count... " />
+                <marker date="1554728941080" expanded="true" signature="17581:17630" ph="SELECT scope... " />
+                <marker date="1554728941080" expanded="true" signature="18190:18263" ph="SELECT publi... " />
+                <marker date="1554728941080" expanded="true" signature="19078:19196" ph="SELECT * FRO... " />
+                <marker date="1554728941080" expanded="true" signature="19974:20087" ph="INSERT INTO " />
+                <marker date="1554728941080" expanded="true" signature="20399:20508" ph="SELECT publi... " />
+                <marker date="1554728941080" expanded="true" signature="20889:20999" ph="SELECT priva... " />
+                <marker date="1554728941080" expanded="true" signature="21391:21510" ph="SELECT encry... " />
+                <marker date="1554728941080" expanded="true" signature="22050:22425" ph="CREATE TABLE... $" />
+                <marker date="1554728941080" expanded="true" signature="22440:22825" ph="CREATE TABLE... $" />
+                <marker date="1554728941080" expanded="true" signature="22840:23316" ph="CREATE TABLE... $" />
+                <marker date="1554728941080" expanded="true" signature="23331:23713" ph="CREATE TABLE... $" />
+                <marker date="1554728941080" expanded="true" signature="23728:24112" ph="CREATE TABLE... $" />
+                <marker date="1554728941080" expanded="true" signature="24127:24320" ph="CREATE TABLE... $" />
+                <marker date="1554728941080" expanded="true" signature="24335:24554" ph="CREATE TABLE... $" />
+                <marker date="1554728941080" expanded="true" signature="24569:24893" ph="CREATE TABLE... $" />
+                <marker date="1554728941080" expanded="true" signature="24908:25184" ph="CREATE TABLE... $" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditCustomerAction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Clients/Action/EditCustomerAction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/settings.php">
+      <file leaf-file-name="Client.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Clients/Client.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="88" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="88" />
-              <folding />
+            <state relative-caret-position="221">
+              <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+              <folding>
+                <element signature="e#35#66#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,7 +184,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Auth/Action/TokenAction.php" />
-        <option value="$PROJECT_DIR$/src/Auth/PdoStorage.php" />
         <option value="$PROJECT_DIR$/phpunit.xml.dist" />
         <option value="$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php" />
         <option value="$PROJECT_DIR$/src/Error/Handler/Error.php" />
@@ -117,7 +197,6 @@
         <option value="$PROJECT_DIR$/test/ErrorTest/Handler/NotAllowedTest.php" />
         <option value="$PROJECT_DIR$/test/ErrorTest/Handler/ErrorTest.php" />
         <option value="$PROJECT_DIR$/test/ErrorTest/Exception/ProblemExceptionTest.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/Util/Utils.php" />
         <option value="$PROJECT_DIR$/test/CustomerTest/CustomerTest.php" />
         <option value="$PROJECT_DIR$/src/Customer/CustomerTransformer.php" />
@@ -139,8 +218,13 @@
         <option value="$PROJECT_DIR$/test/CustomerTest/Action/GetCustomerByUUIDActionTest.php" />
         <option value="$PROJECT_DIR$/test/CustomerTest/Action/ListAuthorsActionTest.php" />
         <option value="$PROJECT_DIR$/test/CustomerTest/Action/ListCustomersActionTest.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/test/CustomerTest/CustomerMapperTest.php" />
         <option value="$PROJECT_DIR$/test/bootstrap.php" />
+        <option value="$PROJECT_DIR$/src/Auth/PdoStorage.php" />
+        <option value="$PROJECT_DIR$/src/Clients/Client.php" />
+        <option value="$PROJECT_DIR$/exchange/currency.class.php" />
+        <option value="$PROJECT_DIR$/exchange/sample.php" />
       </list>
     </option>
   </component>
@@ -283,141 +367,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CustomerTest" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CustomerTest" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Action" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Util" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Customer" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Customer" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Action" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Action" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="exchange" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,16 +384,17 @@
     <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\maishapay-api\v1\test" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\maishapay-api\v1\exchange" />
+      <recent name="C:\xampp\htdocs\maishapay-api\v1\src" />
       <recent name="C:\xampp\htdocs\maishapay-api\v1\src\Auth" />
       <recent name="C:\xampp\htdocs\api" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ListCustomersActionTest">
-    <configuration default="false" name="CreateCustomerActionTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Maishapay\CustomerTest\Action\CreateCustomerActionTest" file="$PROJECT_DIR$/test/CustomerTest/Action/CreateCustomerActionTest.php" scope="Class" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.CustomerMapperTest">
     <configuration default="false" name="DeleteCustomerActionTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Maishapay\CustomerTest\Action\DeleteCustomerActionTest" file="$PROJECT_DIR$/test/CustomerTest/Action/DeleteCustomerActionTest.php" scope="Class" />
       <method />
@@ -458,6 +409,10 @@
     </configuration>
     <configuration default="false" name="ListCustomersActionTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="BookshelfTest\Action\ListCustomersActionTest" file="$PROJECT_DIR$/test/CustomerTest/Action/ListCustomersActionTest.php" scope="Class" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CustomerMapperTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Maishapay\CustomerTest\CustomerMapperTest" file="$PROJECT_DIR$/test/CustomerTest/CustomerMapperTest.php" scope="Class" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -517,19 +472,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="PHPUnit.CreateCustomerActionTest" />
-      <item index="1" class="java.lang.String" itemvalue="PHPUnit.DeleteCustomerActionTest" />
-      <item index="2" class="java.lang.String" itemvalue="PHPUnit.EditCustomerActionTest" />
-      <item index="3" class="java.lang.String" itemvalue="PHPUnit.GetCustomerByUUIDActionTest" />
-      <item index="4" class="java.lang.String" itemvalue="PHPUnit.ListCustomersActionTest" />
+      <item index="0" class="java.lang.String" itemvalue="PHPUnit.DeleteCustomerActionTest" />
+      <item index="1" class="java.lang.String" itemvalue="PHPUnit.EditCustomerActionTest" />
+      <item index="2" class="java.lang.String" itemvalue="PHPUnit.GetCustomerByUUIDActionTest" />
+      <item index="3" class="java.lang.String" itemvalue="PHPUnit.ListCustomersActionTest" />
+      <item index="4" class="java.lang.String" itemvalue="PHPUnit.CustomerMapperTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="PHPUnit.ListCustomersActionTest" />
-        <item index="1" class="java.lang.String" itemvalue="PHPUnit.GetCustomerByUUIDActionTest" />
-        <item index="2" class="java.lang.String" itemvalue="PHPUnit.EditCustomerActionTest" />
-        <item index="3" class="java.lang.String" itemvalue="PHPUnit.DeleteCustomerActionTest" />
-        <item index="4" class="java.lang.String" itemvalue="PHPUnit.CreateCustomerActionTest" />
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.CustomerMapperTest" />
+        <item index="1" class="java.lang.String" itemvalue="PHPUnit.ListCustomersActionTest" />
+        <item index="2" class="java.lang.String" itemvalue="PHPUnit.GetCustomerByUUIDActionTest" />
+        <item index="3" class="java.lang.String" itemvalue="PHPUnit.EditCustomerActionTest" />
+        <item index="4" class="java.lang.String" itemvalue="PHPUnit.DeleteCustomerActionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -617,30 +572,37 @@
       <option name="project" value="LOCAL" />
       <updated>1556022946469</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="initial commit">
+      <created>1556025133153</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1556025133153</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DeleteCustomerActionTest - 2019.04.23 at 14h 18m 08s.xml">
-      <configuration name="DeleteCustomerActionTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="CustomerMapperTest - 2019.04.23 at 15h 12m 52s.xml">
+      <configuration name="CustomerMapperTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="EditCustomerActionTest - 2019.04.23 at 14h 22m 57s.xml">
-      <configuration name="EditCustomerActionTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="CustomerMapperTest - 2019.04.23 at 15h 13m 36s.xml">
+      <configuration name="CustomerMapperTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="GetCustomerByUUIDActionTest - 2019.04.23 at 14h 25m 36s.xml">
-      <configuration name="GetCustomerByUUIDActionTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="CustomerMapperTest - 2019.04.23 at 15h 15m 22s.xml">
+      <configuration name="CustomerMapperTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="GetCustomerByUUIDActionTest - 2019.04.23 at 14h 26m 06s.xml">
-      <configuration name="GetCustomerByUUIDActionTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="CustomerMapperTest - 2019.04.23 at 15h 16m 57s.xml">
+      <configuration name="CustomerMapperTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="GetCustomerByUUIDActionTest - 2019.04.23 at 14h 26m 19s.xml">
-      <configuration name="GetCustomerByUUIDActionTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="CustomerMapperTest - 2019.04.23 at 15h 18m 00s.xml">
+      <configuration name="CustomerMapperTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="GetCustomerByUUIDActionTest - 2019.04.23 at 14h 28m 46s.xml">
-      <configuration name="GetCustomerByUUIDActionTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="CustomerMapperTest - 2019.04.23 at 15h 18m 02s.xml">
+      <configuration name="CustomerMapperTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="GetCustomerByUUIDActionTest - 2019.04.23 at 14h 29m 48s.xml">
-      <configuration name="GetCustomerByUUIDActionTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="CustomerMapperTest - 2019.04.23 at 15h 18m 56s.xml">
+      <configuration name="CustomerMapperTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
     <history-entry file="ListCustomersActionTest - 2019.04.23 at 14h 32m 45s.xml">
       <configuration name="ListCustomersActionTest" configurationId="PHPUnitRunConfigurationType" />
@@ -653,7 +615,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44214000" />
+    <option name="totallyTimeSpent" value="47770000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -668,14 +630,14 @@
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2564725" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19822006" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30795848" sideWeight="0.5080906" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.49676377" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.50323623" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24614395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.49271846" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30795848" sideWeight="0.49190938" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -688,6 +650,27 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.49676377" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.50323623" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298731" sideWeight="0.49271846" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30795848" sideWeight="0.49190938" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2564725" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24614395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -696,101 +679,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <confirmMoveToFailedCommit value="2" />
     <MESSAGE value="initial commit" />
     <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Auth/GuardMiddleware.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-inputfilter/src/Input.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-inputfilter/src/Factory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="356" column="0" lean-forward="false" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2907">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/slim/slim/Slim/App.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Error/Handler/NotAllowed.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Error/Handler/Error.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dependencies.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-267">
-          <caret line="41" column="2" lean-forward="true" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Error/Handler/NotFound.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="40" lean-forward="true" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/ErrorTest/Handler/NotAllowedTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/ErrorTest/Exception/ProblemExceptionTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -830,13 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
           <caret line="909" column="9" lean-forward="false" selection-start-line="909" selection-start-column="9" selection-end-line="909" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="29" column="45" lean-forward="true" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -910,7 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="25" column="60" lean-forward="true" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -918,7 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="830">
           <caret line="240" column="26" lean-forward="false" selection-start-line="240" selection-start-column="22" selection-end-line="240" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -936,11 +826,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="70" lean-forward="false" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer/CustomerTransformer.php">
+    <entry file="file://$PROJECT_DIR$/src/Customers/CustomerTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
@@ -952,21 +841,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="48" lean-forward="false" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer/CustomerMapper.php">
+    <entry file="file://$PROJECT_DIR$/src/Customers/CustomerMapper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="79" column="48" lean-forward="false" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="48" />
           <folding>
-            <element signature="e#742#1103#0#PHP" expanded="false" />
-            <marker date="1556020753766" expanded="true" signature="383:431" ph="SELECT * FRO... customers" />
-            <marker date="1556020753766" expanded="true" signature="805:865" ph="SELECT * FRO... customers" />
-            <marker date="1556020753766" expanded="true" signature="1431:2586" ph="INSERT INTO author... " />
-            <marker date="1556020753766" expanded="true" signature="2976:3588" ph="UPDATE autho... " />
-            <marker date="1556020753766" expanded="true" signature="4019:4077" ph="DELETE FROM " />
+            <element signature="e#743#1104#0#PHP" expanded="false" />
+            <marker date="1556026572192" expanded="true" signature="383:431" ph="SELECT * FRO... customers" />
+            <marker date="1556026572192" expanded="true" signature="806:866" ph="SELECT * FRO... customers" />
+            <marker date="1556026572192" expanded="true" signature="1433:2588" ph="INSERT INTO author... " />
+            <marker date="1556026572192" expanded="true" signature="2978:3590" ph="UPDATE autho... " />
+            <marker date="1556026572192" expanded="true" signature="4024:4082" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -981,7 +869,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer/Action/GetAllCustomersAction.php">
+    <entry file="file://$PROJECT_DIR$/src/Customers/Action/GetAllCustomersAction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -991,7 +879,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer/Action/GetCustomerByUUIDAction.php">
+    <entry file="file://$PROJECT_DIR$/src/Customers/Action/GetCustomerByUUIDAction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
@@ -1001,7 +889,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer/Action/EditCustomerAction.php">
+    <entry file="file://$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
@@ -1011,7 +899,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer/Customer.php">
+    <entry file="file://$PROJECT_DIR$/src/Customers/Customer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
@@ -1021,7 +909,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer/Action/CreateCustomerAction.php">
+    <entry file="file://$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
@@ -1029,7 +917,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer/Action/DeleteCustomerAction.php">
+    <entry file="file://$PROJECT_DIR$/src/Customers/Action/DeleteCustomerAction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
@@ -1043,7 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1097,29 +984,171 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/CustomerTest/CustomerMapperTest.php">
+    <entry file="file://$PROJECT_DIR$/src/settings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-          <folding>
-            <element signature="e#41#73#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/settings.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="88" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="88" />
+        <state relative-caret-position="468">
+          <caret line="233" column="14" lean-forward="true" selection-start-line="233" selection-start-column="14" selection-end-line="233" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_real.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-779">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="1" lean-forward="false" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+        <state relative-caret-position="-51">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/CustomerTest/CustomerMapperTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-731">
+          <caret line="38" column="34" lean-forward="true" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+          <folding>
+            <element signature="e#41#65#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Auth/Action/TokenAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Auth/Action/AuthoriseAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clients/Action/EditCustomerAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clients/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+          <folding>
+            <element signature="e#35#66#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Auth/PdoStorage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding>
+            <marker date="1556026572239" expanded="true" signature="348:405" ph="SELECT * fro... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchange/sample.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchange/currency.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/bshaffer/oauth2-server-php/src/OAuth2/Storage/Pdo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="122" column="5" lean-forward="true" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
+          <folding>
+            <marker date="1554728941080" expanded="true" signature="2985:3030" ph="SELECT * fro... " />
+            <marker date="1554728941080" expanded="true" signature="3438:3483" ph="SELECT * fro... " />
+            <marker date="1554728941080" expanded="true" signature="3890:3935" ph="SELECT * fro... " />
+            <marker date="1554728941080" expanded="true" signature="4880:5047" ph="INSERT INTO " />
+            <marker date="1554728941080" expanded="true" signature="5913:5964" ph="SELECT * fro... " />
+            <marker date="1554728941080" expanded="true" signature="7023:7151" ph="INSERT INTO " />
+            <marker date="1554728941080" expanded="true" signature="7477:7526" ph="DELETE FROM " />
+            <marker date="1554728941080" expanded="true" signature="7878:7927" ph="SELECT * fro... " />
+            <marker date="1554728941080" expanded="true" signature="9275:9430" ph="INSERT INTO " />
+            <marker date="1554728941080" expanded="true" signature="10481:10657" ph="INSERT INTO " />
+            <marker date="1554728941080" expanded="true" signature="10993:11040" ph="DELETE FROM " />
+            <marker date="1554728941080" expanded="true" signature="13345:13398" ph="SELECT * FRO... " />
+            <marker date="1554728941080" expanded="true" signature="14138:14268" ph="INSERT INTO " />
+            <marker date="1554728941080" expanded="true" signature="14596:14647" ph="DELETE FROM " />
+            <marker date="1554728941080" expanded="true" signature="15453:15494" ph="SELECT * fro... " />
+            <marker date="1554728941080" expanded="true" signature="16604:16715" ph="INSERT INTO " />
+            <marker date="1554728941080" expanded="true" signature="17117:17173" ph="SELECT count... " />
+            <marker date="1554728941080" expanded="true" signature="17581:17630" ph="SELECT scope... " />
+            <marker date="1554728941080" expanded="true" signature="18190:18263" ph="SELECT publi... " />
+            <marker date="1554728941080" expanded="true" signature="19078:19196" ph="SELECT * FRO... " />
+            <marker date="1554728941080" expanded="true" signature="19974:20087" ph="INSERT INTO " />
+            <marker date="1554728941080" expanded="true" signature="20399:20508" ph="SELECT publi... " />
+            <marker date="1554728941080" expanded="true" signature="20889:20999" ph="SELECT priva... " />
+            <marker date="1554728941080" expanded="true" signature="21391:21510" ph="SELECT encry... " />
+            <marker date="1554728941080" expanded="true" signature="22050:22425" ph="CREATE TABLE... $" />
+            <marker date="1554728941080" expanded="true" signature="22440:22825" ph="CREATE TABLE... $" />
+            <marker date="1554728941080" expanded="true" signature="22840:23316" ph="CREATE TABLE... $" />
+            <marker date="1554728941080" expanded="true" signature="23331:23713" ph="CREATE TABLE... $" />
+            <marker date="1554728941080" expanded="true" signature="23728:24112" ph="CREATE TABLE... $" />
+            <marker date="1554728941080" expanded="true" signature="24127:24320" ph="CREATE TABLE... $" />
+            <marker date="1554728941080" expanded="true" signature="24335:24554" ph="CREATE TABLE... $" />
+            <marker date="1554728941080" expanded="true" signature="24569:24893" ph="CREATE TABLE... $" />
+            <marker date="1554728941080" expanded="true" signature="24908:25184" ph="CREATE TABLE... $" />
+          </folding>
         </state>
       </provider>
     </entry>
