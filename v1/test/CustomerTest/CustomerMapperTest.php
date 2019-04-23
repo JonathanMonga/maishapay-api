@@ -9,8 +9,7 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        \AppTest\Bootstrap::seedDatabase('truncate-all.sql');
-        \AppTest\Bootstrap::seedDatabase('customer.sql');
+
     }
 
     private function getMockLogger()
@@ -21,6 +20,35 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
             ->getMock();
 
         return $logger;
+    }
+
+    public function testInsert()
+    {
+        $logger = $this->getMockBuilder(Logger::class)
+            ->setMethods(['info'])
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $container = \AppTest\Bootstrap::getContainer();
+        $db = $container->get('db');
+
+        $customer = new Customer([
+            'customer_id' => 'D28677E1-CFCA-4F8E-B9E0-6184F2DE736F',
+            'name' => 'Foo',
+            'biography' => null,
+            'date_of_birth' => null,
+            'created' => '2017-01-28 22:00:01',
+            'updated' => '2017-01-28 22:00:01',
+        ]);
+
+        $mapper = new CustomerMapper($logger, $db);
+        $result = $mapper->insert($customer);
+
+        self::assertInstanceOf(Customer::class, $result);
+
+        // check that the updated property is more recent
+        $newData = $result->getArrayCopy();
+        self::assertGreaterThan('2017-01-28 22:00:01', $newData['updated']);
     }
 
     public function testFetchAll()
@@ -82,35 +110,6 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
         $customer = $mapper->loadById('not-here');
 
         self::assertEquals(false, $customer);
-    }
-
-    public function testInsert()
-    {
-        $logger = $this->getMockBuilder(Logger::class)
-            ->setMethods(['info'])
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $container = \AppTest\Bootstrap::getContainer();
-        $db = $container->get('db');
-
-        $customer = new Customer([
-            'customer_id' => 'D28677E1-CFCA-4F8E-B9E0-6184F2DE736F',
-            'name' => 'Foo',
-            'biography' => null,
-            'date_of_birth' => null,
-            'created' => '2017-01-28 22:00:01',
-            'updated' => '2017-01-28 22:00:01',
-        ]);
-
-        $mapper = new CustomerMapper($logger, $db);
-        $result = $mapper->insert($customer);
-
-        self::assertInstanceOf(Customer::class, $result);
-
-        // check that the updated property is more recent
-        $newData = $result->getArrayCopy();
-        self::assertGreaterThan('2017-01-28 22:00:01', $newData['updated']);
     }
 
     public function testUpdate()
