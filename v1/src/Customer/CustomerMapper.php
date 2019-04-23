@@ -21,7 +21,7 @@ class CustomerMapper
      */
     public function fetchAll()
     {
-        $sql = "SELECT * FROM customers ORDER BY customer_uuid ASC";
+        $sql = "SELECT * FROM customers ORDER BY customer_id ASC";
         $stmt = $this->db->query($sql);
 
         $results = [];

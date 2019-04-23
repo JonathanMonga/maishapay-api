@@ -1,17 +1,17 @@
 <?php
-namespace BookshelfTest\Action;
+namespace Maishapay\CustomerTest\Action;
 
-use Bookshelf\Action\CreateAuthorAction;
-use Bookshelf\Author;
-use Bookshelf\AuthorMapper;
-use Error\Exception\ProblemException;
+use Maishapay\Customer\Action\CreateCustomerAction;
+use Maishapay\Customer\Customer;
+use Maishapay\Customer\CustomerMapper;
+use Maishapay\Util\Utils;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 use Slim\Http\Environment;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class CreateAuthorActionTest extends \PHPUnit_Framework_TestCase
+class CreateCustomerActionTest extends \PHPUnit_Framework_TestCase
 {
     public function testReturnsJsonByDefault()
     {
@@ -23,25 +23,37 @@ class CreateAuthorActionTest extends \PHPUnit_Framework_TestCase
         $renderer = new HalRenderer;
 
         $now = (new \DateTime())->format('Y-m-d H:i:s');
-        $mockData = ['author_id' => '2CB0681F-CCBE-417E-ADAD-19E9215EC58C',
-                    'name' => 'b',
-                    'biography' => 'c',
-                    'date_of_birth' => '1980-01-02',
-                    'created' => $now,
-                    'updated' => $now,
-                    ];
-        $mockAuthor = new Author($mockData);
+        $uuid = Utils::uuid("customer");
 
-        $authorMapper = $this->getMockBuilder(AuthorMapper::class)
+        $mockData = [
+            'customer_id' => 220,
+            'customer_uuid' => $uuid,
+            'country_iso_code' => 'cd',
+            'number_of_account' => 1,
+            'location' => "Mpolo Lubumbashi",
+            'phone_area_code' => '243',
+            'number_phone' => '996980422',
+            'customer_type' => 'particular',
+            'customer_status' => 'active_status',
+            'names' => 'Jonathan Monga',
+            'email' => 'jmonga98@gmail.com',
+            'password' => '12345',
+            'created' => $now,
+            'updated' => $now,
+                    ];
+        $mockAuthor = new Customer($mockData);
+
+        $authorMapper = $this->getMockBuilder(CustomerMapper::class)
             ->setMethods(['insert'])
             ->disableOriginalConstructor()
             ->getMock();
+
         $authorMapper->expects($this->once())
             ->method('insert')
             ->with($this->equalTo($mockAuthor))
             ->willReturn(true);
 
-        $action = new CreateAuthorAction($logger, $renderer, $authorMapper);
+        $action = new CreateCustomerAction($logger, $renderer, $authorMapper);
 
         $request = Request::createFromEnvironment(new Environment());
         $request = $request->withParsedBody($mockData);
@@ -51,7 +63,9 @@ class CreateAuthorActionTest extends \PHPUnit_Framework_TestCase
         $this->assertContains('application/hal+json', $response->getHeaderLine('Content-Type'));
 
         $body = json_decode((string)$response->getBody(), true);
+
+        print json_encode($body, JSON_PRETTY_PRINT);
         $this->assertArrayHasKey('_links', $body);
-        $this->assertSame('b', $body['name']);
+        $this->assertSame('Jonathan Monga', $body['names']);
     }
 }

@@ -3,8 +3,8 @@ namespace Maishapay\Customer\Action;
 
 use Maishapay\Customer\CustomerMapper;
 use Maishapay\Customer\CustomerTransformer;
-use Error\ApiProblem;
-use Error\Exception\ProblemException;
+use Maishapay\Error\ApiProblem;
+use Maishapay\Error\Exception\ProblemException;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 
