@@ -35,13 +35,14 @@ class CustomerMapper
     /**
      * Load a single Customer
      *
-     * @return Customer|false
+     * @param $customer_uuid
+     * @return false|Customer
      */
-    public function loadById($id)
+    public function loadById($customer_uuid)
     {
-        $sql = "SELECT * FROM author WHERE customer_id = :customer_id";
+        $sql = "SELECT * FROM customers WHERE customer_uuid = :customer_uuid";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['customer_id' => $id]);
+        $stmt->execute(['customer_uuid' => $customer_uuid]);
         $data = $stmt->fetch();
 
         if ($data) {
@@ -54,6 +55,7 @@ class CustomerMapper
     /**
      * Create an Customer
      *
+     * @param Customer $customer
      * @return Customer
      */
     public function insert(Customer $customer)
@@ -62,10 +64,36 @@ class CustomerMapper
         $data['created'] = date('Y-m-d H:i:s');
         $data['updated'] = $data['created'];
 
-        $query = "INSERT INTO author (author_id, name, biography, date_of_birth, created, updated)
-            VALUES (:author_id, :name, :biography, :date_of_birth, :created, :updated)";
+        $query =
+            "INSERT INTO customers (customer_uuid, 
+                                         country_iso_code, 
+                                         phone_area_code, 
+                                         number_phone, 
+                                         names, 
+                                         email, 
+                                         password, 
+                                         customer_type, 
+                                         number_of_account, 
+                                         customer_status, 
+                                         location, 
+                                         created, 
+                                         updated)
+                                         
+            VALUES (:customer_uuid, 
+                    :country_iso_code, 
+                    :phone_area_code, 
+                    :number_phone, 
+                    :names, 
+                    :email, 
+                    :password, 
+                    :customer_type, 
+                    :number_of_account, 
+                    :customer_status, 
+                    :created, 
+                    :updated)";
+
         $stmt = $this->db->prepare($query);
-        $result = $stmt->execute($data);
+        $stmt->execute($data);
 
         return new Customer($data);
     }
@@ -73,24 +101,30 @@ class CustomerMapper
     /**
      * Update an author
      *
-     * @return Author
+     * @param Customer $customer
+     * @return Customer
      */
-    public function update(Customer $author)
+    public function update(Customer $customer)
     {
-        $data = $author->getArrayCopy();
+        $data = $customer->getArrayCopy();
         $data['updated'] = date('Y-m-d H:i:s');
 
-        $query = "UPDATE author
-            SET name = :name,
-                biography = :biography,
-                date_of_birth = :date_of_birth,
-                created = :created,
-                updated = :updated
-            WHERE author_id = :author_id
-            ";
+        $query = "UPDATE customers
+            SET country_iso_code = :country_iso_code, 
+                phone_area_code =  :phone_area_code, 
+                number_phone =     :number_phone, 
+                names =            :names, 
+                email =            :email, 
+                password =         :password, 
+                customer_type =    :customer_type, 
+                number_of_account =:number_of_account, 
+                customer_status =  :customer_status, 
+                created =          :created, 
+                updated =          :updated
+            WHERE customer_uuid = :customer_uuid";
 
         $stmt = $this->db->prepare($query);
-        $result = $stmt->execute($data);
+        $stmt->execute($data);
 
         return new Customer($data);
     }
@@ -98,12 +132,13 @@ class CustomerMapper
     /**
      * Delete an Customer
      *
-     * @param $uuid       Id of Customer to delete
-     * @return boolean  True if there was an author to delete
+     * @param $customer_uuid
+     * @return bool True if there was an Customer to delete
+     * @internal param Id $uuid of Customer to delete
      */
-    public function delete($uuid)
+    public function delete($customer_uuid)
     {
-        $data['customer_uuid'] = $uuid;
+        $data['customer_uuid'] = $customer_uuid;
         $query = "DELETE FROM customers WHERE customer_uuid = :customer_uuid";
 
         $stmt = $this->db->prepare($query);

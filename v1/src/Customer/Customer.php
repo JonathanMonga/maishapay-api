@@ -11,15 +11,15 @@ class Customer
     protected $customer_id;
     protected $customer_uuid;
     protected $country_iso_code; //CD, US, ect... and user input
-    protected $country_code; //243, 250, ect... and user input
+    protected $phone_area_code; //243, 250, ect... and user input
     protected $number_phone; //Format 996980422 and user input
     protected $names; //user input
     protected $email; //user input
-    protected $customer_type; //user input
+    protected $customer_type; //user input  (particular | bussness)
     protected $number_of_account; //min 1 (current account), max 2 (current account | saving account)
     protected $location; //user input
     protected $password; //user input
-    protected $customer_status; //active or blocked
+    protected $customer_status; //active_status or blocked_status
     protected $created;
     protected $updated;
 
@@ -30,7 +30,7 @@ class Customer
         $this->customer_id = $data['customer_id'] ?? null;
         $this->customer_uuid = $data['customer_uuid'] ?? null;
         $this->country_iso_code = $data['country_iso_code'] ?? null;
-        $this->country_code = $data['country_code'] ?? null;
+        $this->phone_area_code = $data['phone_area_code'] ?? null;
         $this->number_phone = $data['number_phone'] ?? null;
         $this->names = $data['names'] ?? null;
         $this->email = $data['email'] ?? null;
@@ -44,6 +44,10 @@ class Customer
 
         $now = (new \DateTime())->format('Y-m-d H:i:s');
 
+        if (!$this->customer_uuid) {
+            $this->customer_uuid = Utils::uuid("customer");
+        }
+
         if (!$this->customer_type) {
             $this->customer_type = "particular";
         }
@@ -53,7 +57,7 @@ class Customer
         }
 
         if (!$this->customer_status) {
-            $this->customer_status = 'blocked';
+            $this->customer_status = 'blocked_status';
         }
 
         if (!strtotime($this->created)) {
@@ -74,7 +78,7 @@ class Customer
             'customer_type' => $this->customer_type,
             'number_of_account' => $this->number_of_account,
             'customer_status' => $this->customer_status,
-            'country_code' => $this->country_code,
+            'phone_area_code' => $this->phone_area_code,
             'number_phone' => $this->number_phone,
             'names' => $this->names,
             'email' => $this->email,
@@ -90,7 +94,7 @@ class Customer
         $data = $this->validate($data, [
             'customer_uuid',
             'country_iso_code',
-            'country_code', 
+            'phone_area_code',
             'number_phone',
             'names',
             'email',
@@ -99,7 +103,7 @@ class Customer
 
         $this->customer_uuid = $data['customer_uuid'] ?? $this->customer_uuid;
         $this->country_iso_code = $data['country_iso_code'] ?? $this->country_iso_code;
-        $this->country_code = $data['country_code'] ?? $this->country_code;
+        $this->phone_area_code = $data['phone_area_code'] ?? $this->phone_area_code;
         $this->number_phone = $data['number_phone'] ?? $this->number_phone;
         $this->names = $data['names'] ?? $this->names;
         $this->email = $data['email'] ?? $this->email;
@@ -201,7 +205,7 @@ class Customer
                     ],
                 ],
             ],
-            'country_code' => [
+            'phone_area_code' => [
                 'required' => true,
                 'allowEmpty' => false,
                 'filters' => [

@@ -19,7 +19,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase
             'country_iso_code' => 'cd',
             'number_of_account' => 1,
             'location' => "Mpolo Lubumbashi",
-            'country_code' => '243',
+            'phone_area_code' => '243',
             'number_phone' => '996980422',
             'customer_type' => 'particular',
             'customer_status' => 'activated',

@@ -1,7 +1,7 @@
 <?php
-namespace AppTest\Action;
+namespace Maishapay\AppTest\Action;
 
-use App\Action\HomeAction;
+use Maishapay\App\Action\HomeAction;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 use Slim\Http\Environment;
@@ -16,6 +16,7 @@ class HomeActionTest extends \PHPUnit_Framework_TestCase
             ->setMethods(['info'])
             ->disableOriginalConstructor()
             ->getMock();
+
         $renderer = new HalRenderer;
 
         $action = new HomeAction($logger, $renderer);

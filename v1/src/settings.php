@@ -10,9 +10,9 @@ return [
 
     // Database adapter
     'db' => [
-        'dsn' => getenv('DB_DSN') ?: 'sqlite:' . __DIR__ . '/../db/maishapay.db',
-        'user' => getenv('DB_USER') ?: null,
-        'pass' => getenv('DB_PASS') ?: null,
+        'dsn' => 'mysql:host=localhost;dbname=cp973977_maishapay-api',
+        'user' => 'root',
+        'pass' => null,
     ],
 
     // Monolog
