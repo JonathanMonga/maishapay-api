@@ -9,9 +9,13 @@ use Zend\InputFilter\Factory as InputFilterFactory;
 class Client
 {
     protected $client_uuid; //Client id
-    protected $customer_uuid; //Client secret
+    protected $client_secret; //Client secret
     protected $customer_status; //active_status or blocked_status
     protected $call_limit; //Call limit
+    protected $redirect_uri; //Redirect uri
+    protected $grant_types; //Grant type
+    protected $scope; //Scope
+    protected $customer_uuid; //User id
     protected $created;
     protected $updated;
 
@@ -19,33 +23,29 @@ class Client
     {
         $data = $this->validate($data);
 
-        $this->customer_id = $data['customer_id'] ?? null;
-        $this->customer_uuid = $data['customer_uuid'] ?? null;
-        $this->country_iso_code = $data['country_iso_code'] ?? null;
-        $this->phone_area_code = $data['phone_area_code'] ?? null;
-        $this->number_phone = $data['number_phone'] ?? null;
-        $this->names = $data['names'] ?? null;
-        $this->email = $data['email'] ?? null;
-        $this->password = $data['password'] ?? null;
-        $this->customer_type = $data['customer_type'] ?? null;
-        $this->number_of_account = $data['number_of_account'] ?? null;
+        $this->client_uuid = $data['client_uuid'] ?? null;
+        $this->client_secret = $data['client_secret'] ?? null;
         $this->customer_status = $data['customer_status'] ?? null;
-        $this->location = $data['location'] ?? null;
+        $this->call_limit = $data['call_limit'] ?? null;
+        $this->redirect_uri = $data['redirect_uri'] ?? null;
+        $this->grant_types = $data['grant_types'] ?? null;
+        $this->scope = $data['scope'] ?? null;
+        $this->customer_uuid = $data['customer_uuid'] ?? null;
         $this->created = $data['created'] ?? null;
         $this->updated = $data['updated'] ?? null;
 
         $now = (new \DateTime())->format('Y-m-d H:i:s');
 
-        if (!$this->customer_uuid) {
-            $this->customer_uuid = Utils::uuid("customer");
+        if (!$this->client_uuid) {
+            $this->client_uuid = Utils::uuid("client");
         }
 
-        if (!$this->customer_type) {
-            $this->customer_type = "particular";
+        if (!$this->call_limit) {
+            $this->call_limit = 100;
         }
 
-        if (!$this->number_of_account) {
-            $this->number_of_account = 1;
+        if (!$this->scope) {
+            $this->scope = 'profil phone_number email';
         }
 
         if (!$this->customer_status) {
@@ -64,18 +64,14 @@ class Client
     public function getArrayCopy()
     {
         return [
-            'customer_id' => $this->customer_id,
-            'customer_uuid' => $this->customer_uuid,
-            'country_iso_code' => $this->country_iso_code,
-            'customer_type' => $this->customer_type,
-            'number_of_account' => $this->number_of_account,
+            'client_uuid' => $this->client_uuid,
+            'client_secret' => $this->client_secret,
             'customer_status' => $this->customer_status,
-            'phone_area_code' => $this->phone_area_code,
-            'number_phone' => $this->number_phone,
-            'names' => $this->names,
-            'email' => $this->email,
-            'password' => $this->password,
-            'location' => $this->location,
+            'call_limit' => $this->call_limit,
+            'redirect_uri' => $this->redirect_uri,
+            'grant_types' => $this->grant_types,
+            'scope' => $this->scope,
+            'customer_uuid' => $this->customer_uuid,
             'created' => $this->created,
             'updated' => $this->updated,
         ];
@@ -84,22 +80,18 @@ class Client
     public function update($data)
     {
         $data = $this->validate($data, [
-            'customer_uuid',
-            'country_iso_code',
-            'phone_area_code',
-            'number_phone',
-            'names',
-            'email',
-            'password'
+            'client_uuid',
+            'client_secret',
+            'customer_status',
+            'call_limit',
+            'redirect_uri',
             ]);
 
-        $this->customer_uuid = $data['customer_uuid'] ?? $this->customer_uuid;
-        $this->country_iso_code = $data['country_iso_code'] ?? $this->country_iso_code;
-        $this->phone_area_code = $data['phone_area_code'] ?? $this->phone_area_code;
-        $this->number_phone = $data['number_phone'] ?? $this->number_phone;
-        $this->names = $data['names'] ?? $this->names;
-        $this->email = $data['email'] ?? $this->email;
-        $this->password = $data['password'] ?? $this->password;
+        $this->client_uuid = $data['client_uuid'] ?? $this->client_uuid;
+        $this->client_secret = $data['client_secret'] ?? $this->client_secret;
+        $this->customer_status = $data['customer_status'] ?? $this->customer_status;
+        $this->call_limit = $data['call_limit'] ?? $this->call_limit;
+        $this->redirect_uri = $data['redirect_uri'] ?? $this->redirect_uri;
     }
 
     /**
@@ -132,40 +124,73 @@ class Client
     protected function createInputFilter($elements = [])
     {
         $specification = [
-            'customer_id' => [
-                'required' => false,
-                'allowEmpty' => true,
+            'client_uuid' => [
+                'required' => true,
+                'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
             ],
-            'location' => [
-                'required' => false,
-                'allowEmpty' => true,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StripTags'],
-                ],
-            ],
-            'number_of_account' => [
-                'required' => false,
-                'allowEmpty' => true,
+            'client_secret' => [
+                'required' => true,
+                'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
             ],
             'customer_status' => [
-                'required' => false,
+                'required' => true,
                 'allowEmpty' => true,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
             ],
-            'customer_uuid' => [
+            'call_limit' => [
+                'required' => true,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+                'validators' => [
+                    [
+                        'name' => 'StringLength',
+                        'options' => [
+                            'max' => 100,
+                        ],
+                    ],
+                ],
+            ],
+            'redirect_uri' => [
                 'required' => false,
+                'allowEmpty' => false,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ]
+            ],
+            'grant_types' => [
+                'required' => false,
+                'allowEmpty' => false,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StringToLower'],
+                    ['name' => 'StripTags'],
+                ]
+            ],
+            'scope' => [
+                'required' => true,
+                'allowEmpty' => false,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ]
+            ],
+            'customer_uuid' => [
+                'required' => true,
                 'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
@@ -176,99 +201,6 @@ class Client
                         'name' => 'StringLength',
                         'options' => [
                             'min' => 45,
-                        ],
-                    ],
-                ],
-            ],
-            'country_iso_code' => [
-                'required' => false,
-                'allowEmpty' => false,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StringToLower'],
-                    ['name' => 'StripTags'],
-                ],
-                'validators' => [
-                    [
-                        'name' => 'StringLength',
-                        'options' => [
-                            'min' => 2,
-                        ],
-                    ],
-                ],
-            ],
-            'phone_area_code' => [
-                'required' => true,
-                'allowEmpty' => false,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StripTags'],
-                ],
-                'validators' => [
-                    [
-                        'name' => 'StringLength',
-                        'options' => [
-                            'min' => 3,
-                        ],
-                    ],
-                ],
-            ],
-            'number_phone' => [
-                'required' => true,
-                'allowEmpty' => false,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StripTags'],
-                ],
-                'validators' => [
-                    [
-                        'name' => 'StringLength',
-                        'options' => [
-                            'min' => 9,
-                        ],
-                    ],
-                ],
-            ],
-            'customer_type' => [
-                'required' => false,
-                'allowEmpty' => false,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StripTags'],
-                ],
-            ],
-            'names' => [
-                'required' => false,
-                'allowEmpty' => false,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StripTags'],
-                ],
-            ],
-            'email' => [
-                'required' => true,
-                'allowEmpty' => false,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StringToLower'],
-                    ['name' => 'StripTags'],
-                ],
-                'validators' => [
-                    ['name' => 'EmailAddress'],
-                ],
-            ],
-            'password' => [
-                'required' => true,
-                'allowEmpty' => false,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StripTags'],
-                ],
-                'validators' => [
-                    [
-                        'name' => 'StringLength',
-                        'options' => [
-                            'min' => 4,
                         ],
                     ],
                 ],

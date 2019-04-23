@@ -10,7 +10,8 @@ class OAuth2ServerProvider implements ServiceProviderInterface
     /**
      * Register all the services required by the OAuth2 server
      *
-     * @param  Container $c
+     * @param Container $container
+     * @internal param Container $c
      */
     public function register(Container $container)
     {
