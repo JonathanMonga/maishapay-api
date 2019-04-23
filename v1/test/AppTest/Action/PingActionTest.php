@@ -1,9 +1,8 @@
 <?php
-namespace AppTest\Action;
+namespace Maishapay\AppTest\Action;
 
-use App\Action\PingAction;
+use Maishapay\App\Action\PingAction;
 use Monolog\Logger;
-use RKA\ContentTypeRenderer\HalRenderer;
 use Slim\Http\Environment;
 use Slim\Http\Request;
 use Slim\Http\Response;

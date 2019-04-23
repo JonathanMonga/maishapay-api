@@ -1,13 +1,18 @@
 <?php
 namespace Maishapay\CustomerTest;
 
-use Maishapay\AppTest\Bootstrap;
-use Maishapay\Customer\Customer;
-use Maishapay\Customer\CustomerMapper;
+use Maishapay\AppTest\{
+    Bootstrap
+};
+use Maishapay\Customer\{
+    Customer,
+    CustomerMapper
+};
 use Monolog\Logger;
 
 class CustomerMapperTest extends \PHPUnit_Framework_TestCase
 {
+
     public function setUp()
     {
 
@@ -65,7 +70,7 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
     {
         $logger = $this->getMockLogger();
 
-        $container = \AppTest\Bootstrap::getContainer();
+        $container = Bootstrap::getContainer();
         $db = $container->get('db');
 
         $mapper = new CustomerMapper($logger, $db);
@@ -91,7 +96,7 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
     {
         $logger = $this->getMockLogger();
 
-        $container = \AppTest\Bootstrap::getContainer();
+        $container = Bootstrap::getContainer();
         $db = $container->get('db');
 
         $mapper = new CustomerMapper($logger, $db);
@@ -113,7 +118,7 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
     {
         $logger = $this->getMockLogger();
 
-        $container = \AppTest\Bootstrap::getContainer();
+        $container = Bootstrap::getContainer();
         $db = $container->get('db');
 
         $mapper = new CustomerMapper($logger, $db);
@@ -129,7 +134,7 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $container = \AppTest\Bootstrap::getContainer();
+        $container = Bootstrap::getContainer();
         $db = $container->get('db');
 
         $mapper = new CustomerMapper($logger, $db);
@@ -154,7 +159,7 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $container = \AppTest\Bootstrap::getContainer();
+        $container = Bootstrap::getContainer();
         $db = $container->get('db');
 
         $mapper = new CustomerMapper($logger, $db);
@@ -178,7 +183,7 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $container = \AppTest\Bootstrap::getContainer();
+        $container = Bootstrap::getContainer();
         $db = $container->get('db');
 
         $mapper = new CustomerMapper($logger, $db);
