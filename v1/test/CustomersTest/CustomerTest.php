@@ -11,7 +11,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase
      */
     public function testCustomer()
     {
-        $uuid = Utils::uuid("customer");
+        $uuid = Utils::uuid("customer-id");
 
         $customer = new Customer([
             'customer_id' => 220,

@@ -8,7 +8,6 @@ class PdoStorage extends Pdo
 
     protected function checkPassword($user, $password)
     {
-        echo $user['password'].' '.$password;
         return password_verify($password, $user['password']);
     }
 

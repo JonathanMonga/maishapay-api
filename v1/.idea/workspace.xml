@@ -2,41 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f356ab19-9931-4ea1-b163-8f739f8c12b6" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Clients/Action/CreateCustomerAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/CreateClientAction.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Clients/Action/DeleteCustomerAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/DeleteClientAction.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Clients/Action/EditCustomerAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/EditClientAction.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Clients/Action/GetAllCustomersAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/GetAllClientsAction.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Clients/Action/GetCustomerByUUIDAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/GetClientByUUIDAction.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/CustomerTest/Action/CreateCustomerActionTest.php" afterPath="$PROJECT_DIR$/test/CustomersTest/Action/CreateCustomerActionTest.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/CustomerTest/Action/DeleteCustomerActionTest.php" afterPath="$PROJECT_DIR$/test/CustomersTest/Action/DeleteCustomerActionTest.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/CustomerTest/Action/EditCustomerActionTest.php" afterPath="$PROJECT_DIR$/test/CustomersTest/Action/EditCustomerActionTest.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/CustomerTest/Action/GetCustomerByUUIDActionTest.php" afterPath="$PROJECT_DIR$/test/CustomersTest/Action/GetCustomerByUUIDActionTest.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/CustomerTest/Action/ListCustomersActionTest.php" afterPath="$PROJECT_DIR$/test/CustomersTest/Action/ListCustomersActionTest.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/CustomerTest/CustomerMapperTest.php" afterPath="$PROJECT_DIR$/test/CustomersTest/CustomerMapperTest.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/CustomerTest/CustomerTest.php" afterPath="$PROJECT_DIR$/test/CustomersTest/CustomerTest.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/CustomerTest/CustomerTransformerTest.php" afterPath="$PROJECT_DIR$/test/CustomersTest/CustomerTransformerTest.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/privkey.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/pubkey.pem" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php" afterPath="$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Auth/PdoStorage.php" afterPath="$PROJECT_DIR$/src/Auth/PdoStorage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Clients/Client.php" afterPath="$PROJECT_DIR$/src/Clients/Client.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Clients/ClientMapper.php" afterPath="$PROJECT_DIR$/src/Clients/ClientMapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Clients/ClientTransformer.php" afterPath="$PROJECT_DIR$/src/Clients/ClientTransformer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php" afterPath="$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/Action/DeleteCustomerAction.php" afterPath="$PROJECT_DIR$/src/Customers/Action/DeleteCustomerAction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php" afterPath="$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/Action/GetAllCustomersAction.php" afterPath="$PROJECT_DIR$/src/Customers/Action/GetAllCustomersAction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/Action/GetCustomerByUUIDAction.php" afterPath="$PROJECT_DIR$/src/Customers/Action/GetCustomerByUUIDAction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/Customer.php" afterPath="$PROJECT_DIR$/src/Customers/Customer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/CustomerMapper.php" afterPath="$PROJECT_DIR$/src/Customers/CustomerMapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/CustomerTransformer.php" afterPath="$PROJECT_DIR$/src/Customers/CustomerTransformer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dependencies.php" afterPath="$PROJECT_DIR$/src/dependencies.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.php" afterPath="$PROJECT_DIR$/src/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/settings.php" afterPath="$PROJECT_DIR$/src/settings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/app.log" afterPath="$PROJECT_DIR$/var/app.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CustomersTest/CustomerTest.php" afterPath="$PROJECT_DIR$/test/CustomersTest/CustomerTest.php" />
     </list>
     <list id="b987492a-d799-4baa-926c-5d08597b6404" name="Failed commit: Default" comment="initial commit" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,23 +45,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GuardMiddleware.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Auth/GuardMiddleware.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PdoStorage.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PdoStorage.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Auth/PdoStorage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+            <state relative-caret-position="153">
+              <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding>
-                <marker date="1556193943665" expanded="true" signature="394:451" ph="SELECT * fro... " />
+                <marker date="1556195267598" expanded="true" signature="348:405" ph="SELECT * fro... " />
               </folding>
             </state>
           </provider>
@@ -106,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerMapperTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CustomerMapperTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/CustomersTest/CustomerMapperTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
@@ -118,11 +79,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CustomerTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/CustomersTest/CustomerTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="13" column="40" lean-forward="false" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="settings.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/settings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+            <state relative-caret-position="119">
+              <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -153,26 +124,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OAuth2ServerProvider.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-20">
-              <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="626">
-              <caret line="46" column="33" lean-forward="false" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -215,7 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/App/Action/HomeAction.php" />
         <option value="$PROJECT_DIR$/test/ErrorTest/ApiProblemTest.php" />
         <option value="$PROJECT_DIR$/test/ErrorTest/Handler/NotFoundTest.php" />
         <option value="$PROJECT_DIR$/test/ErrorTest/Handler/NotAllowedTest.php" />
@@ -262,10 +212,11 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/dependencies.php" />
         <option value="$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php" />
-        <option value="$PROJECT_DIR$/src/settings.php" />
-        <option value="$PROJECT_DIR$/src/Auth/PdoStorage.php" />
         <option value="$PROJECT_DIR$/src/Customers/Customer.php" />
         <option value="$PROJECT_DIR$/test/CustomersTest/CustomerMapperTest.php" />
+        <option value="$PROJECT_DIR$/test/CustomersTest/CustomerTest.php" />
+        <option value="$PROJECT_DIR$/src/settings.php" />
+        <option value="$PROJECT_DIR$/src/Auth/PdoStorage.php" />
       </list>
     </option>
   </component>
@@ -447,20 +398,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -599,7 +536,7 @@
       <workItem from="1554987809435" duration="1313000" />
       <workItem from="1554978279102" duration="4707000" />
       <workItem from="1556016574197" duration="6896000" />
-      <workItem from="1556051466219" duration="7277000" />
+      <workItem from="1556051466219" duration="8433000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1554726036091</created>
@@ -685,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556032890015</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="initial commit">
+      <created>1556194256258</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1556194256258</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -721,7 +665,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60477000" />
+    <option name="totallyTimeSpent" value="61633000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -736,7 +680,7 @@
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23624596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23624596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.50323623" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24614395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -796,21 +740,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/nocarrier/hal/src/Nocarrier/Hal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
-          <caret line="240" column="26" lean-forward="false" selection-start-line="240" selection-start-column="22" selection-end-line="240" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql/maishapay.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="70" lean-forward="false" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -1093,16 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/CustomersTest/CustomerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-          <folding>
-            <element signature="e#42#75#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/CustomersTest/CustomerTransformerTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1233,21 +1152,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/settings.php">
+    <entry file="file://$PROJECT_DIR$/test/CustomersTest/CustomerMapperTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="425">
+          <caret line="40" column="43" lean-forward="false" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+          <folding>
+            <element signature="e#42#66#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Auth/PdoStorage.php">
+    <entry file="file://$PROJECT_DIR$/test/CustomersTest/CustomerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-          <folding>
-            <marker date="1556193943665" expanded="true" signature="394:451" ph="SELECT * fro... " />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="13" column="40" lean-forward="false" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1259,12 +1178,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/CustomersTest/CustomerMapperTest.php">
+    <entry file="file://$PROJECT_DIR$/src/settings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="40" column="43" lean-forward="false" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+        <state relative-caret-position="119">
+          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/pubkey.pem">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/privkey.pem">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Auth/PdoStorage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding>
-            <element signature="e#42#66#0#PHP" expanded="true" />
+            <marker date="1556195267598" expanded="true" signature="348:405" ph="SELECT * fro... " />
           </folding>
         </state>
       </provider>
