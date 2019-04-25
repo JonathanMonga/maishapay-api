@@ -26,7 +26,7 @@
         "psr-4":{
             "Maishapay\\App\\": "src/App/",
             "Maishapay\\Auth\\": "src/Auth/",
-            "Maishapay\\Customer\\": "src/Customer/",
+            "Maishapay\\Customers\\": "src/Customers/",
             "Maishapay\\Util\\": "src/Util/",
             "Maishapay\\Error\\": "src/Error/"
         }
@@ -44,7 +44,7 @@
         "psr-4": {
             "Maishapay\\": "test/unit/",
             "Maishapay\\AppTest\\": "test/unit/AppTest/",
-            "Maishapay\\CustomerTest\\": "test/unit/CustomerTest/",
+            "Maishapay\\CustomersTest\\": "test/unit/CustomersTest/",
             "Maishapay\\ErrorTest\\": "test/unit/ErrorTest/"
         }
     }

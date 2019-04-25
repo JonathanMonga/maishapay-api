@@ -63,8 +63,8 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
             'Maishapay\\Util\\' => 15,
             'Maishapay\\Error\\' => 16,
             'Maishapay\\ErrorTest\\' => 20,
-            'Maishapay\\Customer\\' => 19,
-            'Maishapay\\CustomerTest\\' => 23,
+            'Maishapay\\Customers\\' => 20,
+            'Maishapay\\CustomersTest\\' => 24,
             'Maishapay\\Auth\\' => 15,
             'Maishapay\\App\\' => 14,
             'Maishapay\\AppTest\\' => 18,
@@ -201,13 +201,13 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         array (
             0 => __DIR__ . '/../..' . '/test/unit/ErrorTest',
         ),
-        'Maishapay\\Customer\\' => 
+        'Maishapay\\Customers\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Customer',
+            0 => __DIR__ . '/../..' . '/src/Customers',
         ),
-        'Maishapay\\CustomerTest\\' => 
+        'Maishapay\\CustomersTest\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/test/unit/CustomerTest',
+            0 => __DIR__ . '/../..' . '/test/unit/CustomersTest',
         ),
         'Maishapay\\Auth\\' => 
         array (
@@ -759,14 +759,14 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Maishapay\\Auth\\GuardMiddleware' => __DIR__ . '/../..' . '/src/Auth/GuardMiddleware.php',
         'Maishapay\\Auth\\OAuth2ServerProvider' => __DIR__ . '/../..' . '/src/Auth/OAuth2ServerProvider.php',
         'Maishapay\\Auth\\PdoStorage' => __DIR__ . '/../..' . '/src/Auth/PdoStorage.php',
-        'Maishapay\\Customer\\Action\\CreateCustomerAction' => __DIR__ . '/../..' . '/src/Customer/Action/CreateCustomerAction.php',
-        'Maishapay\\Customer\\Action\\DeleteCustomerAction' => __DIR__ . '/../..' . '/src/Customer/Action/DeleteCustomerAction.php',
-        'Maishapay\\Customer\\Action\\EditCustomerAction' => __DIR__ . '/../..' . '/src/Customer/Action/EditCustomerAction.php',
-        'Maishapay\\Customer\\Action\\GetAllCustomersAction' => __DIR__ . '/../..' . '/src/Customer/Action/GetAllCustomersAction.php',
-        'Maishapay\\Customer\\Action\\GetCustomerByUUIDAction' => __DIR__ . '/../..' . '/src/Customer/Action/GetCustomerByUUIDAction.php',
-        'Maishapay\\Customer\\Customer' => __DIR__ . '/../..' . '/src/Customer/Customer.php',
-        'Maishapay\\Customer\\CustomerMapper' => __DIR__ . '/../..' . '/src/Customer/CustomerMapper.php',
-        'Maishapay\\Customer\\CustomerTransformer' => __DIR__ . '/../..' . '/src/Customer/CustomerTransformer.php',
+        'Maishapay\\Customers\\Action\\CreateCustomerAction' => __DIR__ . '/../..' . '/src/Customers/Action/CreateCustomerAction.php',
+        'Maishapay\\Customers\\Action\\DeleteCustomerAction' => __DIR__ . '/../..' . '/src/Customers/Action/DeleteCustomerAction.php',
+        'Maishapay\\Customers\\Action\\EditCustomerAction' => __DIR__ . '/../..' . '/src/Customers/Action/EditCustomerAction.php',
+        'Maishapay\\Customers\\Action\\GetAllCustomersAction' => __DIR__ . '/../..' . '/src/Customers/Action/GetAllCustomersAction.php',
+        'Maishapay\\Customers\\Action\\GetCustomerByUUIDAction' => __DIR__ . '/../..' . '/src/Customers/Action/GetCustomerByUUIDAction.php',
+        'Maishapay\\Customers\\Customer' => __DIR__ . '/../..' . '/src/Customers/Customer.php',
+        'Maishapay\\Customers\\CustomerMapper' => __DIR__ . '/../..' . '/src/Customers/CustomerMapper.php',
+        'Maishapay\\Customers\\CustomerTransformer' => __DIR__ . '/../..' . '/src/Customers/CustomerTransformer.php',
         'Maishapay\\Error\\ApiProblem' => __DIR__ . '/../..' . '/src/Error/ApiProblem.php',
         'Maishapay\\Error\\Exception\\ProblemException' => __DIR__ . '/../..' . '/src/Error/Exception/ProblemException.php',
         'Maishapay\\Error\\Handler\\Error' => __DIR__ . '/../..' . '/src/Error/Handler/Error.php',

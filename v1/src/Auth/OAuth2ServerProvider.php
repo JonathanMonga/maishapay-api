@@ -2,6 +2,7 @@
 namespace Maishapay\Auth;
 
 use OAuth2;
+use OAuth2\OAuth2Sever;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
@@ -15,7 +16,7 @@ class OAuth2ServerProvider implements ServiceProviderInterface
      */
     public function register(Container $container)
     {
-        $container[OAuth2\OAuth2Sever::class] = function ($c) {
+        $container[OAuth2Sever::class] = function ($c) {
             $pdo = $c->get('db');
             $storage = new PdoStorage($pdo);
 
@@ -56,12 +57,12 @@ class OAuth2ServerProvider implements ServiceProviderInterface
         };
 
         $container[Action\TokenAction::class] = function ($c) {
-            $server = $c->get(OAuth2\OAuth2Sever::class);
+            $server = $c->get(OAuth2Sever::class);
             return new Action\TokenAction($server);
         };
 
         $container[Action\AuthoriseAction::class] = function ($c) {
-            $server = $c->get(OAuth2\OAuth2Sever::class);
+            $server = $c->get(OAuth2Sever::class);
             return new Action\AuthoriseAction($server);
         };
 
@@ -72,7 +73,7 @@ class OAuth2ServerProvider implements ServiceProviderInterface
             if ($useJwtBearerTokens) {
                 $server = $c->get('OAuth2JwtServer');
             } else {
-                $server = $c->get(OAuth2\OAuth2Sever::class);
+                $server = $c->get(OAuth2Sever::class);
             }
             return new GuardMiddleware($server);
         };

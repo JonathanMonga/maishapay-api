@@ -48,8 +48,8 @@ $container['phpErrorHandler'] = function () {
 };
 
 // Mappers
-$container[Maishapay\Customer\CustomerMapper::class] = function ($c) {
-    return new Maishapay\Customer\CustomerMapper($c->get('logger'), $c->get('db'));
+$container[Maishapay\Customers\CustomerMapper::class] = function ($c) {
+    return new Maishapay\Customers\CustomerMapper($c->get('logger'), $c->get('db'));
 };
 
 // Actions
@@ -68,15 +68,15 @@ $authorActionFactory = function ($actionClass) {
     return function ($c) use ($actionClass) {
         $logger = $c->get('logger');
         $renderer = $c->get('renderer');
-        $mapper = $c->get(Maishapay\Customer\CustomerMapper::class);
+        $mapper = $c->get(Maishapay\Customers\CustomerMapper::class);
         return new $actionClass($logger, $renderer, $mapper);
     };
 };
 
 // @codingStandardsIgnoreStart
-$container[Maishapay\Customer\Action\GetAllCustomersAction::class] = $authorActionFactory(Maishapay\Customer\Action\GetAllCustomersAction::class);
-$container[Maishapay\Customer\Action\GetCustomerByUUIDAction::class] = $authorActionFactory(Maishapay\Customer\Action\GetCustomerByUUIDAction::class);
-$container[Maishapay\Customer\Action\CreateCustomerAction::class] = $authorActionFactory(Maishapay\Customer\Action\CreateCustomerAction::class);
-$container[Maishapay\Customer\Action\EditCustomerAction::class] = $authorActionFactory(Maishapay\Customer\Action\EditCustomerAction::class);
-$container[Maishapay\Customer\Action\DeleteCustomerAction::class] = $authorActionFactory(Maishapay\Customer\Action\DeleteCustomerAction::class);
+$container[Maishapay\Customers\Action\GetAllCustomersAction::class] = $authorActionFactory(Maishapay\Customers\Action\GetAllCustomersAction::class);
+$container[Maishapay\Customers\Action\GetCustomerByUUIDAction::class] = $authorActionFactory(Maishapay\Customers\Action\GetCustomerByUUIDAction::class);
+$container[Maishapay\Customers\Action\CreateCustomerAction::class] = $authorActionFactory(Maishapay\Customers\Action\CreateCustomerAction::class);
+$container[Maishapay\Customers\Action\EditCustomerAction::class] = $authorActionFactory(Maishapay\Customers\Action\EditCustomerAction::class);
+$container[Maishapay\Customers\Action\DeleteCustomerAction::class] = $authorActionFactory(Maishapay\Customers\Action\DeleteCustomerAction::class);
 // @codingStandardsIgnoreEnd

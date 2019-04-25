@@ -1,7 +1,7 @@
 <?php
-namespace Maishapay\CustomerTest;
+namespace Maishapay\CustomersTest;
 
-use Maishapay\Customer\Customer;
+use Maishapay\Customers\Customer;
 use Maishapay\Util\Utils;
 
 class CustomerTest extends \PHPUnit_Framework_TestCase

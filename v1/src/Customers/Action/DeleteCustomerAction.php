@@ -1,7 +1,7 @@
 <?php
-namespace Maishapay\Customer\Action;
+namespace Maishapay\Customers\Action;
 
-use Maishapay\Customer\CustomerMapper;
+use Maishapay\Customers\CustomerMapper;
 use Maishapay\Error\ApiProblem;
 use Maishapay\Error\Exception\ProblemException;
 use Monolog\Logger;

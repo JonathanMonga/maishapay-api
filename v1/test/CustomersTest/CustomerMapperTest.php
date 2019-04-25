@@ -1,8 +1,8 @@
 <?php
-namespace Maishapay\CustomerTest;
+namespace Maishapay\CustomersTest;
 
 use Maishapay\Bootstrap;
-use Maishapay\Customer\{
+use Maishapay\Customers\{
     Customer,
     CustomerMapper
 };
@@ -38,7 +38,7 @@ class CustomerMapperTest extends \PHPUnit_Framework_TestCase
 
         $customer = new Customer([
             'customer_id' => 220,
-            'customer_uuid' => 'customer-814469d5-919f-4b67-9360-5b777b040c73',
+            'customer_uuid' => 'customer-id-814469d5-919f-4b67-9360-5b777b040c73',
             'country_iso_code' => 'cd',
             'number_of_account' => 1,
             'location' => "Mpolo Lubumbashi",

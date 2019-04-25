@@ -1,5 +1,5 @@
 <?php
-namespace Maishapay\Customer;
+namespace Maishapay\Customers;
 
 use Maishapay\Error\ApiProblem;
 use Maishapay\Error\Exception\ProblemException;
@@ -45,7 +45,7 @@ class Customer
         $now = (new \DateTime())->format('Y-m-d H:i:s');
 
         if (!$this->customer_uuid) {
-            $this->customer_uuid = Utils::uuid("customer");
+            $this->customer_uuid = Utils::uuid("customer-id");
         }
 
         if (!$this->customer_type) {

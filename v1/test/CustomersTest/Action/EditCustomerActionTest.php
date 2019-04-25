@@ -1,9 +1,9 @@
 <?php
-namespace BookshelfTest\Action;
+namespace Maishapay\CustomersTest\Action;
 
-use Maishapay\Customer\Action\EditCustomerAction;
-use Maishapay\Customer\Customer;
-use Maishapay\Customer\CustomerMapper;
+use Maishapay\Customers\Action\EditCustomerAction;
+use Maishapay\Customers\Customer;
+use Maishapay\Customers\CustomerMapper;
 use Maishapay\Error\Exception\ProblemException;
 use Maishapay\Util\Utils;
 use Monolog\Logger;

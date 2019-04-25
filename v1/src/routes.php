@@ -1,17 +1,27 @@
 <?php
 // Routes
 
+use Maishapay\Auth\Action\{
+    AuthoriseAction,
+    TokenAction
+};
+
+use Maishapay\Auth\GuardMiddleware;
+
+use Maishapay\Client\Action\CreateClientAction;
+use Maishapay\Customers\Action\GetAllCustomersAction;
+
 $app->get('/', Maishapay\App\Action\HomeAction::class); //Home route
 $app->get('/ping', Maishapay\App\Action\PingAction::class); //Ping route
 
 // Routes that need a valid user token
 $app->group('', function () use ($app) {
     // basics methods
-    $app->get('/signin', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
-    $app->get('/signup', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
+    $app->get('/signin', GetAllCustomersAction::class); //Get all customers
+    $app->get('/signup', GetAllCustomersAction::class); //Get all customers
 
     // All methods about customers
-    $app->get('/customers', Maishapay\Customer\Action\GetAllCustomersAction::class); //Get all customers
+    $app->get('/customers', GetAllCustomersAction::class); //Get all customers
 
     /*
     $app->get('/customers', Maishapay\Customers\Action\GetAllCustomersAction::class); //Get all customers
@@ -28,10 +38,6 @@ $app->group('', function () use ($app) {
     $app->put('/accounts/{customer_uuid}', Maishapay\Customers\Action\EditCustomerAction::class); //Update a customer
     $app->delete('/accounts/{customer_uuid}', Maishapay\Customers\Action\DeleteCustomerAction::class); //Delete a customer
 
-    // Basic developpers methods
-    $app->get('/dev/signin', Maishapay\Customers\Action\GetAllCustomersAction::class); //Get all customers
-    $app->get('/dev/signup', Maishapay\Customers\Action\GetAllCustomersAction::class); //Get all customers
-
     //Developper projects methods
     $app->get('/projects', Maishapay\Customers\Action\GetAllCustomersAction::class); //Get all customers
 
@@ -42,8 +48,11 @@ $app->group('', function () use ($app) {
     $app->get('/sandbox/customers', Maishapay\Customers\Action\GetAllCustomersAction::class); //Get all customers
     */
 
-    $app->post('/authorise', Maishapay\Auth\Action\AuthoriseAction::class); //Authorize all clients
-})->add(Maishapay\Auth\GuardMiddleware::class);
+    // Basic developpers methods
+    $app->post('/dev/signup', CreateClientAction::class); //Create new developper account
+
+    $app->post('/authorise', AuthoriseAction::class); //Authorize all clients
+})->add(GuardMiddleware::class);
 
 // Auth routes
-$app->post('/token', Maishapay\Auth\Action\TokenAction::class); //Get access token
+$app->post('/token', TokenAction::class); //Get access token

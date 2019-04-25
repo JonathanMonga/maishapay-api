@@ -8,6 +8,7 @@ class PdoStorage extends Pdo
 
     protected function checkPassword($user, $password)
     {
+        echo $user['password'].' '.$password;
         return password_verify($password, $user['password']);
     }
 
@@ -16,6 +17,7 @@ class PdoStorage extends Pdo
         $stmt = $this->db->prepare(sprintf('SELECT * from %s
             where client_id = :client_id', $this->config['client_table']));
         $stmt->execute(compact('client_id'));
+
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         return $result && password_verify($client_secret, $result['client_secret']);

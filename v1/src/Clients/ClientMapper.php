@@ -1,9 +1,9 @@
 <?php
-namespace Maishapay\Customer;
+namespace Maishapay\Client;
 
 use Monolog\Logger;
 
-class CustomerMapper
+class ClientMapper
 {
     protected $logger;
     protected $db;
@@ -15,131 +15,118 @@ class CustomerMapper
     }
 
     /**
-     * Fetch all customers
+     * Fetch all clients
      *
-     * @return [customers]
+     * @return [clients]
      */
     public function fetchAll()
     {
-        $sql = "SELECT * FROM customers ORDER BY customer_id ASC";
+        $sql = "SELECT * FROM oauth_clients";
         $stmt = $this->db->query($sql);
 
         $results = [];
         while ($row = $stmt->fetch()) {
-            $results[] = new Customer($row);
+            $results[] = new Client($row);
         }
 
         return $results;
     }
 
     /**
-     * Load a single Customers
+     * Load a single Client
      *
-     * @param $customer_uuid
-     * @return false|Customer
+     * @param $client_id
+     * @return false|Client
      */
-    public function loadById($customer_uuid)
+    public function loadById($client_id)
     {
-        $sql = "SELECT * FROM customers WHERE customer_uuid = :customer_uuid";
+        $sql = "SELECT * FROM oauth_clients WHERE client_id = :client_id";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['customer_uuid' => $customer_uuid]);
+        $stmt->execute(['client_id' => $client_id]);
         $data = $stmt->fetch();
 
         if ($data) {
-            return new Customer($data);
+            return new Client($data);
         }
 
         return false;
     }
 
     /**
-     * Create an Customers
+     * Create an Client
      *
-     * @param Customer $customer
-     * @return Customer
+     * @param Client $client
+     * @return Client
      */
-    public function insert(Customer $customer)
+    public function insert(Client $client)
     {
-        $data = $customer->getArrayCopy();
+        $data = $client->getArrayCopy();
         $data['created'] = date('Y-m-d H:i:s');
         $data['updated'] = $data['created'];
 
         $query =
-            "INSERT INTO customers (customer_uuid, 
-                                         country_iso_code, 
-                                         phone_area_code, 
-                                         number_phone, 
-                                         names, 
-                                         email, 
-                                         password, 
-                                         customer_type, 
-                                         number_of_account, 
-                                         customer_status, 
-                                         location, 
-                                         created, 
-                                         updated)
+            "INSERT INTO oauth_clients (client_id, 
+                                    client_secret, 
+                                    redirect_uri, 
+                                    grant_types, 
+                                    scope, 
+                                    user_id, 
+                                    client_status, 
+                                    call_limit, 
+                                    created, 
+                                    updated)
                                          
-            VALUES (:customer_uuid, 
-                    :country_iso_code, 
-                    :phone_area_code, 
-                    :number_phone, 
-                    :names, 
-                    :email, 
-                    :password, 
-                    :customer_type, 
-                    :number_of_account, 
-                    :customer_status, 
+            VALUES (:client_uuid, 
+                    :client_secret, 
+                    :redirect_uri, 
+                    :grant_types, 
+                    :scope, 
+                    :client_uuid, 
+                    :client_status, 
+                    :call_limit, 
                     :created, 
                     :updated)";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute($data);
 
-        return new Customer($data);
+        return new Client($data);
     }
 
     /**
      * Update an author
      *
-     * @param Customer $customer
-     * @return Customer
+     * @param Client $client
+     * @return Client
      */
-    public function update(Customer $customer)
+    public function update(Client $client)
     {
-        $data = $customer->getArrayCopy();
+        $data = $client->getArrayCopy();
         $data['updated'] = date('Y-m-d H:i:s');
 
-        $query = "UPDATE customers
-            SET country_iso_code = :country_iso_code, 
-                phone_area_code =  :phone_area_code, 
-                number_phone =     :number_phone, 
-                names =            :names, 
-                email =            :email, 
-                password =         :password, 
-                customer_type =    :customer_type, 
-                number_of_account =:number_of_account, 
-                customer_status =  :customer_status, 
-                created =          :created, 
-                updated =          :updated
-            WHERE customer_uuid = :customer_uuid";
+        $query = "UPDATE oauth_clients
+            SET client_secret =  :client_secret, 
+                client_status =     :client_status, 
+                call_limit =            :call_limit, 
+                redirect_uri =            :redirect_uri
+            WHERE client_id = :client_id";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute($data);
 
-        return new Customer($data);
+        return new Client($data);
     }
 
     /**
-     * Delete an Customers
+     * Delete an Client
      *
-     * @param $customer_uuid
-     * @return bool True if there was an Customers to delete
-     * @internal param Id $uuid of Customers to delete
+     * @param $client_id
+     * @return bool True if there was an Clients to delete
      */
-    public function delete($customer_uuid)
+    public function delete($client_id)
     {
-        $data['customer_uuid'] = $customer_uuid;
-        $query = "DELETE FROM customers WHERE customer_uuid = :customer_uuid";
+        $data['client_id'] = $client_id;
+        $query = "DELETE FROM oauth_clients WHERE client_id = :client_id";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute($data);

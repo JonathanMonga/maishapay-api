@@ -12,7 +12,11 @@ return [
     'db' => [
         'dsn' => getenv('DB_DSN') ?: 'mysql:host=localhost;dbname=cp973977_maishapay-api',
         'user' => getenv('DB_USER') ?: 'root',
-        'pass' => getenv('DB_PASS') ?: null,
+        'pass' => getenv('DB_PASS') ?: null
+
+        /*'dsn' => getenv('DB_DSN') ?: getenv('TEST_DB_DSN'),
+        'user' => getenv('DB_USER') ?: getenv('TEST_DB_USER'),
+        'pass' => getenv('DB_PASS') ?: getenv('TEST_DB_PASS'),*/
     ],
 
     // Monolog

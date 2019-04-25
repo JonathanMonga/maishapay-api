@@ -1,9 +1,9 @@
 <?php
-namespace Maishapay\CustomerTest\Action;
+namespace Maishapay\CustomersTest\Action;
 
-use Maishapay\Customer\Action\CreateCustomerAction;
-use Maishapay\Customer\Customer;
-use Maishapay\Customer\CustomerMapper;
+use Maishapay\Customers\Action\CreateCustomerAction;
+use Maishapay\Customers\Customer;
+use Maishapay\Customers\CustomerMapper;
 use Maishapay\Util\Utils;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;

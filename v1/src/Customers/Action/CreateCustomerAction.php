@@ -1,5 +1,5 @@
 <?php
-namespace Maishapay\Customer\Action;
+namespace Maishapay\Customers\Action;
 
 use Maishapay\Customer\Customer;
 use Maishapay\Customer\CustomerMapper;

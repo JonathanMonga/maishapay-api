@@ -10,7 +10,7 @@ class Client
 {
     protected $client_uuid; //Client id
     protected $client_secret; //Client secret
-    protected $customer_status; //active_status or blocked_status
+    protected $client_status; //active_status or blocked_status
     protected $call_limit; //Call limit
     protected $redirect_uri; //Redirect uri
     protected $grant_types; //Grant type
@@ -25,7 +25,7 @@ class Client
 
         $this->client_uuid = $data['client_uuid'] ?? null;
         $this->client_secret = $data['client_secret'] ?? null;
-        $this->customer_status = $data['customer_status'] ?? null;
+        $this->client_status = $data['client_status'] ?? null;
         $this->call_limit = $data['call_limit'] ?? null;
         $this->redirect_uri = $data['redirect_uri'] ?? null;
         $this->grant_types = $data['grant_types'] ?? null;
@@ -48,8 +48,8 @@ class Client
             $this->scope = 'profil phone_number email';
         }
 
-        if (!$this->customer_status) {
-            $this->customer_status = 'blocked_status';
+        if (!$this->client_status) {
+            $this->client_status = 'blocked_status';
         }
 
         if (!strtotime($this->created)) {
@@ -66,7 +66,7 @@ class Client
         return [
             'client_uuid' => $this->client_uuid,
             'client_secret' => $this->client_secret,
-            'customer_status' => $this->customer_status,
+            'client_status' => $this->client_status,
             'call_limit' => $this->call_limit,
             'redirect_uri' => $this->redirect_uri,
             'grant_types' => $this->grant_types,
@@ -82,14 +82,14 @@ class Client
         $data = $this->validate($data, [
             'client_uuid',
             'client_secret',
-            'customer_status',
+            'client_status',
             'call_limit',
             'redirect_uri',
             ]);
 
         $this->client_uuid = $data['client_uuid'] ?? $this->client_uuid;
         $this->client_secret = $data['client_secret'] ?? $this->client_secret;
-        $this->customer_status = $data['customer_status'] ?? $this->customer_status;
+        $this->client_status = $data['client_status'] ?? $this->client_status;
         $this->call_limit = $data['call_limit'] ?? $this->call_limit;
         $this->redirect_uri = $data['redirect_uri'] ?? $this->redirect_uri;
     }
@@ -131,6 +131,14 @@ class Client
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
+                'validators' => [
+                    [
+                        'name' => 'StringLength',
+                        'options' => [
+                            'min' => 45,
+                        ],
+                    ],
+                ],
             ],
             'client_secret' => [
                 'required' => true,
@@ -140,7 +148,7 @@ class Client
                     ['name' => 'StripTags'],
                 ],
             ],
-            'customer_status' => [
+            'client_status' => [
                 'required' => true,
                 'allowEmpty' => true,
                 'filters' => [

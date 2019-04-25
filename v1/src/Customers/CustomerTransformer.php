@@ -1,5 +1,5 @@
 <?php
-namespace Maishapay\Customer;
+namespace Maishapay\Customers;
 
 use Nocarrier\Hal;
 

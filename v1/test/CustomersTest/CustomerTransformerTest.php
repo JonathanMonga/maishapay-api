@@ -1,8 +1,8 @@
 <?php
-namespace Maishapay\CustomerTest;
+namespace Maishapay\CustomersTest;
 
-use Maishapay\Customer\Customer;
-use Maishapay\Customer\CustomerTransformer;
+use Maishapay\Customers\Customer;
+use Maishapay\Customers\CustomerTransformer;
 use Maishapay\Util\Utils;
 use Nocarrier\Hal;
 

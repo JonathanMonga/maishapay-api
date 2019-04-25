@@ -1,10 +1,10 @@
 <?php
-namespace Maishapay\CustomerTest\Action;
+namespace Maishapay\CustomersTest\Action;
 
 
-use Maishapay\Customer\Action\DeleteCustomerAction;
-use Maishapay\Customer\Customer;
-use Maishapay\Customer\CustomerMapper;
+use Maishapay\Customers\Action\DeleteCustomerAction;
+use Maishapay\Customers\Customer;
+use Maishapay\Customers\CustomerMapper;
 use Maishapay\Error\Exception\ProblemException;
 use Maishapay\Util\Utils;
 use Monolog\Logger;
