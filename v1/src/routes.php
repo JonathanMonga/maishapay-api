@@ -8,7 +8,8 @@ use Maishapay\Auth\Action\{
 
 use Maishapay\Auth\GuardMiddleware;
 
-use Maishapay\Client\Action\CreateClientAction;
+use Maishapay\Clients\Action\CreateClientAction;
+use Maishapay\Customers\Action\CreateCustomerAction;
 use Maishapay\Customers\Action\GetAllCustomersAction;
 
 $app->get('/', Maishapay\App\Action\HomeAction::class); //Home route
@@ -17,8 +18,8 @@ $app->get('/ping', Maishapay\App\Action\PingAction::class); //Ping route
 // Routes that need a valid user token
 $app->group('', function () use ($app) {
     // basics methods
-    $app->get('/signin', GetAllCustomersAction::class); //Get all customers
-    $app->get('/signup', GetAllCustomersAction::class); //Get all customers
+    $app->post('/signin', CreateCustomerAction::class); //Get all customers
+    $app->post('/signup', CreateCustomerAction::class); //Get all customers
 
     // All methods about customers
     $app->get('/customers', GetAllCustomersAction::class); //Get all customers
@@ -49,7 +50,7 @@ $app->group('', function () use ($app) {
     */
 
     // Basic developpers methods
-    $app->post('/dev/signup', CreateClientAction::class); //Create new developper account
+    $app->post('/developper/signup', CreateClientAction::class); //Create new developper account
 
     $app->post('/authorise', AuthoriseAction::class); //Authorize all clients
 })->add(GuardMiddleware::class);

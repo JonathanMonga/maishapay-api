@@ -20,6 +20,20 @@ class OAuth2ServerProvider implements ServiceProviderInterface
             $pdo = $c->get('db');
             $storage = new PdoStorage($pdo);
 
+            // configure your available scopes
+            $defaultScope = 'read_account transfer_money';
+
+            $supportedScopes = array(
+                'read_account transfer_money'
+            );
+
+            $memory = new OAuth2\Storage\Memory(array(
+                'default_scope' => $defaultScope,
+                'supported_scopes' => $supportedScopes
+            ));
+
+            $scopeUtil = new OAuth2\Scope($memory);
+
             $server = new OAuth2\Server($storage, [
                 'enforce_redirect' => false,
                 'use_jwt_access_tokens' => true,
@@ -33,7 +47,11 @@ class OAuth2ServerProvider implements ServiceProviderInterface
 
             // Add the "Authorization Code" grant type (3rd party apps)
             $server->addGrantType(new OAuth2\GrantType\AuthorizationCode($storage));
+
+            // Add the "RefreshToken" grant type
             $server->addGrantType(new OAuth2\GrantType\RefreshToken($storage));
+
+            $server->setScopeUtil($scopeUtil);
 
             return $server;
         };
@@ -75,6 +93,7 @@ class OAuth2ServerProvider implements ServiceProviderInterface
             } else {
                 $server = $c->get(OAuth2Sever::class);
             }
+
             return new GuardMiddleware($server);
         };
     }

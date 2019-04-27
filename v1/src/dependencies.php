@@ -52,6 +52,10 @@ $container[Maishapay\Customers\CustomerMapper::class] = function ($c) {
     return new Maishapay\Customers\CustomerMapper($c->get('logger'), $c->get('db'));
 };
 
+$container[Maishapay\Clients\ClientMapper::class] = function ($c) {
+    return new Maishapay\Clients\ClientMapper($c->get('logger'), $c->get('db'));
+};
+
 // Actions
 $container[Maishapay\App\Action\HomeAction::class] = function ($c) {
     $logger = $c->get('logger');
@@ -64,7 +68,7 @@ $container[Maishapay\App\Action\PingAction::class] = function ($c) {
     return new Maishapay\App\Action\PingAction($logger);
 };
 
-$authorActionFactory = function ($actionClass) {
+$customerActionFactory = function ($actionClass) {
     return function ($c) use ($actionClass) {
         $logger = $c->get('logger');
         $renderer = $c->get('renderer');
@@ -73,10 +77,25 @@ $authorActionFactory = function ($actionClass) {
     };
 };
 
+$clientActionFactory = function ($actionClass) {
+    return function ($c) use ($actionClass) {
+        $logger = $c->get('logger');
+        $renderer = $c->get('renderer');
+        $mapper = $c->get(Maishapay\Clients\ClientMapper::class);
+        return new $actionClass($logger, $renderer, $mapper);
+    };
+};
+
 // @codingStandardsIgnoreStart
-$container[Maishapay\Customers\Action\GetAllCustomersAction::class] = $authorActionFactory(Maishapay\Customers\Action\GetAllCustomersAction::class);
-$container[Maishapay\Customers\Action\GetCustomerByUUIDAction::class] = $authorActionFactory(Maishapay\Customers\Action\GetCustomerByUUIDAction::class);
-$container[Maishapay\Customers\Action\CreateCustomerAction::class] = $authorActionFactory(Maishapay\Customers\Action\CreateCustomerAction::class);
-$container[Maishapay\Customers\Action\EditCustomerAction::class] = $authorActionFactory(Maishapay\Customers\Action\EditCustomerAction::class);
-$container[Maishapay\Customers\Action\DeleteCustomerAction::class] = $authorActionFactory(Maishapay\Customers\Action\DeleteCustomerAction::class);
+$container[Maishapay\Customers\Action\GetAllCustomersAction::class] = $customerActionFactory(Maishapay\Customers\Action\GetAllCustomersAction::class);
+$container[Maishapay\Customers\Action\GetCustomerByUUIDAction::class] = $customerActionFactory(Maishapay\Customers\Action\GetCustomerByUUIDAction::class);
+$container[Maishapay\Customers\Action\CreateCustomerAction::class] = $customerActionFactory(Maishapay\Customers\Action\CreateCustomerAction::class);
+$container[Maishapay\Customers\Action\EditCustomerAction::class] = $customerActionFactory(Maishapay\Customers\Action\EditCustomerAction::class);
+$container[Maishapay\Customers\Action\DeleteCustomerAction::class] = $customerActionFactory(Maishapay\Customers\Action\DeleteCustomerAction::class);
+
+$container[Maishapay\Clients\Action\GetAllClientsAction::class] = $clientActionFactory(Maishapay\Clients\Action\GetAllClientsAction::class);
+$container[Maishapay\Clients\Action\GetClientByUUIDAction::class] = $clientActionFactory(Maishapay\Clients\Action\GetClientByUUIDAction::class);
+$container[Maishapay\Clients\Action\CreateClientAction::class] = $clientActionFactory(Maishapay\Clients\Action\CreateClientAction::class);
+$container[Maishapay\Clients\Action\EditClientAction::class] = $clientActionFactory(Maishapay\Clients\Action\EditClientAction::class);
+$container[Maishapay\Clients\Action\DeleteClientAction::class] = $clientActionFactory(Maishapay\Clients\Action\DeleteClientAction::class);
 // @codingStandardsIgnoreEnd

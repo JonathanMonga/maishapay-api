@@ -1,8 +1,8 @@
 <?php
-namespace Maishapay\Client\Action;
+namespace Maishapay\Clients\Action;
 
-use Maishapay\Client\ClientMapper;
-use Maishapay\Client\ClientTransformer;
+use Maishapay\Clients\ClientMapper;
+use Maishapay\Clients\ClientTransformer;
 use Maishapay\Error\ApiProblem;
 use Maishapay\Error\Exception\ProblemException;
 use Monolog\Logger;

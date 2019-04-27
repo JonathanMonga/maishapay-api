@@ -18,7 +18,9 @@ class AuthoriseAction
         $serverRequest = OAuth2\Request::createFromGlobals();
         $serverResponse = new OAuth2\Response();
 
-        if (!$server->validateAuthorizeRequest($serverRequest, $serverResponse)) {
+        $scopeRequired = 'basic';
+
+        if (!$server->validateAuthorizeRequest($serverRequest, $serverResponse, $scopeRequired)) {
             $serverResponse->send();
             die;
         }

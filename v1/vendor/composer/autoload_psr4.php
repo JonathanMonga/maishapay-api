@@ -34,6 +34,7 @@ return array(
     'Maishapay\\ErrorTest\\' => array($baseDir . '/test/unit/ErrorTest'),
     'Maishapay\\Customers\\' => array($baseDir . '/src/Customers'),
     'Maishapay\\CustomersTest\\' => array($baseDir . '/test/unit/CustomersTest'),
+    'Maishapay\\Clients\\' => array($baseDir . '/src/Clients'),
     'Maishapay\\Auth\\' => array($baseDir . '/src/Auth'),
     'Maishapay\\App\\' => array($baseDir . '/src/App'),
     'Maishapay\\AppTest\\' => array($baseDir . '/test/unit/AppTest'),

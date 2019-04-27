@@ -1,9 +1,9 @@
 <?php
 namespace Maishapay\Customers\Action;
 
-use Maishapay\Customer\Customer;
-use Maishapay\Customer\CustomerMapper;
-use Maishapay\Customer\CustomerTransformer;
+use Maishapay\Customers\Customer;
+use Maishapay\Customers\CustomerMapper;
+use Maishapay\Customers\CustomerTransformer;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 

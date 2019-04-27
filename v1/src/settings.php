@@ -5,7 +5,7 @@ return [
 
     // OAuth 2 configuration
     'oauth2' => [
-        'use_jwt_bearer_tokens' => false,
+        'use_jwt_bearer_tokens' => true,
     ],
 
     // Database adapter

@@ -1,5 +1,5 @@
 <?php
-namespace Maishapay\Client;
+namespace Maishapay\Clients;
 
 use Maishapay\Error\ApiProblem;
 use Maishapay\Error\Exception\ProblemException;
@@ -45,7 +45,8 @@ class Client
         }
 
         if (!$this->scope) {
-            $this->scope = 'profil phone_number email';
+            $this->scope = 'read_profil read_phone_number read_email';
+
         }
 
         if (!$this->client_status) {
@@ -112,7 +113,7 @@ class Client
 
         $problem = new ApiProblem(
             'Validation failed',
-            'about:blank',
+            'http://tools.ietf.org/html/rfc7231#section-6.6.1',
             400
         );
 

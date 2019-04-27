@@ -65,6 +65,7 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
             'Maishapay\\ErrorTest\\' => 20,
             'Maishapay\\Customers\\' => 20,
             'Maishapay\\CustomersTest\\' => 24,
+            'Maishapay\\Clients\\' => 18,
             'Maishapay\\Auth\\' => 15,
             'Maishapay\\App\\' => 14,
             'Maishapay\\AppTest\\' => 18,
@@ -208,6 +209,10 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Maishapay\\CustomersTest\\' => 
         array (
             0 => __DIR__ . '/../..' . '/test/unit/CustomersTest',
+        ),
+        'Maishapay\\Clients\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Clients',
         ),
         'Maishapay\\Auth\\' => 
         array (
@@ -759,6 +764,14 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Maishapay\\Auth\\GuardMiddleware' => __DIR__ . '/../..' . '/src/Auth/GuardMiddleware.php',
         'Maishapay\\Auth\\OAuth2ServerProvider' => __DIR__ . '/../..' . '/src/Auth/OAuth2ServerProvider.php',
         'Maishapay\\Auth\\PdoStorage' => __DIR__ . '/../..' . '/src/Auth/PdoStorage.php',
+        'Maishapay\\Clients\\Action\\CreateClientAction' => __DIR__ . '/../..' . '/src/Clients/Action/CreateClientAction.php',
+        'Maishapay\\Clients\\Action\\DeleteClientAction' => __DIR__ . '/../..' . '/src/Clients/Action/DeleteClientAction.php',
+        'Maishapay\\Clients\\Action\\EditClientAction' => __DIR__ . '/../..' . '/src/Clients/Action/EditClientAction.php',
+        'Maishapay\\Clients\\Action\\GetAllClientsAction' => __DIR__ . '/../..' . '/src/Clients/Action/GetAllClientsAction.php',
+        'Maishapay\\Clients\\Action\\GetClientByUUIDAction' => __DIR__ . '/../..' . '/src/Clients/Action/GetClientByUUIDAction.php',
+        'Maishapay\\Clients\\Client' => __DIR__ . '/../..' . '/src/Clients/Client.php',
+        'Maishapay\\Clients\\ClientMapper' => __DIR__ . '/../..' . '/src/Clients/ClientMapper.php',
+        'Maishapay\\Clients\\ClientTransformer' => __DIR__ . '/../..' . '/src/Clients/ClientTransformer.php',
         'Maishapay\\Customers\\Action\\CreateCustomerAction' => __DIR__ . '/../..' . '/src/Customers/Action/CreateCustomerAction.php',
         'Maishapay\\Customers\\Action\\DeleteCustomerAction' => __DIR__ . '/../..' . '/src/Customers/Action/DeleteCustomerAction.php',
         'Maishapay\\Customers\\Action\\EditCustomerAction' => __DIR__ . '/../..' . '/src/Customers/Action/EditCustomerAction.php',

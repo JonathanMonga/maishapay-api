@@ -1,5 +1,5 @@
 <?php
-namespace Maishapay\Client;
+namespace Maishapay\Clients;
 
 use Monolog\Logger;
 
