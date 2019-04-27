@@ -16,7 +16,7 @@ class Account
     protected $default_currency; //Ex : USD
     protected $local_balance;
     protected $local_currency; //Ex : CDF
-    protected $default_balance_sentc;
+    protected $default_balance_sent;
     protected $default_balance_receive;
     protected $local_balance_sent;
     protected $local_balance_receive;
@@ -34,34 +34,30 @@ class Account
         $this->account_id = $data['account_id'] ?? null;
         $this->account_uuid = $data['account_uuid'] ?? null;
         $this->customer_uuid = $data['customer_uuid'] ?? null;
-        $this->phone_area_code = $data['phone_area_code'] ?? null;
-        $this->number_phone = $data['number_phone'] ?? null;
-        $this->names = $data['names'] ?? null;
-        $this->email = $data['email'] ?? null;
-        $this->password = $data['password'] ?? null;
-        $this->customer_type = $data['customer_type'] ?? null;
-        $this->number_of_account = $data['number_of_account'] ?? null;
-        $this->customer_status = $data['customer_status'] ?? null;
-        $this->location = $data['location'] ?? null;
+        $this->account_type = $data['account_type'] ?? null;
+        $this->default_balance = $data['default_balance'] ?? null;
+        $this->default_currency = $data['default_currency'] ?? null;
+        $this->local_balance = $data['local_balance'] ?? null;
+        $this->local_currency = $data['local_currency'] ?? null;
+        $this->default_balance_sent = $data['default_balance_sent'] ?? null;
+        $this->default_balance_receive = $data['default_balance_receive'] ?? null;
+        $this->local_balance_sent = $data['local_balance_sent'] ?? null;
+        $this->local_balance_receive = $data['local_balance_receive'] ?? null;
+        $this->account_status = $data['account_status'] ?? null;
+        $this->last_transfer = $data['last_transfer'] ?? null;
+        $this->saving_start_day = $data['saving_start_day'] ?? null;
+        $this->saving_end_day = $data['saving_end_day'] ?? null;
         $this->created = $data['created'] ?? null;
         $this->updated = $data['updated'] ?? null;
 
         $now = (new \DateTime())->format('Y-m-d H:i:s');
 
-        if (!$this->customer_uuid) {
-            $this->customer_uuid = Utils::uuid("customer-id");
+        if (!$this->account_uuid) {
+            $this->account_uuid = Utils::uuid("account-id");
         }
 
-        if (!$this->customer_type) {
-            $this->customer_type = "particular";
-        }
-
-        if (!$this->number_of_account) {
-            $this->number_of_account = 1;
-        }
-
-        if (!$this->customer_status) {
-            $this->customer_status = 'blocked_status';
+        if (!$this->account_type) {
+            $this->account_type = "current";
         }
 
         if (!strtotime($this->created)) {
@@ -76,18 +72,22 @@ class Account
     public function getArrayCopy()
     {
         return [
-            'customer_id' => $this->customer_id,
+            'account_id' => $this->account_id,
+            'account_uuid' => $this->account_uuid,
             'customer_uuid' => $this->customer_uuid,
-            'country_iso_code' => $this->country_iso_code,
-            'customer_type' => $this->customer_type,
-            'number_of_account' => $this->number_of_account,
-            'customer_status' => $this->customer_status,
-            'phone_area_code' => $this->phone_area_code,
-            'number_phone' => $this->number_phone,
-            'names' => $this->names,
-            'email' => $this->email,
-            'password' => $this->password,
-            'location' => $this->location,
+            'account_type' => $this->account_type,
+            'default_balance' => $this->default_balance,
+            'default_currency' => $this->default_currency,
+            'local_balance' => $this->local_balance,
+            'local_currency' => $this->local_currency,
+            'default_balance_sent' => $this->default_balance_sent,
+            'default_balance_receive' => $this->default_balance_receive,
+            'local_balance_sent' => $this->local_balance_sent,
+            'local_balance_receive' => $this->local_balance_receive,
+            'account_status' => $this->account_status,
+            'last_transfer' => $this->last_transfer,
+            'saving_start_day' => $this->saving_start_day,
+            'saving_end_day' => $this->saving_end_day,
             'created' => $this->created,
             'updated' => $this->updated,
         ];
