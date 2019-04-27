@@ -23,7 +23,7 @@ class GetClientByUUIDAction
 
     public function __invoke($request, $response)
     {
-        $client_uuid = $request->getAttribute('client_uuid');
+        $client_uuid = $request->getAttribute('id');
         $this->logger->info("Listing a single client", ['client_uuid' => $client_uuid]);
 
         $client = $this->clientMapper->loadById($client_uuid);
