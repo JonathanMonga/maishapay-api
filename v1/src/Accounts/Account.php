@@ -6,20 +6,24 @@ use Maishapay\Error\Exception\ProblemException;
 use Maishapay\Util\Utils;
 use Zend\InputFilter\Factory as InputFilterFactory;
 
-class Customer
+class Account
 {
-    protected $customer_id;
+    protected $account_id;
+    protected $account_uuid;
     protected $customer_uuid;
-    protected $country_iso_code; //CD, US, ect... and user input
-    protected $phone_area_code; //243, 250, ect... and user input
-    protected $number_phone; //Format 996980422 and user input
-    protected $names; //user input
-    protected $email; //user input
-    protected $customer_type; //user input  (particular | bussness)
-    protected $number_of_account; //min 1 (current account), max 2 (current account | saving account)
-    protected $location; //user input
-    protected $password; //user input
-    protected $customer_status; //active_status or blocked_status
+    protected $account_type; //Current(Wallet) and Saving
+    protected $default_balance;
+    protected $default_currency; //Ex : USD
+    protected $local_balance;
+    protected $local_currency; //Ex : CDF
+    protected $default_balance_sentc;
+    protected $default_balance_receive;
+    protected $local_balance_sent;
+    protected $local_balance_receive;
+    protected $account_status;
+    protected $last_transfer;
+    protected $saving_start_day;
+    protected $saving_end_day;
     protected $created;
     protected $updated;
 
@@ -27,9 +31,9 @@ class Customer
     {
         $data = $this->validate($data);
 
-        $this->customer_id = $data['customer_id'] ?? null;
+        $this->account_id = $data['account_id'] ?? null;
+        $this->account_uuid = $data['account_uuid'] ?? null;
         $this->customer_uuid = $data['customer_uuid'] ?? null;
-        $this->country_iso_code = $data['country_iso_code'] ?? null;
         $this->phone_area_code = $data['phone_area_code'] ?? null;
         $this->number_phone = $data['number_phone'] ?? null;
         $this->names = $data['names'] ?? null;

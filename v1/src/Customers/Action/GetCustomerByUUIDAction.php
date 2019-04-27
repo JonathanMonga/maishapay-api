@@ -14,12 +14,17 @@ class GetCustomerByUUIDAction
     protected $renderer;
     protected $customerMapper;
 
-    public function __construct(Logger $logger, HalRenderer $renderer, CustomerMapper $customerMapper)
+    public function __construct(Logger $logger,
+                                HalRenderer $renderer,
+                                CustomerMapper $customerMapper,
+                                UserMapper $userMapper)
     {
         $this->logger = $logger;
         $this->renderer = $renderer;
         $this->customerMapper = $customerMapper;
+        $this->userMapper = $userMapper;
     }
+
 
     public function __invoke($request, $response)
     {

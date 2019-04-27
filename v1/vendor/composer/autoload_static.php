@@ -767,7 +767,7 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Interop\\Container\\ContainerInterface' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
         'Interop\\Container\\Exception\\ContainerException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
         'Interop\\Container\\Exception\\NotFoundException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',
-        'Maishapay\\Accounts\\Customer' => __DIR__ . '/../..' . '/src/Accounts/Customer.php',
+        'Maishapay\\Accounts\\Customer' => __DIR__ . '/../..' . '/src/Accounts/Account.php',
         'Maishapay\\App\\Action\\HomeAction' => __DIR__ . '/../..' . '/src/App/Action/HomeAction.php',
         'Maishapay\\App\\Action\\PingAction' => __DIR__ . '/../..' . '/src/App/Action/PingAction.php',
         'Maishapay\\Auth\\Action\\AuthoriseAction' => __DIR__ . '/../..' . '/src/Auth/Action/AuthoriseAction.php',

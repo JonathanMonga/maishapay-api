@@ -458,7 +458,7 @@ return array(
     'Interop\\Container\\ContainerInterface' => $vendorDir . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
     'Interop\\Container\\Exception\\ContainerException' => $vendorDir . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
     'Interop\\Container\\Exception\\NotFoundException' => $vendorDir . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',
-    'Maishapay\\Accounts\\Customer' => $baseDir . '/src/Accounts/Customer.php',
+    'Maishapay\\Accounts\\Customer' => $baseDir . '/src/Accounts/Account.php',
     'Maishapay\\App\\Action\\HomeAction' => $baseDir . '/src/App/Action/HomeAction.php',
     'Maishapay\\App\\Action\\PingAction' => $baseDir . '/src/App/Action/PingAction.php',
     'Maishapay\\Auth\\Action\\AuthoriseAction' => $baseDir . '/src/Auth/Action/AuthoriseAction.php',
