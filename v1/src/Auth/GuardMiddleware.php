@@ -21,7 +21,14 @@ class GuardMiddleware
 
         if (!$server->verifyResourceRequest($req)){
             $server->getResponse()->send();
-            exit;
+
+            $array = [
+                "title" => "syntax error",
+                "type" => "about:blank",
+                "status" => 401
+            ];
+
+            die(json_encode($array, JSON_PRETTY_PRINT));
         }
 
         // store the username into the request's attributes
