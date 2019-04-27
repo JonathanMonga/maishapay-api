@@ -26,6 +26,9 @@ class ClientMapper
 
         $results = [];
         while ($row = $stmt->fetch()) {
+            $row['client_secret'] = explode(':', base64_decode($row['client_token']))[1];
+            $row['client_token'] = base64_decode($row['client_token']);
+
             $results[] = new Client($row);
         }
 

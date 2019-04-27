@@ -57,7 +57,7 @@ $app->group('', function () use ($app) {
     $app->post('/developper/clients/create', CreateClientAction::class); //Create new client
     $app->delete('/developper/clients/delete', DeleteClientAction::class); //Delete a client
     $app->put('/developper/clients/update', EditClientAction::class); //Update a client
-    $app->get('/developper/clients', GetAllClientsAction::class); //Get all clients
+
     $app->get('/developper/clients/{id}', GetClientByUUIDAction::class); //Get a client by uuid
 
     $app->post('/authorise', AuthoriseAction::class); //Authorize all clients
@@ -65,3 +65,5 @@ $app->group('', function () use ($app) {
 
 // Auth routes
 $app->post('/token', TokenAction::class); //Get access token
+
+$app->get('/developper/clients', GetAllClientsAction::class); //Get all clients
