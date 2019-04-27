@@ -25,8 +25,13 @@ class CreateClientAction
         $data = $request->getParsedBody();
         $this->logger->info("Creating a new client", ['data' => $data]);
 
-        $client = new Client($data);
-        $this->clientMapper->insert($client);
+        if($data){
+            $client = new Client($data);
+            $this->clientMapper->insert($client);
+        } else {
+            $client = new Client([]);
+            $this->clientMapper->insert($client);
+        }
 
         $transformer = new ClientTransformer();
         $hal = $transformer->transform($client);

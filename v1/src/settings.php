@@ -14,9 +14,11 @@ return [
         'user' => getenv('DB_USER') ?: 'root',
         'pass' => getenv('DB_PASS') ?: null
 
-        /*'dsn' => getenv('DB_DSN') ?: getenv('TEST_DB_DSN'),
+        /*
+        'dsn' => getenv('DB_DSN') ?: getenv('TEST_DB_DSN'),
         'user' => getenv('DB_USER') ?: getenv('TEST_DB_USER'),
-        'pass' => getenv('DB_PASS') ?: getenv('TEST_DB_PASS'),*/
+        'pass' => getenv('DB_PASS') ?: getenv('TEST_DB_PASS'),
+        */
     ],
 
     // Monolog
