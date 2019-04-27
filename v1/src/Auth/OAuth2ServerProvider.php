@@ -21,7 +21,7 @@ class OAuth2ServerProvider implements ServiceProviderInterface
             $storage = new PdoStorage($pdo);
 
             // configure your available scopes
-            $defaultScope = 'read_account transfer_money';
+            $defaultScope = 'admin';
 
             $supportedScopes = array(
                 'read_account transfer_money'

@@ -61,6 +61,7 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         array (
             'Monolog\\' => 8,
             'Maishapay\\Util\\' => 15,
+            'Maishapay\\Users\\' => 16,
             'Maishapay\\Error\\' => 16,
             'Maishapay\\ErrorTest\\' => 20,
             'Maishapay\\Customers\\' => 20,
@@ -193,6 +194,10 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Maishapay\\Util\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Util',
+        ),
+        'Maishapay\\Users\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Users',
         ),
         'Maishapay\\Error\\' => 
         array (
@@ -785,6 +790,7 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Maishapay\\Error\\Handler\\Error' => __DIR__ . '/../..' . '/src/Error/Handler/Error.php',
         'Maishapay\\Error\\Handler\\NotAllowed' => __DIR__ . '/../..' . '/src/Error/Handler/NotAllowed.php',
         'Maishapay\\Error\\Handler\\NotFound' => __DIR__ . '/../..' . '/src/Error/Handler/NotFound.php',
+        'Maishapay\\Users\\UsersMapper' => __DIR__ . '/../..' . '/src/Users/UsersMapper.php',
         'Maishapay\\Util\\Utils' => __DIR__ . '/../..' . '/src/Util/Utils.php',
         'Monolog\\ErrorHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ErrorHandler.php',
         'Monolog\\Formatter\\ChromePHPFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',

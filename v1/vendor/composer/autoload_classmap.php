@@ -486,6 +486,7 @@ return array(
     'Maishapay\\Error\\Handler\\Error' => $baseDir . '/src/Error/Handler/Error.php',
     'Maishapay\\Error\\Handler\\NotAllowed' => $baseDir . '/src/Error/Handler/NotAllowed.php',
     'Maishapay\\Error\\Handler\\NotFound' => $baseDir . '/src/Error/Handler/NotFound.php',
+    'Maishapay\\Users\\UsersMapper' => $baseDir . '/src/Users/UsersMapper.php',
     'Maishapay\\Util\\Utils' => $baseDir . '/src/Util/Utils.php',
     'Monolog\\ErrorHandler' => $vendorDir . '/monolog/monolog/src/Monolog/ErrorHandler.php',
     'Monolog\\Formatter\\ChromePHPFormatter' => $vendorDir . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',

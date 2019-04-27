@@ -122,17 +122,24 @@ class ClientMapper
     public function update(Client $client)
     {
         $data = $client->getArrayCopy();
-        $data['updated'] = date('Y-m-d H:i:s');
+
+        $updateData = [
+            "client_id" =>  $data['client_uuid'],
+            "client_status" =>  $data['client_status'],
+            "call_limit" =>  $data['call_limit'],
+            "redirect_uri" =>  $data['redirect_uri'],
+            "updated" =>  date('Y-m-d H:i:s'),
+        ];
 
         $query = "UPDATE oauth_clients
-            SET client_secret =  :client_secret, 
-                client_status =     :client_status, 
+            SET client_status =     :client_status, 
                 call_limit =            :call_limit, 
-                redirect_uri =            :redirect_uri
+                redirect_uri =            :redirect_uri,
+                updated =            :updated
             WHERE client_id = :client_id";
 
         $stmt = $this->db->prepare($query);
-        $stmt->execute($data);
+        $stmt->execute($updateData);
 
         return new Client($data);
     }

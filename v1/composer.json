@@ -28,6 +28,7 @@
             "Maishapay\\Auth\\": "src/Auth/",
             "Maishapay\\Customers\\": "src/Customers/",
             "Maishapay\\Clients\\": "src/Clients/",
+            "Maishapay\\Users\\": "src/Users/",
             "Maishapay\\Util\\": "src/Util/",
             "Maishapay\\Error\\": "src/Error/"
         }

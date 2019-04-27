@@ -2,6 +2,16 @@
 // DIC configuration
 
 // Register AuthServer services
+use Maishapay\App\Action\HomeAction;
+use Maishapay\App\Action\PingAction;
+use Maishapay\Clients\ClientMapper;
+use Maishapay\Customers\CustomerMapper;
+use Maishapay\Error\Handler\NotAllowed;
+use Maishapay\Error\Handler\NotFound;
+use Maishapay\Error\Handler\Error;
+use Maishapay\Users\User;
+use Maishapay\Users\UserMapper;
+
 $container->register(new Maishapay\Auth\OAuth2ServerProvider());
 
 // monolog
@@ -35,44 +45,48 @@ $container['db'] = function ($c) {
 
 // Error handlers
 $container['notFoundHandler'] = function () {
-    return new Maishapay\Error\Handler\NotFound();
+    return new NotFound();
 };
 $container['notAllowedHandler'] = function () {
-    return new Maishapay\Error\Handler\NotAllowed();
+    return new NotAllowed();
 };
 $container['errorHandler'] = function () {
-    return new Maishapay\Error\Handler\Error();
+    return new Error();
 };
 $container['phpErrorHandler'] = function () {
-    return new Maishapay\Error\Handler\Error();
+    return new Error();
 };
 
 // Mappers
-$container[Maishapay\Customers\CustomerMapper::class] = function ($c) {
-    return new Maishapay\Customers\CustomerMapper($c->get('logger'), $c->get('db'));
+$container[CustomerMapper::class] = function ($c) {
+    return new CustomerMapper($c->get('logger'), $c->get('db'));
 };
 
-$container[Maishapay\Clients\ClientMapper::class] = function ($c) {
-    return new Maishapay\Clients\ClientMapper($c->get('logger'), $c->get('db'));
+$container[ClientMapper::class] = function ($c) {
+    return new ClientMapper($c->get('logger'), $c->get('db'));
+};
+
+$container[UserMapper::class] = function ($c) {
+    return new UserMapper($c->get('logger'), $c->get('db'));
 };
 
 // Actions
-$container[Maishapay\App\Action\HomeAction::class] = function ($c) {
+$container[HomeAction::class] = function ($c) {
     $logger = $c->get('logger');
     $renderer = $c->get('renderer');
-    return new Maishapay\App\Action\HomeAction($logger, $renderer);
+    return new HomeAction($logger, $renderer);
 };
 
-$container[Maishapay\App\Action\PingAction::class] = function ($c) {
+$container[PingAction::class] = function ($c) {
     $logger = $c->get('logger');
-    return new Maishapay\App\Action\PingAction($logger);
+    return new PingAction($logger);
 };
 
 $customerActionFactory = function ($actionClass) {
     return function ($c) use ($actionClass) {
         $logger = $c->get('logger');
         $renderer = $c->get('renderer');
-        $mapper = $c->get(Maishapay\Customers\CustomerMapper::class);
+        $mapper = $c->get(CustomerMapper::class);
         return new $actionClass($logger, $renderer, $mapper);
     };
 };
@@ -81,8 +95,10 @@ $clientActionFactory = function ($actionClass) {
     return function ($c) use ($actionClass) {
         $logger = $c->get('logger');
         $renderer = $c->get('renderer');
-        $mapper = $c->get(Maishapay\Clients\ClientMapper::class);
-        return new $actionClass($logger, $renderer, $mapper);
+        $customerMapper = $c->get(CustomerMapper::class);
+        $clientMapper = $c->get(ClientMapper::class);
+        $userMapper = $c->get(UserMapper::class);
+        return new $actionClass($logger, $renderer, $customerMapper, $clientMapper, $userMapper);
     };
 };
 

@@ -294,3 +294,32 @@
 [2019-04-27 09:19:53] maishapay-api.INFO: Listing a single client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5"} {"uid":"6f41fdd"}
 [2019-04-27 09:21:21] maishapay-api.INFO: Updating an client {"client_uuid":null,"data":null} {"uid":"77adfce"}
 [2019-04-27 09:24:39] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"6c81064"}
+[2019-04-27 09:25:48] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"6d69520"}
+[2019-04-27 09:26:58] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"56b7754"}
+[2019-04-27 09:27:34] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"f4b549e"}
+[2019-04-27 09:27:37] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"3b89a37"}
+[2019-04-27 09:27:39] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"d4b74f9"}
+[2019-04-27 09:27:41] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"5cb7eb0"}
+[2019-04-27 09:27:42] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"ad547a2"}
+[2019-04-27 09:27:43] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"27b1203"}
+[2019-04-27 09:27:45] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"cf0f7fa"}
+[2019-04-27 09:27:45] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"baf2cc0"}
+[2019-04-27 09:28:46] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"908eb3d"}
+[2019-04-27 09:28:53] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","call_limit":30}} {"uid":"b062746"}
+[2019-04-27 09:30:55] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"29e6f07"}
+[2019-04-27 09:31:47] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"efafc17"}
+[2019-04-27 09:34:42] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"d908e9b"}
+[2019-04-27 09:34:43] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"00a1359"}
+[2019-04-27 09:34:44] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"ef7f032"}
+[2019-04-27 09:34:45] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"db560cb"}
+[2019-04-27 09:35:32] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"1767dbf"}
+[2019-04-27 09:38:15] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"9dafe1f"}
+[2019-04-27 09:39:41] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"7bee6f7"}
+[2019-04-27 09:40:44] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"cbe79d3"}
+[2019-04-27 09:41:10] maishapay-api.INFO: Listing all clients [] {"uid":"362b6f6"}
+[2019-04-27 09:41:10] maishapay-api.INFO: Listing a single client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5"} {"uid":"41d99e2"}
+[2019-04-27 09:41:10] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"client_status":"blocked_status","redirect_uri":"http://maishapay.online","call_limit":30}} {"uid":"e77c5fd"}
+[2019-04-27 09:42:37] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"call_limit":80}} {"uid":"6bb77aa"}
+[2019-04-27 09:45:04] maishapay-api.INFO: Listing all clients [] {"uid":"26a04b2"}
+[2019-04-27 09:45:04] maishapay-api.INFO: Listing a single client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5"} {"uid":"ab9ee4c"}
+[2019-04-27 09:45:05] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":{"call_limit":80}} {"uid":"3309058"}

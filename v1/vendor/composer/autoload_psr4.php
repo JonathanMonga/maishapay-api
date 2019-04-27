@@ -30,6 +30,7 @@ return array(
     'Negotiation\\' => array($vendorDir . '/willdurand/negotiation/src/Negotiation'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Maishapay\\Util\\' => array($baseDir . '/src/Util'),
+    'Maishapay\\Users\\' => array($baseDir . '/src/Users'),
     'Maishapay\\Error\\' => array($baseDir . '/src/Error'),
     'Maishapay\\ErrorTest\\' => array($baseDir . '/test/unit/ErrorTest'),
     'Maishapay\\Customers\\' => array($baseDir . '/src/Customers'),
