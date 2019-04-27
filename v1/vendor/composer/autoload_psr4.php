@@ -39,6 +39,7 @@ return array(
     'Maishapay\\Auth\\' => array($baseDir . '/src/Auth'),
     'Maishapay\\App\\' => array($baseDir . '/src/App'),
     'Maishapay\\AppTest\\' => array($baseDir . '/test/unit/AppTest'),
+    'Maishapay\\Accounts\\' => array($baseDir . '/src/Accounts'),
     'Maishapay\\' => array($baseDir . '/test/unit'),
     'Interop\\Container\\' => array($vendorDir . '/container-interop/container-interop/src/Interop/Container'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),

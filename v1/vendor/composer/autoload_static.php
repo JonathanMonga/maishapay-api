@@ -70,6 +70,7 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
             'Maishapay\\Auth\\' => 15,
             'Maishapay\\App\\' => 14,
             'Maishapay\\AppTest\\' => 18,
+            'Maishapay\\Accounts\\' => 19,
             'Maishapay\\' => 10,
         ),
         'I' => 
@@ -230,6 +231,10 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Maishapay\\AppTest\\' => 
         array (
             0 => __DIR__ . '/../..' . '/test/unit/AppTest',
+        ),
+        'Maishapay\\Accounts\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Accounts',
         ),
         'Maishapay\\' => 
         array (
@@ -762,6 +767,7 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Interop\\Container\\ContainerInterface' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
         'Interop\\Container\\Exception\\ContainerException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
         'Interop\\Container\\Exception\\NotFoundException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',
+        'Maishapay\\Accounts\\Customer' => __DIR__ . '/../..' . '/src/Accounts/Customer.php',
         'Maishapay\\App\\Action\\HomeAction' => __DIR__ . '/../..' . '/src/App/Action/HomeAction.php',
         'Maishapay\\App\\Action\\PingAction' => __DIR__ . '/../..' . '/src/App/Action/PingAction.php',
         'Maishapay\\Auth\\Action\\AuthoriseAction' => __DIR__ . '/../..' . '/src/Auth/Action/AuthoriseAction.php',
@@ -790,7 +796,8 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Maishapay\\Error\\Handler\\Error' => __DIR__ . '/../..' . '/src/Error/Handler/Error.php',
         'Maishapay\\Error\\Handler\\NotAllowed' => __DIR__ . '/../..' . '/src/Error/Handler/NotAllowed.php',
         'Maishapay\\Error\\Handler\\NotFound' => __DIR__ . '/../..' . '/src/Error/Handler/NotFound.php',
-        'Maishapay\\Users\\UsersMapper' => __DIR__ . '/../..' . '/src/Users/UsersMapper.php',
+        'Maishapay\\Users\\User' => __DIR__ . '/../..' . '/src/Users/Users.php',
+        'Maishapay\\Users\\UserMapper' => __DIR__ . '/../..' . '/src/Users/UsersMapper.php',
         'Maishapay\\Util\\Utils' => __DIR__ . '/../..' . '/src/Util/Utils.php',
         'Monolog\\ErrorHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ErrorHandler.php',
         'Monolog\\Formatter\\ChromePHPFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',

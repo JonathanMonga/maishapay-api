@@ -2,18 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f356ab19-9931-4ea1-b163-8f739f8c12b6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Users/Users.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Users/UsersMapper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Accounts/Account.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Accounts/AccountMapper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Accounts/AccountTransformer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Accounts/Action/CreateAccountAction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Accounts/Action/DeleteAccountAction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Accounts/Action/EditAccountAction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Accounts/Action/GetAccountByUUIDAction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Accounts/Action/GetAllAccountsAction.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php" afterPath="$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Clients/Action/CreateClientAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/CreateClientAction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Clients/Action/DeleteClientAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/DeleteClientAction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Clients/Action/EditClientAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/EditClientAction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Clients/ClientMapper.php" afterPath="$PROJECT_DIR$/src/Clients/ClientMapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dependencies.php" afterPath="$PROJECT_DIR$/src/dependencies.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.php" afterPath="$PROJECT_DIR$/src/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/app.log" afterPath="$PROJECT_DIR$/var/app.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php" afterPath="$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/Action/DeleteCustomerAction.php" afterPath="$PROJECT_DIR$/src/Customers/Action/DeleteCustomerAction.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php" afterPath="$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
@@ -57,8 +58,8 @@
       <file leaf-file-name="dependencies.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dependencies.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="101" column="6" lean-forward="true" selection-start-line="101" selection-start-column="6" selection-end-line="101" selection-end-column="6" />
+            <state relative-caret-position="286">
+              <caret line="91" column="2" lean-forward="true" selection-start-line="91" selection-start-column="2" selection-end-line="91" selection-end-column="2" />
               <folding>
                 <element signature="e#60#96#0#PHP" expanded="true" />
               </folding>
@@ -66,55 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OAuth2ServerProvider.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="74" column="10" lean-forward="false" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateClientAction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Clients/Action/CreateClientAction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-              <folding>
-                <element signature="e#43#113#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetAllClientsAction.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GetAllClientsAction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Clients/Action/GetAllClientsAction.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="442">
               <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding>
-                <element signature="e#43#78#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeleteClientAction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Clients/Action/DeleteClientAction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="30" column="5" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="30" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditClientAction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Clients/Action/EditClientAction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="68" column="41" lean-forward="true" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
               <folding>
                 <element signature="e#43#78#0#PHP" expanded="true" />
               </folding>
@@ -144,29 +101,67 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Clients/Client.php">
+      <file leaf-file-name="CreateCustomerAction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="85" column="37" lean-forward="false" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="37" />
+            <state relative-caret-position="371">
+              <caret line="28" column="5" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="28" selection-end-column="5" />
               <folding>
-                <element signature="e#36#67#0#PHP" expanded="true" />
+                <element signature="e#45#123#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerMapper.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Customers/CustomerMapper.php">
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1091">
-              <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+            <state relative-caret-position="242">
+              <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeleteCustomerAction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Customers/Action/DeleteCustomerAction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="26" column="5" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="26" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditCustomerAction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="609">
+              <caret line="51" column="41" lean-forward="true" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditAccountAction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Accounts/Action/EditAccountAction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
               <folding>
-                <marker date="1556188614627" expanded="true" signature="384:432" ph="SELECT * FRO... customers" />
-                <marker date="1556188614627" expanded="true" signature="807:867" ph="SELECT * FRO... customers" />
-                <marker date="1556188614627" expanded="true" signature="1434:2589" ph="INSERT INTO customers... " />
-                <marker date="1556188614627" expanded="true" signature="2979:3591" ph="UPDATE custo... " />
-                <marker date="1556188614627" expanded="true" signature="4025:4083" ph="DELETE FROM " />
+                <element signature="e#45#84#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Account.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Accounts/Account.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+              <folding>
+                <element signature="e#37#68#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -209,7 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test/CustomerTest/Action/DeleteAuthorActionTest.php" />
         <option value="$PROJECT_DIR$/test/CustomerTest/Action/EditAuthorActionTest.php" />
         <option value="$PROJECT_DIR$/src/.env" />
         <option value="$PROJECT_DIR$/test/CustomerTest/Action/ListAuthorsActionTest.php" />
@@ -218,8 +212,6 @@
         <option value="$PROJECT_DIR$/exchange/sample.php" />
         <option value="$PROJECT_DIR$/src/Clients/Action/DeleteCustomerAction.php" />
         <option value="$PROJECT_DIR$/src/Clients/Action/CreateCustomerAction.php" />
-        <option value="$PROJECT_DIR$/src/Customers/Action/DeleteCustomerAction.php" />
-        <option value="$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php" />
         <option value="$PROJECT_DIR$/src/Customers/Action/GetCustomerByUUIDAction.php" />
         <option value="$PROJECT_DIR$/src/Customers/CustomerMapper.php" />
         <option value="$PROJECT_DIR$/src/Customers/CustomerTransformer.php" />
@@ -239,7 +231,6 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/src/Clients/Action/GetAllClientsAction.php" />
         <option value="$PROJECT_DIR$/src/Auth/Action/AuthoriseAction.php" />
-        <option value="$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php" />
         <option value="$PROJECT_DIR$/src/settings.php" />
         <option value="$PROJECT_DIR$/src/Auth/GuardMiddleware.php" />
         <option value="$PROJECT_DIR$/src/Clients/ClientTransformer.php" />
@@ -253,13 +244,17 @@
         <option value="$PROJECT_DIR$/src/Auth/OAuth2ServerProvider.php" />
         <option value="$PROJECT_DIR$/src/routes.php" />
         <option value="$PROJECT_DIR$/src/Clients/UsersMapper.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/Users/Users.php" />
         <option value="$PROJECT_DIR$/src/Users/UsersMapper.php" />
         <option value="$PROJECT_DIR$/src/Clients/Action/CreateClientAction.php" />
         <option value="$PROJECT_DIR$/src/dependencies.php" />
         <option value="$PROJECT_DIR$/src/Clients/Action/DeleteClientAction.php" />
         <option value="$PROJECT_DIR$/src/Clients/Action/EditClientAction.php" />
+        <option value="$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php" />
+        <option value="$PROJECT_DIR$/src/Customers/Action/DeleteCustomerAction.php" />
+        <option value="$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php" />
+        <option value="$PROJECT_DIR$/src/Accounts/Customer.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
   </component>
@@ -419,82 +414,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Users" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Customers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Clients" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Clients" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Action" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Auth" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -513,11 +432,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Auth" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Action" />
+              <option name="myItemId" value="Accounts" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -535,7 +450,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
+              <option name="myItemId" value="Accounts" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -558,11 +473,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\maishapay-api\v1\src" />
       <recent name="C:\xampp\htdocs\maishapay-api\v1\src\Clients\Action" />
       <recent name="C:\xampp\htdocs\maishapay-api\v1\src\Users" />
       <recent name="C:\xampp\htdocs\maishapay-api\v1\src\Clients" />
       <recent name="C:\xampp\htdocs\maishapay-api\v1\src\Auth\Action" />
-      <recent name="C:\xampp\htdocs\maishapay-api\v1\src\Auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\maishapay-api\v1\src\Users" />
@@ -687,7 +602,7 @@
       <workItem from="1556059730486" duration="998000" />
       <workItem from="1556320364715" duration="921000" />
       <workItem from="1556329026199" duration="23128000" />
-      <workItem from="1556355770328" duration="4928000" />
+      <workItem from="1556355770328" duration="5739000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1554726036091</created>
@@ -864,7 +779,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556349929467</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="initial commit">
+      <created>1556360763749</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1556360763749</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -900,7 +822,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103709000" />
+    <option name="totallyTimeSpent" value="104520000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -977,34 +899,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/CustomersTest/Action/EditCustomerActionTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="31" lean-forward="false" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/CustomersTest/CustomerTransformerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/CustomersTest/Action/CreateCustomerActionTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="29" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/CustomersTest/Action/DeleteCustomerActionTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_3.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -1038,13 +932,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1132,6 +1019,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="34" column="35" lean-forward="true" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,6 +1034,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,6 +1057,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1190,6 +1080,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1012">
           <caret line="325" column="0" lean-forward="false" selection-start-line="325" selection-start-column="0" selection-end-line="325" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1245,14 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Users/UsersMapper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2003">
@@ -1280,16 +1163,6 @@
         <state relative-caret-position="269">
           <caret line="74" column="10" lean-forward="false" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dependencies.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="101" column="6" lean-forward="true" selection-start-line="101" selection-start-column="6" selection-end-line="101" selection-end-column="6" />
-          <folding>
-            <element signature="e#60#96#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1325,30 +1198,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customers/Customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="47" column="59" lean-forward="false" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Clients/Client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="509">
           <caret line="85" column="37" lean-forward="false" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="37" />
           <folding>
             <element signature="e#36#67#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Users/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="68" column="33" lean-forward="true" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
-          <folding>
-            <element signature="e#34#65#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1369,6 +1224,88 @@
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="e#43#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dependencies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="91" column="2" lean-forward="true" selection-start-line="91" selection-start-column="2" selection-end-line="91" selection-end-column="2" />
+          <folding>
+            <element signature="e#60#96#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Customers/Customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272">
+          <caret line="47" column="59" lean-forward="false" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Users/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="68" column="33" lean-forward="true" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
+          <folding>
+            <element signature="e#34#65#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Customers/Action/CreateCustomerAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="28" column="5" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="e#45#123#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Customers/Action/DeleteCustomerAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="26" column="5" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="26" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="51" column="41" lean-forward="true" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Accounts/Action/EditAccountAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding>
+            <element signature="e#45#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Accounts/Account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding>
+            <element signature="e#37#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

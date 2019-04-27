@@ -26,6 +26,7 @@
         "psr-4":{
             "Maishapay\\App\\": "src/App/",
             "Maishapay\\Auth\\": "src/Auth/",
+            "Maishapay\\Accounts\\": "src/Accounts/",
             "Maishapay\\Customers\\": "src/Customers/",
             "Maishapay\\Clients\\": "src/Clients/",
             "Maishapay\\Users\\": "src/Users/",
