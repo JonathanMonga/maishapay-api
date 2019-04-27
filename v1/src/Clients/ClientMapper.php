@@ -61,7 +61,9 @@ class ClientMapper
     public function insert(Client $client)
     {
         $data = $client->getArrayCopy();
-        $data['client_secret'] = password_hash("client-secret-".sha1($data['client_uuid']), PASSWORD_DEFAULT);
+        $raw_client_secret = "client-secret-".sha1($data['client_uuid']);
+        $data['client_secret'] = password_hash($raw_client_secret, PASSWORD_DEFAULT);
+        $data['client_token'] = base64_encode($data['client_uuid'].':'.$raw_client_secret);
         $data['created'] = date('Y-m-d H:i:s');
         $data['updated'] = $data['created'];
 
@@ -75,10 +77,12 @@ class ClientMapper
                                     user_id, 
                                     client_status, 
                                     call_limit, 
+                                    client_token,
                                     created, 
                                     updated)
                                          
-            VALUES (:client_uuid, 
+            VALUES (
+                    :client_uuid, 
                     :client_secret, 
                     :redirect_uri, 
                     :grant_types, 
@@ -86,11 +90,15 @@ class ClientMapper
                     :customer_uuid, 
                     :client_status, 
                     :call_limit, 
+                    :client_token,
                     :created, 
                     :updated)";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute($data);
+
+        $data['client_secret'] = $raw_client_secret;
+        $data['client_token'] = base64_decode($data['client_token']);
 
         return new Client($data);
     }

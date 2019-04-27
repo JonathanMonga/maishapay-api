@@ -11,6 +11,7 @@ class Client
     protected $client_uuid; //Client id
     protected $client_secret; //Client secret
     protected $client_status; //active_status or blocked_status
+    protected $client_token; //
     protected $call_limit; //Call limit
     protected $redirect_uri; //Redirect uri
     protected $grant_types; //Grant type
@@ -26,6 +27,7 @@ class Client
         $this->client_uuid = $data['client_uuid'] ?? null;
         $this->client_secret = $data['client_secret'] ?? null;
         $this->client_status = $data['client_status'] ?? null;
+        $this->client_token = $data['client_token'] ?? null;
         $this->call_limit = $data['call_limit'] ?? null;
         $this->redirect_uri = $data['redirect_uri'] ?? null;
         $this->grant_types = $data['grant_types'] ?? null;
@@ -68,6 +70,7 @@ class Client
             'client_uuid' => $this->client_uuid,
             'client_secret' => $this->client_secret,
             'client_status' => $this->client_status,
+            'client_token' => $this->client_token,
             'call_limit' => $this->call_limit,
             'redirect_uri' => $this->redirect_uri,
             'grant_types' => $this->grant_types,
@@ -138,6 +141,14 @@ class Client
                 ],
             ],
             'client_secret' => [
+                'required' => false,
+                'allowEmpty' => false,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'client_token' => [
                 'required' => false,
                 'allowEmpty' => false,
                 'filters' => [

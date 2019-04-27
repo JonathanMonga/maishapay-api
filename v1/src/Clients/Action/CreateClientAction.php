@@ -20,23 +20,23 @@ class CreateClientAction
         $this->clientMapper = $clientMapper;
     }
 
-    public function __invoke($request, $response)
+    public function __invoke($request, $response, $insertClient)
     {
         $data = $request->getParsedBody();
         $this->logger->info("Creating a new client", ['data' => $data]);
 
         if($data){
             $client = new Client($data);
-            $this->clientMapper->insert($client);
+
+            $transformer = new ClientTransformer();
+            $hal = $transformer->transform($this->clientMapper->insert($client));
+
+            $response = $this->renderer->render($request, $response, $hal);
+            return $response->withStatus(201);
         } else {
-            $client = new Client([]);
-            $this->clientMapper->insert($client);
+            new Client([]);
         }
 
-        $transformer = new ClientTransformer();
-        $hal = $transformer->transform($client);
 
-        $response = $this->renderer->render($request, $response, $hal);
-        return $response->withStatus(201);
     }
 }
