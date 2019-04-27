@@ -26,6 +26,8 @@ class ClientMapper
 
         $results = [];
         while ($row = $stmt->fetch()) {
+            $row['client_uuid'] = $row['client_id'];
+            $row['customer_uuid'] = $row['user_id'];
             $row['client_secret'] = explode(':', base64_decode($row['client_token']))[1];
             $row['client_token'] = base64_decode($row['client_token']);
 
@@ -49,6 +51,8 @@ class ClientMapper
         $data = $stmt->fetch();
 
         if ($data) {
+            $data['client_uuid'] = $data['client_id'];
+            $data['customer_uuid'] = $data['user_id'];
             $data['client_secret'] = explode(':', base64_decode($data['client_token']))[1];
             $data['client_token'] = base64_decode($data['client_token']);
 
