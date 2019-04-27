@@ -37,7 +37,7 @@ class Client
         $now = (new \DateTime())->format('Y-m-d H:i:s');
 
         if (!$this->client_uuid) {
-            $this->client_uuid = Utils::uuid("client");
+            $this->client_uuid = Utils::uuid("client-id");
         }
 
         if (!$this->call_limit) {
@@ -45,7 +45,7 @@ class Client
         }
 
         if (!$this->scope) {
-            $this->scope = 'read_profil read_phone_number read_email';
+            $this->scope = 'read_account transfer_money';
 
         }
 
@@ -81,15 +81,11 @@ class Client
     public function update($data)
     {
         $data = $this->validate($data, [
-            'client_uuid',
-            'client_secret',
             'client_status',
             'call_limit',
-            'redirect_uri',
+            'redirect_uri'
             ]);
 
-        $this->client_uuid = $data['client_uuid'] ?? $this->client_uuid;
-        $this->client_secret = $data['client_secret'] ?? $this->client_secret;
         $this->client_status = $data['client_status'] ?? $this->client_status;
         $this->call_limit = $data['call_limit'] ?? $this->call_limit;
         $this->redirect_uri = $data['redirect_uri'] ?? $this->redirect_uri;
@@ -126,7 +122,7 @@ class Client
     {
         $specification = [
             'client_uuid' => [
-                'required' => true,
+                'required' => false,
                 'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
@@ -142,7 +138,7 @@ class Client
                 ],
             ],
             'client_secret' => [
-                'required' => true,
+                'required' => false,
                 'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
@@ -150,16 +146,16 @@ class Client
                 ],
             ],
             'client_status' => [
-                'required' => true,
-                'allowEmpty' => true,
+                'required' => false,
+                'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
                 ],
             ],
             'call_limit' => [
-                'required' => true,
-                'allowEmpty' => true,
+                'required' => false,
+                'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
@@ -191,7 +187,7 @@ class Client
                 ]
             ],
             'scope' => [
-                'required' => true,
+                'required' => false,
                 'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
@@ -199,7 +195,7 @@ class Client
                 ]
             ],
             'customer_uuid' => [
-                'required' => true,
+                'required' => false,
                 'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],

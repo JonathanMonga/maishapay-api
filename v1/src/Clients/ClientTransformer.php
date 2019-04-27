@@ -26,8 +26,8 @@ class ClientTransformer
     public function transform(Client $client) {
         $data = $client->getArrayCopy();
 
-        $resource = new Hal('/clients/' . $data['client_id'], $data);
-        $resource->addLink('client', '/client/' . $data['client_id'] . '/client');
+        $resource = new Hal('/clients/' . $data['client_uuid'], $data);
+        $resource->addLink('projects', '/client/' . $data['client_uuid'] . '/projects');
 
         return $resource;
     }

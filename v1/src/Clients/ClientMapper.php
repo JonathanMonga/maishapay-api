@@ -61,11 +61,13 @@ class ClientMapper
     public function insert(Client $client)
     {
         $data = $client->getArrayCopy();
+        $data['client_secret'] = password_hash("client-secret-".sha1($data['client_uuid']), PASSWORD_DEFAULT);
         $data['created'] = date('Y-m-d H:i:s');
         $data['updated'] = $data['created'];
 
         $query =
-            "INSERT INTO oauth_clients (client_id, 
+            "INSERT INTO oauth_clients (
+                                    client_id, 
                                     client_secret, 
                                     redirect_uri, 
                                     grant_types, 
@@ -81,7 +83,7 @@ class ClientMapper
                     :redirect_uri, 
                     :grant_types, 
                     :scope, 
-                    :client_uuid, 
+                    :customer_uuid, 
                     :client_status, 
                     :call_limit, 
                     :created, 
