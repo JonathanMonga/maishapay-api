@@ -4,6 +4,8 @@ namespace Maishapay\Clients\Action;
 use Maishapay\Clients\Client;
 use Maishapay\Clients\ClientMapper;
 use Maishapay\Clients\ClientTransformer;
+use Maishapay\Error\ApiProblem;
+use Maishapay\Error\Exception\ProblemException;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 
@@ -34,9 +36,12 @@ class CreateClientAction
             $response = $this->renderer->render($request, $response, $hal);
             return $response->withStatus(201);
         } else {
-            new Client([]);
+            $problem = new ApiProblem(
+                'Body is empty',
+                'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html',
+                404
+            );
+            throw new ProblemException($problem);
         }
-
-
     }
 }

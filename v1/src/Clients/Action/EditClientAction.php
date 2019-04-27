@@ -23,7 +23,7 @@ class EditClientAction
 
     public function __invoke($request, $response)
     {
-        $client_uuid = $request->getAttribute('client_uuid');
+        $client_uuid = $request->getAttribute('id');
         $data = $request->getParsedBody();
         $this->logger->info("Updating an client", ['client_uuid' => $client_uuid, 'data' => $data]);
 
@@ -32,6 +32,13 @@ class EditClientAction
         if (!$client) {
             $problem = new ApiProblem(
                 'Could not find client',
+                'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html',
+                404
+            );
+            throw new ProblemException($problem);
+        } else if (!$data) {
+            $problem = new ApiProblem(
+                'Body is empty',
                 'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html',
                 404
             );

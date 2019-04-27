@@ -56,7 +56,7 @@ $app->group('', function () use ($app) {
     // Basic developpers methods
     $app->post('/developper/clients/create', CreateClientAction::class); //Create new client
     $app->delete('/developper/clients/delete', DeleteClientAction::class); //Delete a client
-    $app->get('/developper/clients', GetAllClientsAction::class); //Get all clients
+    $app->get('/developper/clients/all', GetAllClientsAction::class); //Get all clients
     $app->get('/developper/clients/{id}', GetClientByUUIDAction::class); //Get a client by uuid
     $app->put('/developper/clients/{id}', EditClientAction::class); //Update a client by uuid
 

@@ -8,6 +8,8 @@ IndexIgnore *
 
 <IfModule mod_headers.c>
     Header set X-Robots-Tag "noindex,nofollow,noarchive,nosnippet"
+    Header set X-Powered-By "maishapay"
+    Header set Server "maishapay"
 </ifModule>
 
 <ifModule mod_rewrite.c>
