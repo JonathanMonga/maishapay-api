@@ -1,31 +1,31 @@
 <?php
-namespace Maishapay\Customers\Action;
+namespace Maishapay\Accounts\Action;
 
-use Maishapay\Customers\CustomerMapper;
-use Maishapay\Customers\CustomerTransformer;
+use Maishapay\Accounts\AccountMapper;
+use Maishapay\Accounts\AccountTransformer;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 
-class GetAllCustomersAction
+class GetAllAccountsAction
 {
     protected $logger;
     protected $renderer;
-    protected $customerMapper;
+    protected $accountMapper;
 
-    public function __construct(Logger $logger, HalRenderer $renderer, CustomerMapper $customerMapper)
+    public function __construct(Logger $logger, HalRenderer $renderer, AccountMapper $accountMapper)
     {
         $this->logger = $logger;
         $this->renderer = $renderer;
-        $this->customerMapper = $customerMapper;
+        $this->accountMapper = $accountMapper;
     }
 
     public function __invoke($request, $response)
     {
-        $this->logger->info("Listing all customers");
+        $this->logger->info("Listing all accounts");
 
-        $checklists = $this->customerMapper->fetchAll();
+        $checklists = $this->accountMapper->fetchAll();
 
-        $transformer = new CustomerTransformer();
+        $transformer = new AccountTransformer();
         $hal = $transformer->transformCollection($checklists);
 
         return $this->renderer->render($request, $response, $hal);

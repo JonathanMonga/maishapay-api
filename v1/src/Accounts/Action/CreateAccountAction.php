@@ -1,46 +1,38 @@
 <?php
-namespace Maishapay\Customers\Action;
+namespace Maishapay\Accounts\Action;
 
-use Maishapay\Customers\{
-    Customer, CustomerMapper, CustomerTransformer
+use Maishapay\Accounts\{
+    Account, AccountMapper, AccountTransformer
 };
-use Maishapay\Users\{
-    User, UserMapper
-};
+
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 
-class CreateCustomerAction
+class CreateAccountAction
 {
     protected $logger;
     protected $renderer;
-    protected $customerMapper;
-    protected $userMapper;
+    protected $accountMapper;
 
     public function __construct(Logger $logger,
                                 HalRenderer $renderer,
-                                CustomerMapper $customerMapper,
-                                UserMapper $userMapper)
+                                AccountMapper $accountMapper)
     {
         $this->logger = $logger;
         $this->renderer = $renderer;
-        $this->customerMapper = $customerMapper;
-        $this->userMapper = $userMapper;
+        $this->accountMapper = $accountMapper;
     }
 
     public function __invoke($request, $response)
     {
         $data = $request->getParsedBody();
-        $this->logger->info("Creating a new customer", ['data' => $data]);
+        $this->logger->info("Creating a new account", ['data' => $data]);
 
-        $customer = new Customer($data);
-        $this->customerMapper->insert($customer);
+        $account = new Account($data);
+        $this->accountMapper->insert($account);
 
-        $user = new User($data);
-        $this->customerMapper->insert($user);
-
-        $transformer = new CustomerTransformer();
-        $hal = $transformer->transform($customer);
+        $transformer = new AccountTransformer();
+        $hal = $transformer->transform($account);
 
         $response = $this->renderer->render($request, $response, $hal);
         return $response->withStatus(201);

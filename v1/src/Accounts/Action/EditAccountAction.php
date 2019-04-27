@@ -1,58 +1,51 @@
 <?php
-namespace Maishapay\Customers\Action;
+namespace Maishapay\Accounts\Action;
 
-use Maishapay\Customers\CustomerMapper;
-use Maishapay\Customers\CustomerTransformer;
+use Maishapay\Accounts\AccountMapper;
+use Maishapay\Accounts\AccountTransformer;
 use Maishapay\Error\ApiProblem;
 use Maishapay\Error\Exception\ProblemException;
 use Maishapay\Users\UserMapper;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 
-class EditCustomerAction
+class EditAccountAction
 {
     protected $logger;
     protected $renderer;
-    protected $customerMapper;
-    protected $userMapper;
+    protected $accountMapper;
 
     public function __construct(Logger $logger,
                                 HalRenderer $renderer,
-                                CustomerMapper $customerMapper,
-                                UserMapper $userMapper)
+                                AccountMapper $accountMapper)
     {
         $this->logger = $logger;
         $this->renderer = $renderer;
-        $this->customerMapper = $customerMapper;
-        $this->userMapper = $userMapper;
+        $this->accountMapper = $accountMapper;
     }
 
     public function __invoke($request, $response)
     {
-        $customer_uuid = $request->getAttribute('customer_uuid');
+        $account_uuid = $request->getAttribute('account_uuid');
         $data = $request->getParsedBody();
-        $this->logger->info("Updating an customer", ['customer_uuid' => $customer_uuid, 'data' => $data]);
+        $this->logger->info("Updating an account", ['account_uuid' => $account_uuid, 'data' => $data]);
 
-        $customer = $this->customerMapper->loadById($customer_uuid);
-        $user = $this->userMapper->loadById($customer_uuid);
+        $account = $this->accountMapper->loadById($account_uuid);
 
-        if (!$customer) {
+        if (!$account) {
             $problem = new ApiProblem(
-                'Could not find customer',
+                'Could not find account',
                 'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html',
                 404
             );
             throw new ProblemException($problem);
         }
 
-        $customer->update($data);
-        $this->customerMapper->update($customer);
+        $account->update($data);
+        $this->accountMapper->update($account);
 
-        $user->update($data);
-        $this->userMapper->update($user);
-
-        $transformer = new CustomerTransformer();
-        $hal = $transformer->transform($customer);
+        $transformer = new AccountTransformer();
+        $hal = $transformer->transform($account);
 
         $response = $this->renderer->render($request, $response, $hal);
         return $response->withStatus(200);

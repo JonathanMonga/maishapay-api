@@ -1,44 +1,44 @@
 <?php
-namespace Maishapay\Customers\Action;
+namespace Maishapay\Accounts\Action;
 
-use Maishapay\Customers\CustomerMapper;
-use Maishapay\Customers\CustomerTransformer;
+use Maishapay\Accounts\AccountMapper;
+use Maishapay\Accounts\AccountTransformer;
 use Maishapay\Error\ApiProblem;
 use Maishapay\Error\Exception\ProblemException;
 use Monolog\Logger;
 use RKA\ContentTypeRenderer\HalRenderer;
 
-class GetCustomerByUUIDAction
+class GetAccountByUUIDAction
 {
     protected $logger;
     protected $renderer;
-    protected $customerMapper;
+    protected $accountMapper;
 
-    public function __construct(Logger $logger, HalRenderer $renderer, CustomerMapper $customerMapper)
+    public function __construct(Logger $logger, HalRenderer $renderer, AccountMapper $accountMapper)
     {
         $this->logger = $logger;
         $this->renderer = $renderer;
-        $this->customerMapper = $customerMapper;
+        $this->accountMapper = $accountMapper;
     }
 
     public function __invoke($request, $response)
     {
-        $customer_uuid = $request->getAttribute('customer_uuid');
-        $this->logger->info("Listing a single customer", ['customer_uuid' => $customer_uuid]);
+        $account_uuid = $request->getAttribute('account_uuid');
+        $this->logger->info("Listing a single account", ['account_uuid' => $account_uuid]);
 
-        $customer = $this->customerMapper->loadById($customer_uuid);
+        $account = $this->accountMapper->loadById($account_uuid);
 
-        if (!$customer) {
+        if (!$account) {
             $problem = new ApiProblem(
-                'Could not find customer',
+                'Could not find account',
                 'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html',
                 404
             );
             throw new ProblemException($problem);
         }
 
-        $transformer = new CustomerTransformer();
-        $hal = $transformer->transform($customer);
+        $transformer = new AccountTransformer();
+        $hal = $transformer->transform($account);
 
         return $this->renderer->render($request, $response, $hal);
     }

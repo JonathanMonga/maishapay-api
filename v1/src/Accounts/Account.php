@@ -96,22 +96,36 @@ class Account
     public function update($data)
     {
         $data = $this->validate($data, [
-            'customer_uuid',
-            'country_iso_code',
-            'phone_area_code',
-            'number_phone',
-            'names',
-            'email',
-            'password'
+            'account_uuid',
+            'account_type',
+            'default_balance',
+            'default_currency',
+            'local_balance',
+            'local_currency',
+            'default_balance_sent',
+            'default_balance_receive',
+            'local_balance_sent',
+            'local_balance_receive',
+            'account_status',
+            'last_transfer',
+            'saving_start_day',
+            'saving_end_day'
             ]);
 
-        $this->customer_uuid = $data['customer_uuid'] ?? $this->customer_uuid;
-        $this->country_iso_code = $data['country_iso_code'] ?? $this->country_iso_code;
-        $this->phone_area_code = $data['phone_area_code'] ?? $this->phone_area_code;
-        $this->number_phone = $data['number_phone'] ?? $this->number_phone;
-        $this->names = $data['names'] ?? $this->names;
-        $this->email = $data['email'] ?? $this->email;
-        $this->password = $data['password'] ?? $this->password;
+        $this->account_uuid = $data['account_uuid'] ?? $this->account_uuid;
+        $this->account_type = $data['account_type'] ?? $this->account_type;
+        $this->default_balance = $data['default_balance'] ?? $this->default_balance;
+        $this->default_currency = $data['default_currency'] ?? $this->default_currency;
+        $this->local_balance = $data['local_balance'] ?? $this->local_balance;
+        $this->local_currency = $data['local_currency'] ?? $this->local_currency;
+        $this->default_balance_sent = $data['default_balance_sent'] ?? $this->default_balance_sent;
+        $this->default_balance_receive = $data['default_balance_receive'] ?? $this->default_balance_receive;
+        $this->local_balance_sent = $data['local_balance_sent'] ?? $this->local_balance_sent;
+        $this->local_balance_receive = $data['local_balance_receive'] ?? $this->local_balance_receive;
+        $this->account_status = $data['account_status'] ?? $this->account_status;
+        $this->last_transfer = $data['last_transfer'] ?? $this->last_transfer;
+        $this->saving_start_day = $data['saving_start_day'] ?? $this->saving_start_day;
+        $this->saving_end_day = $data['saving_end_day'] ?? $this->saving_end_day;
     }
 
     /**
@@ -144,7 +158,7 @@ class Account
     protected function createInputFilter($elements = [])
     {
         $specification = [
-            'customer_id' => [
+            'account_id' => [
                 'required' => false,
                 'allowEmpty' => true,
                 'filters' => [
@@ -152,7 +166,7 @@ class Account
                     ['name' => 'StripTags'],
                 ],
             ],
-            'location' => [
+            'default_balance_receive' => [
                 'required' => false,
                 'allowEmpty' => true,
                 'filters' => [
@@ -160,7 +174,7 @@ class Account
                     ['name' => 'StripTags'],
                 ],
             ],
-            'number_of_account' => [
+            'local_balance_sent' => [
                 'required' => false,
                 'allowEmpty' => true,
                 'filters' => [
@@ -168,7 +182,7 @@ class Account
                     ['name' => 'StripTags'],
                 ],
             ],
-            'customer_status' => [
+            'local_balance_receive' => [
                 'required' => false,
                 'allowEmpty' => true,
                 'filters' => [
@@ -176,9 +190,41 @@ class Account
                     ['name' => 'StripTags'],
                 ],
             ],
-            'customer_uuid' => [
+            'account_status' => [
                 'required' => false,
-                'allowEmpty' => false,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'last_transfer' => [
+                'required' => false,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'saving_start_day' => [
+                'required' => false,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'saving_end_day' => [
+                'required' => false,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'account_uuid' => [
+                'required' => false,
+                'allowEmpty' => true,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
@@ -192,56 +238,63 @@ class Account
                     ],
                 ],
             ],
-            'country_iso_code' => [
+            'customer_uuid' => [
+                'required' => false,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+                'validators' => [
+                    [
+                        'name' => 'StringLength',
+                        'options' => [
+                            'min' => 45,
+                        ],
+                    ],
+                ],
+            ],
+            'account_type' => [
+                'required' => false,
+                'allowEmpty' => true,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ],
+            ],
+            'default_balance' => [
                 'required' => false,
                 'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
-                    ['name' => 'StringToLower'],
                     ['name' => 'StripTags'],
                 ],
-                'validators' => [
-                    [
-                        'name' => 'StringLength',
-                        'options' => [
-                            'min' => 2,
-                        ],
-                    ],
-                ],
             ],
-            'phone_area_code' => [
+            'default_currency' => [
+                'required' => false,
+                'allowEmpty' => false,
+                'filters' => [
+                    ['name' => 'StringTrim'],
+                    ['name' => 'StripTags'],
+                ]
+            ],
+            'local_balance' => [
                 'required' => true,
                 'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
-                ],
-                'validators' => [
-                    [
-                        'name' => 'StringLength',
-                        'options' => [
-                            'min' => 3,
-                        ],
-                    ],
-                ],
+                ]
             ],
-            'number_phone' => [
+            'local_currency' => [
                 'required' => true,
                 'allowEmpty' => false,
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
-                ],
-                'validators' => [
-                    [
-                        'name' => 'StringLength',
-                        'options' => [
-                            'min' => 9,
-                        ],
-                    ],
-                ],
+                ]
             ],
-            'customer_type' => [
+            'default_balance_sent' => [
                 'required' => false,
                 'allowEmpty' => false,
                 'filters' => [
@@ -255,34 +308,6 @@ class Account
                 'filters' => [
                     ['name' => 'StringTrim'],
                     ['name' => 'StripTags'],
-                ],
-            ],
-            'email' => [
-                'required' => true,
-                'allowEmpty' => false,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StringToLower'],
-                    ['name' => 'StripTags'],
-                ],
-                'validators' => [
-                    ['name' => 'EmailAddress'],
-                ],
-            ],
-            'password' => [
-                'required' => true,
-                'allowEmpty' => false,
-                'filters' => [
-                    ['name' => 'StringTrim'],
-                    ['name' => 'StripTags'],
-                ],
-                'validators' => [
-                    [
-                        'name' => 'StringLength',
-                        'options' => [
-                            'min' => 4,
-                        ],
-                    ],
                 ],
             ],
             'created' => [

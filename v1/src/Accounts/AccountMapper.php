@@ -1,9 +1,9 @@
 <?php
-namespace Maishapay\Customers;
+namespace Maishapay\Accounts;
 
 use Monolog\Logger;
 
-class CustomerMapper
+class AccountMapper
 {
     protected $logger;
     protected $db;
@@ -15,131 +15,144 @@ class CustomerMapper
     }
 
     /**
-     * Fetch all customers
+     * Fetch all accounts
      *
-     * @return [customers]
+     * @return [accounts]
      */
     public function fetchAll()
     {
-        $sql = "SELECT * FROM customers ORDER BY customer_id ASC";
+        $sql = "SELECT * FROM accounts ORDER BY account_id ASC";
         $stmt = $this->db->query($sql);
 
         $results = [];
         while ($row = $stmt->fetch()) {
-            $results[] = new Customer($row);
+            $results[] = new Account($row);
         }
 
         return $results;
     }
 
     /**
-     * Load a single Customers
+     * Load a single Accounts
      *
-     * @param $customer_uuid
-     * @return false|Customer
+     * @param $account_uuid
+     * @return false|Account
      */
-    public function loadById($customer_uuid)
+    public function loadById($account_uuid)
     {
-        $sql = "SELECT * FROM customers WHERE customer_uuid = :customer_uuid";
+        $sql = "SELECT * FROM accounts WHERE account_uuid = :account_uuid";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['customer_uuid' => $customer_uuid]);
+        $stmt->execute(['account_uuid' => $account_uuid]);
         $data = $stmt->fetch();
 
         if ($data) {
-            return new Customer($data);
+            return new Account($data);
         }
 
         return false;
     }
 
     /**
-     * Create an Customers
+     * Create an Account
      *
-     * @param Customer $customer
-     * @return Customer
+     * @param Account $account
+     * @return Account
      */
-    public function insert(Customer $customer)
+    public function insert(Account $account)
     {
-        $data = $customer->getArrayCopy();
+        $data = $account->getArrayCopy();
         $data['created'] = date('Y-m-d H:i:s');
         $data['updated'] = $data['created'];
 
         $query =
-            "INSERT INTO customers (customer_uuid, 
-                                         country_iso_code, 
-                                         phone_area_code, 
-                                         number_phone, 
-                                         names, 
-                                         email, 
-                                         password, 
-                                         customer_type, 
-                                         number_of_account, 
-                                         customer_status, 
-                                         location, 
+            "INSERT INTO accounts (      account_uuid, 
+                                         customer_uuid, 
+                                         account_type, 
+                                         default_balance, 
+                                         default_currency, 
+                                         local_balance, 
+                                         local_currency, 
+                                         default_balance_sent, 
+                                         default_balance_receive, 
+                                         local_balance_sent, 
+                                         local_balance_receive, 
+                                         account_status, 
+                                         last_transfer, 
+                                         saving_start_day, 
+                                         saving_end_day, 
                                          created, 
                                          updated)
                                          
-            VALUES (:customer_uuid, 
-                    :country_iso_code, 
-                    :phone_area_code, 
-                    :number_phone, 
-                    :names, 
-                    :email, 
-                    :password, 
-                    :customer_type, 
-                    :number_of_account, 
-                    :customer_status, 
+            VALUES (:account_uuid, 
+                    :customer_uuid, 
+                    :account_type, 
+                    :default_balance, 
+                    :default_currency, 
+                    :local_balance, 
+                    :local_currency, 
+                    :default_balance_sent, 
+                    :default_balance_receive, 
+                    :local_balance_sent, 
+                    :local_balance_receive, 
+                    :account_status, 
+                    :last_transfer, 
+                    :saving_start_day, 
+                    :saving_end_day,
                     :created, 
                     :updated)";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute($data);
 
-        return new Customer($data);
+        return new Account($data);
     }
 
     /**
-     * Update an author
+     * Update an Account
      *
-     * @param Customer $customer
-     * @return Customer
+     * @param Account $account
+     * @return Account
      */
-    public function update(Customer $customer)
+    public function update(Account $account)
     {
-        $data = $customer->getArrayCopy();
+        $data = $account->getArrayCopy();
         $data['updated'] = date('Y-m-d H:i:s');
 
-        $query = "UPDATE customers
-            SET country_iso_code = :country_iso_code, 
-                phone_area_code =  :phone_area_code, 
-                number_phone =     :number_phone, 
-                names =            :names, 
-                email =            :email, 
-                password =         :password, 
-                customer_type =    :customer_type, 
-                number_of_account =:number_of_account, 
-                customer_status =  :customer_status, 
-                created =          :created, 
-                updated =          :updated
-            WHERE customer_uuid = :customer_uuid";
+        $query = "UPDATE accounts
+            SET  customer_uuid = :customer_uuid, 
+                 account_type =  :account_type, 
+                 default_balance =  :default_balance, 
+                 default_currency = :default_currency, 
+                 local_balance =  :local_balance, 
+                 local_currency =  :local_currency, 
+                 default_balance_sent = :default_balance_sent, 
+                 default_balance_receive = :default_balance_receive, 
+                 local_balance_sent = :local_balance_sent, 
+                 local_balance_receive = :local_balance_receive, 
+                 account_status = :account_status, 
+                 last_transfer = :last_transfer, 
+                 saving_start_day = :saving_start_day, 
+                 saving_end_day = :saving_end_day, 
+                 created =        :created, 
+                 updated =        :updated
+            WHERE account_uuid = :account_uuid";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute($data);
 
-        return new Customer($data);
+        return new Account($data);
     }
 
     /**
-     * Delete an Customers
+     * Delete an Account
      *
-     * @param $customer_uuid
-     * @return bool True if there was an Customers to delete
-     * @internal param Id $uuid of Customers to delete
+     * @param $account_uuid
+     * @return bool True if there was an Account to delete
      */
-    public function delete($customer_uuid)
+    public function delete($account_uuid)
     {
-        $data['customer_uuid'] = $customer_uuid;
-        $query = "DELETE FROM customers WHERE customer_uuid = :customer_uuid";
+        $data['account_uuid'] = $account_uuid;
+        $query = "DELETE FROM accounts WHERE account_uuid = :account_uuid";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute($data);

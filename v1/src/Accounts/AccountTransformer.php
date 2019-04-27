@@ -1,21 +1,21 @@
 <?php
-namespace Maishapay\Customers;
+namespace Maishapay\Accounts;
 
 use Nocarrier\Hal;
 
 /**
- * Transform an Author (or collection of Authors) into Hal resource
+ * Transform an Account (or collection of Accounts) into Hal resource
  */
-class CustomerTransformer
+class AccountTransformer
 {
-    public function transformCollection($customers)
+    public function transformCollection($accounts)
     {
-        $hal = new Hal('/customers');
+        $hal = new Hal('/accounts');
 
         $count = 0;
-        foreach ($customers as $customer) {
+        foreach ($accounts as $account) {
             $count++;
-            $hal->addResource('customer', $this->transform($customer));
+            $hal->addResource('account', $this->transform($account));
         }
 
         $hal->setData(['count' => $count]);
@@ -23,12 +23,13 @@ class CustomerTransformer
         return $hal;
     }
 
-    public function transform(Customer $customer)
-    {
-        $data = $customer->getArrayCopy();
+    public function transform(Account $account) {
+        $data = $account->getArrayCopy();
 
-        $resource = new Hal('/customers/' . $data['customer_uuid'], $data);
-        $resource->addLink('accounts', '/customers/' . $data['customer_uuid'] . '/accounts');
+        $resource = new Hal('/accounts/' . $data['accounts_uuid'], $data);
+
+        $resource->addLink('transactions', '/account/' . $data['account_uuid'] . '/transactions');
+        $resource->addLink('cards', '/account/' . $data['account_uuid'] . '/cards');
 
         return $resource;
     }
