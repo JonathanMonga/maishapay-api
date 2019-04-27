@@ -293,3 +293,4 @@
 [2019-04-27 09:18:11] maishapay-api.INFO: Listing a single client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5"} {"uid":"5b6c0c4"}
 [2019-04-27 09:19:53] maishapay-api.INFO: Listing a single client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5"} {"uid":"6f41fdd"}
 [2019-04-27 09:21:21] maishapay-api.INFO: Updating an client {"client_uuid":null,"data":null} {"uid":"77adfce"}
+[2019-04-27 09:24:39] maishapay-api.INFO: Updating an client {"client_uuid":"client-id-923761ce-4bc3-4570-9a2b-4f2d722d18c5","data":null} {"uid":"6c81064"}
