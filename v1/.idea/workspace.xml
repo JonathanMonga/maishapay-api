@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f356ab19-9931-4ea1-b163-8f739f8c12b6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Clients/Action/CreateClientAction.php" afterPath="$PROJECT_DIR$/src/Clients/Action/CreateClientAction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Clients/Client.php" afterPath="$PROJECT_DIR$/src/Clients/Client.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Clients/ClientMapper.php" afterPath="$PROJECT_DIR$/src/Clients/ClientMapper.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.php" afterPath="$PROJECT_DIR$/src/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/app.log" afterPath="$PROJECT_DIR$/var/app.log" />
@@ -57,6 +55,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ClientMapper.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Clients/ClientMapper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="601">
+              <caret line="49" column="73" lean-forward="true" selection-start-line="49" selection-start-column="73" selection-end-line="49" selection-end-column="73" />
+              <folding>
+                <marker date="1556346881384" expanded="true" signature="376:403" ph="SELECT * FRO... customers" />
+                <marker date="1556346881384" expanded="true" signature="763:819" ph="SELECT * FRO... customers" />
+                <marker date="1556346881384" expanded="true" signature="1780:2779" ph="INSERT INTO customers... " />
+                <marker date="1556346881384" expanded="true" signature="3279:3553" ph="UPDATE custo... " />
+                <marker date="1556346881384" expanded="true" signature="3909:3963" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="standard_1.php" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="414" column="3" lean-forward="true" selection-start-line="414" selection-start-column="3" selection-end-line="414" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DeleteClientAction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Clients/Action/DeleteClientAction.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -67,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="57" column="85" lean-forward="true" selection-start-line="57" selection-start-column="85" selection-end-line="57" selection-end-column="85" />
+            <state relative-caret-position="612">
+              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
                 <element signature="e#17#84#0#PHP" expanded="true" />
               </folding>
@@ -85,6 +109,22 @@
             <state relative-caret-position="374">
               <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerMapper.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Customers/CustomerMapper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+              <folding>
+                <marker date="1556188614627" expanded="true" signature="384:432" ph="SELECT * FRO... customers" />
+                <marker date="1556188614627" expanded="true" signature="807:867" ph="SELECT * FRO... customers" />
+                <marker date="1556188614627" expanded="true" signature="1434:2589" ph="INSERT INTO customers... " />
+                <marker date="1556188614627" expanded="true" signature="2979:3591" ph="UPDATE custo... " />
+                <marker date="1556188614627" expanded="true" signature="4025:4083" ph="DELETE FROM " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -175,8 +215,8 @@
         <option value="$PROJECT_DIR$/src/Clients/ClientTransformer.php" />
         <option value="$PROJECT_DIR$/src/Clients/Action/CreateClientAction.php" />
         <option value="$PROJECT_DIR$/src/Clients/Client.php" />
-        <option value="$PROJECT_DIR$/src/Clients/ClientMapper.php" />
         <option value="$PROJECT_DIR$/src/routes.php" />
+        <option value="$PROJECT_DIR$/src/Clients/ClientMapper.php" />
       </list>
     </option>
   </component>
@@ -562,7 +602,7 @@
       <workItem from="1556051466219" duration="20534000" />
       <workItem from="1556059730486" duration="998000" />
       <workItem from="1556320364715" duration="921000" />
-      <workItem from="1556329026199" duration="15722000" />
+      <workItem from="1556329026199" duration="16613000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1554726036091</created>
@@ -690,7 +730,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556341798515</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="initial commit">
+      <created>1556346034910</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1556346034910</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -726,7 +773,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91375000" />
+    <option name="totallyTimeSpent" value="92266000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -802,13 +849,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Customers/Action/EditCustomerAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Customers/Action/GetAllCustomersAction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1117,20 +1157,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customers/CustomerMapper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-          <folding>
-            <marker date="1556188614627" expanded="true" signature="384:432" ph="SELECT * FRO... customers" />
-            <marker date="1556188614627" expanded="true" signature="807:867" ph="SELECT * FRO... customers" />
-            <marker date="1556188614627" expanded="true" signature="1434:2589" ph="INSERT INTO customers... " />
-            <marker date="1556188614627" expanded="true" signature="2979:3591" ph="UPDATE custo... " />
-            <marker date="1556188614627" expanded="true" signature="4025:4083" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Customers/CustomerTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1149,32 +1175,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clients/ClientMapper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1493">
-          <caret line="97" column="30" lean-forward="true" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
-          <folding>
-            <marker date="1556345998341" expanded="true" signature="376:403" ph="SELECT * FRO... customers" />
-            <marker date="1556345998341" expanded="true" signature="763:819" ph="SELECT * FRO... customers" />
-            <marker date="1556345998341" expanded="true" signature="1613:2612" ph="INSERT INTO customers... " />
-            <marker date="1556345998341" expanded="true" signature="3112:3386" ph="UPDATE custo... " />
-            <marker date="1556345998341" expanded="true" signature="3742:3796" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Clients/ClientTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clients/Action/CreateClientAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1189,10 +1193,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="57" column="85" lean-forward="true" selection-start-line="57" selection-start-column="85" selection-end-line="57" selection-end-column="85" />
+        <state relative-caret-position="612">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
             <element signature="e#17#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clients/Action/CreateClientAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Customers/CustomerMapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+          <folding>
+            <marker date="1556188614627" expanded="true" signature="384:432" ph="SELECT * FRO... customers" />
+            <marker date="1556188614627" expanded="true" signature="807:867" ph="SELECT * FRO... customers" />
+            <marker date="1556188614627" expanded="true" signature="1434:2589" ph="INSERT INTO customers... " />
+            <marker date="1556188614627" expanded="true" signature="2979:3591" ph="UPDATE custo... " />
+            <marker date="1556188614627" expanded="true" signature="4025:4083" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="414" column="3" lean-forward="true" selection-start-line="414" selection-start-column="3" selection-end-line="414" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clients/ClientMapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="49" column="73" lean-forward="true" selection-start-line="49" selection-start-column="73" selection-end-line="49" selection-end-column="73" />
+          <folding>
+            <marker date="1556346881384" expanded="true" signature="376:403" ph="SELECT * FRO... customers" />
+            <marker date="1556346881384" expanded="true" signature="763:819" ph="SELECT * FRO... customers" />
+            <marker date="1556346881384" expanded="true" signature="1780:2779" ph="INSERT INTO customers... " />
+            <marker date="1556346881384" expanded="true" signature="3279:3553" ph="UPDATE custo... " />
+            <marker date="1556346881384" expanded="true" signature="3909:3963" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>

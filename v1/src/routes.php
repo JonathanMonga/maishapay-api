@@ -9,8 +9,7 @@ use Maishapay\Auth\Action\{
 use Maishapay\Auth\GuardMiddleware;
 
 use Maishapay\Clients\Action\{
-    CreateClientAction,
-    DeleteClientAction
+    CreateClientAction, DeleteClientAction, EditClientAction, GetAllClientsAction, GetClientByUUIDAction
 };
 use Maishapay\Customers\Action\{
     CreateCustomerAction,
@@ -55,8 +54,11 @@ $app->group('', function () use ($app) {
     */
 
     // Basic developpers methods
-    $app->post('/developper/clients', CreateClientAction::class); //Create new client
-    $app->delete('/developper/{client_uuid}', DeleteClientAction::class); //Delete a client
+    $app->post('/developper/clients/create', CreateClientAction::class); //Create new client
+    $app->delete('/developper/clients/delete', DeleteClientAction::class); //Delete a client
+    $app->put('/developper/clients/update', EditClientAction::class); //Update a client
+    $app->get('/developper/clients', GetAllClientsAction::class); //Get all clients
+    $app->get('/developper/clients/{id}', GetClientByUUIDAction::class); //Get a client by uuid
 
     $app->post('/authorise', AuthoriseAction::class); //Authorize all clients
 })->add(GuardMiddleware::class);

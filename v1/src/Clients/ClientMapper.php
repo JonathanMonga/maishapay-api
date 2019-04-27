@@ -46,6 +46,9 @@ class ClientMapper
         $data = $stmt->fetch();
 
         if ($data) {
+            $data['client_secret'] = explode(':', base64_decode($data['client_token']))[1];
+            $data['client_token'] = base64_decode($data['client_token']);
+
             return new Client($data);
         }
 

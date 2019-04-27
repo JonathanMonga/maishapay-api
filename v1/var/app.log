@@ -243,3 +243,7 @@
 [2019-04-27 07:38:41] maishapay-api.INFO: Creating a new client {"data":{"client_status":"active_status","call_limit":50,"redirect_uri":"http://maishapay.online/","grant_types":"client_credentials","scope":"read_account transfer_money","customer_uuid":"client-id-814469d5-919f-4b67-9360-5b777b040c00"}} {"uid":"f28dc74"}
 [2019-04-27 08:10:06] maishapay-api.INFO: Creating a new client {"data":{"client_status":"active_status","call_limit":50,"redirect_uri":"http://maishapay.online/","grant_types":"client_credentials","scope":"read_account transfer_money","customer_uuid":"client-id-814469d5-919f-4b67-9360-5b777b040c00"}} {"uid":"4019339"}
 [2019-04-27 08:12:06] maishapay-api.INFO: Creating a new client {"data":{"client_status":"active_status","call_limit":50,"redirect_uri":"http://maishapay.online/","grant_types":"client_credentials","scope":"read_account transfer_money","customer_uuid":"client-id-814469d5-919f-4b67-9360-5b777b040c00"}} {"uid":"6ad9e59"}
+[2019-04-27 08:26:44] maishapay-api.INFO: Listing all clients [] {"uid":"dc2a007"}
+[2019-04-27 08:34:42] maishapay-api.INFO: Listing all clients [] {"uid":"a163e0f"}
+[2019-04-27 08:34:46] maishapay-api.INFO: Listing all clients [] {"uid":"380fd5a"}
+[2019-04-27 08:35:16] maishapay-api.INFO: Listing all clients [] {"uid":"9541bca"}
