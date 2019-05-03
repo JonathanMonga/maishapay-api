@@ -53,6 +53,48 @@ class AccountMapper
     }
 
     /**
+     * Load accounts of a customer
+     *
+     * @param $customer_uuid
+     * @return [accounts]
+     */
+    public function findAccountsByCustomer($customer_uuid)
+    {
+        $sql = "SELECT * FROM accounts  WHERE customer_uuid = :customer_uuid ORDER BY account_id ASC";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['customer_uuid' => $customer_uuid]);
+
+        $results = [];
+        while ($row = $stmt->fetch()) {
+            $results[] = new Account($row);
+        }
+
+        return $results;
+    }
+
+    /**
+     * Load a single account by account type and account id
+     *
+     * @param $account_uuid
+     * @param $account_type
+     * @return false|Account
+     */
+    public function findAccountByAccountTypeAndId($account_uuid, $account_type)
+    {
+        $sql = "SELECT * FROM accounts WHERE account_uuid = :account_uuid AND account_type = :account_type";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['account_uuid' => $account_uuid]);
+        $stmt->execute(['account_type' => $account_type]);
+        $data = $stmt->fetch();
+
+        if ($data) {
+            return new Account($data);
+        }
+
+        return false;
+    }
+
+    /**
      * Create an Account
      *
      * @param Account $account

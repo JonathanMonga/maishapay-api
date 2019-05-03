@@ -31,6 +31,7 @@ return array(
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Maishapay\\Util\\' => array($baseDir . '/src/Util'),
     'Maishapay\\Users\\' => array($baseDir . '/src/Users'),
+    'Maishapay\\Transactions\\' => array($baseDir . '/src/Transactions'),
     'Maishapay\\Error\\' => array($baseDir . '/src/Error'),
     'Maishapay\\ErrorTest\\' => array($baseDir . '/test/unit/ErrorTest'),
     'Maishapay\\Customers\\' => array($baseDir . '/src/Customers'),

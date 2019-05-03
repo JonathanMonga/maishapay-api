@@ -62,6 +62,7 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
             'Monolog\\' => 8,
             'Maishapay\\Util\\' => 15,
             'Maishapay\\Users\\' => 16,
+            'Maishapay\\Transactions\\' => 23,
             'Maishapay\\Error\\' => 16,
             'Maishapay\\ErrorTest\\' => 20,
             'Maishapay\\Customers\\' => 20,
@@ -199,6 +200,10 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Maishapay\\Users\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Users',
+        ),
+        'Maishapay\\Transactions\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Transactions',
         ),
         'Maishapay\\Error\\' => 
         array (
@@ -767,7 +772,14 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Interop\\Container\\ContainerInterface' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
         'Interop\\Container\\Exception\\ContainerException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
         'Interop\\Container\\Exception\\NotFoundException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',
-        'Maishapay\\Accounts\\Customer' => __DIR__ . '/../..' . '/src/Accounts/Account.php',
+        'Maishapay\\Accounts\\Account' => __DIR__ . '/../..' . '/src/Accounts/Account.php',
+        'Maishapay\\Accounts\\AccountMapper' => __DIR__ . '/../..' . '/src/Accounts/AccountMapper.php',
+        'Maishapay\\Accounts\\AccountTransformer' => __DIR__ . '/../..' . '/src/Accounts/AccountTransformer.php',
+        'Maishapay\\Accounts\\Action\\CreateAccountAction' => __DIR__ . '/../..' . '/src/Accounts/Action/CreateAccountAction.php',
+        'Maishapay\\Accounts\\Action\\DeleteAccountAction' => __DIR__ . '/../..' . '/src/Accounts/Action/DeleteAccountAction.php',
+        'Maishapay\\Accounts\\Action\\EditAccountAction' => __DIR__ . '/../..' . '/src/Accounts/Action/CurrentAccountDepositAction.php',
+        'Maishapay\\Accounts\\Action\\GetAccountByUUIDAction' => __DIR__ . '/../..' . '/src/Accounts/Action/GetAccountByUUIDAction.php',
+        'Maishapay\\Accounts\\Action\\GetAllAccountsAction' => __DIR__ . '/../..' . '/src/Accounts/Action/GetAllAccountsAction.php',
         'Maishapay\\App\\Action\\HomeAction' => __DIR__ . '/../..' . '/src/App/Action/HomeAction.php',
         'Maishapay\\App\\Action\\PingAction' => __DIR__ . '/../..' . '/src/App/Action/PingAction.php',
         'Maishapay\\Auth\\Action\\AuthoriseAction' => __DIR__ . '/../..' . '/src/Auth/Action/AuthoriseAction.php',
@@ -796,6 +808,14 @@ class ComposerStaticInit2cf0ef35cd6b33c270b65da2d4775e8b
         'Maishapay\\Error\\Handler\\Error' => __DIR__ . '/../..' . '/src/Error/Handler/Error.php',
         'Maishapay\\Error\\Handler\\NotAllowed' => __DIR__ . '/../..' . '/src/Error/Handler/NotAllowed.php',
         'Maishapay\\Error\\Handler\\NotFound' => __DIR__ . '/../..' . '/src/Error/Handler/NotFound.php',
+        'Maishapay\\Transactions\\Action\\CreateClientAction' => __DIR__ . '/../..' . '/src/Transactions/Action/CreateTransactionAction.php',
+        'Maishapay\\Transactions\\Action\\DeleteClientAction' => __DIR__ . '/../..' . '/src/Transactions/Action/DeleteTransactionAction.php',
+        'Maishapay\\Transactions\\Action\\EditClientAction' => __DIR__ . '/../..' . '/src/Transactions/Action/EditTransactionAction.php',
+        'Maishapay\\Transactions\\Action\\GetAllClientsAction' => __DIR__ . '/../..' . '/src/Transactions/Action/GetAllTransactionsAction.php',
+        'Maishapay\\Transactions\\Action\\GetClientByUUIDAction' => __DIR__ . '/../..' . '/src/Transactions/Action/GetTransactionByUUIDAction.php',
+        'Maishapay\\Transactions\\Client' => __DIR__ . '/../..' . '/src/Transactions/Transaction.php',
+        'Maishapay\\Transactions\\ClientMapper' => __DIR__ . '/../..' . '/src/Transactions/TransactionMapper.php',
+        'Maishapay\\Transactions\\ClientTransformer' => __DIR__ . '/../..' . '/src/Transactions/TransactionTransformer.php',
         'Maishapay\\Users\\User' => __DIR__ . '/../..' . '/src/Users/Users.php',
         'Maishapay\\Users\\UserMapper' => __DIR__ . '/../..' . '/src/Users/UsersMapper.php',
         'Maishapay\\Util\\Utils' => __DIR__ . '/../..' . '/src/Util/Utils.php',
